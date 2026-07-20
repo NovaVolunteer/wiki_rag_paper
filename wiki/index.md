@@ -2,6 +2,8 @@
 
 The home page. Every page in this wiki should be reachable from here, directly or through a linked page — if it isn't, it's effectively lost.
 
+New here? Start with [[getting-started]].
+
 ## Current state
 
 [[status]] — what's true right now, at a glance.
@@ -10,6 +12,7 @@ The home page. Every page in this wiki should be reachable from here, directly o
 
 - [[decisions/2026-06-05-omop-concept-extraction-pivot]] — extract known OMOP medical concepts from zero-day forms instead of key-value pairs.
 - [[decisions/2026-06-26-knowledge-graph-over-pure-vector-search]] — structure the ATA knowledge assistant as a fact graph, not a flat vector store.
+- [[decisions/2026-07-20-ata-dslabs-darpa-falcon-sbir-partnership]] — ATA and DSLabs to partner on the DARPA FALCON SBIR (DP2, closes Aug 19 2026).
 
 ## Meetings
 

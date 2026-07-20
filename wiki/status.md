@@ -11,6 +11,8 @@ Wiki just initialized from ATA team's raw meeting notes (2026-06-05 and 2026-06-
 1. **Zero-day form extraction** — pivoted to OMOP-concept extraction for unknown documents ([[decisions/2026-06-05-omop-concept-extraction-pivot]]); [[people/van]] comparing this against a client's OpenAI/Palantir-based approach.
 2. **ATA knowledge assistant** — [[people/brian-wright]] building an Otter → Supabase → query-front-end prototype, now aimed at a knowledge-graph structure rather than flat vector search ([[decisions/2026-06-26-knowledge-graph-over-pure-vector-search]]).
 
+3. **SBIR Partnership** - currently working to determine best path forward to respond to the Darpa SBIR
+
 ## Open items and blockers
 
 - No query front end yet for the knowledge assistant ([[materials/plans/ata-knowledge-assistant]]).

@@ -1,6 +1,6 @@
 # Van
 
-ATA team member driving the medical document-extraction work: zero-day form extraction, OMOP concept mapping, and the JTS (Joint Trauma System) initiative.
+ATA team member driving the medical document-extraction work: zero-day form extraction, OMOP concept mapping, and the JTS (Joint Trauma System) initiative. Full name likely Van Duong (per vduong@ata-llc.com on the 2026-07-24 meeting invite — not otherwise confirmed).
 
 ## Owns
 
@@ -13,3 +13,4 @@ ATA team member driving the medical document-extraction work: zero-day form extr
 
 - [[../meetings/2026-06-05-zero-day-form-extraction]]
 - [[../meetings/2026-06-26-bi-weekly-ata]] (joined partway through)
+- [[../meetings/2026-07-24-document-image-classification]]

@@ -17,3 +17,4 @@ AI/ML-focused collaborator working with the ATA team (Van, Jonathan Seale) on me
 
 - [[../meetings/2026-06-05-zero-day-form-extraction]]
 - [[../meetings/2026-06-26-bi-weekly-ata]]
+- [[../meetings/2026-07-24-document-image-classification]]

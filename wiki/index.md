@@ -31,3 +31,11 @@ New here? Start with [[getting-started]].
 - Schemas: <!-- link pages in materials/schemas/ -->
 - Plans: [[materials/plans/ata-knowledge-assistant]], [[materials/plans/llm-quality-drift-tool]]
 - Notes: [[materials/notes/jts-dha-trauma-data]], [[materials/notes/swft-ai-security-risk-framework]], [[materials/notes/2025-2026-running-notes-backlog]] (ingest backlog flag)
+
+## Course pilot (DS-3021)
+
+Separate domain testing the wiki pattern as a course-delivery format — see [[course/README]] for scope and [[course/pilot-plan]] for the evaluation plan.
+
+- [[course/knn]]
+- [[course/decision-trees]]
+- [[course/ml-bias]]

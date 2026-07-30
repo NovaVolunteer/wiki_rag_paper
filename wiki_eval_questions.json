@@ -1,0 +1,872 @@
+[
+  {
+    "id": 0,
+    "question": "Which two impurity measures does the DS-3021 decision tree lecture list for choosing classification splits, and which one is described as most common in practice?",
+    "question_type": "factual",
+    "source_page": "course/decision-trees.md"
+  },
+  {
+    "id": 1,
+    "question": "What is the Python equivalent of R's `varImp(model)` for extracting variable importance from a fitted decision tree, and what extra care does the Python version require?",
+    "question_type": "factual",
+    "source_page": "course/decision-trees.md"
+  },
+  {
+    "id": 2,
+    "question": "Roughly how many terminal nodes does the lecture say a tree of 6 levels has, and which hyperparameters are recommended to control that growth?",
+    "question_type": "factual",
+    "source_page": "course/decision-trees.md"
+  },
+  {
+    "id": 3,
+    "question": "Why does recursive binary splitting lead to trees that are only locally optimal rather than globally optimal?",
+    "question_type": "conceptual",
+    "source_page": "course/decision-trees.md"
+  },
+  {
+    "id": 4,
+    "question": "How does the greedy nature of decision tree fitting explain why small perturbations in the training data can produce a completely different tree?",
+    "question_type": "conceptual",
+    "source_page": "course/decision-trees.md"
+  },
+  {
+    "id": 5,
+    "question": "How is information gain computed from entropy in the 'should you play outside?' example, and why are child entropies weighted?",
+    "question_type": "conceptual",
+    "source_page": "course/decision-trees.md"
+  },
+  {
+    "id": 6,
+    "question": "Why is scaling unnecessary for decision trees but essential in the KNN lab \u2014 what is the underlying difference between the two algorithms?",
+    "question_type": "synthesis",
+    "source_page": "course/decision-trees.md"
+  },
+  {
+    "id": 7,
+    "question": "The page says trees are biased toward dominant classes in imbalanced data. How does the ml-bias page's framing of class imbalance extend that concern beyond accuracy?",
+    "question_type": "synthesis",
+    "source_page": "course/decision-trees.md"
+  },
+  {
+    "id": 8,
+    "question": "Comparing the R\u2192Python conversion tables for decision trees and KNN, what recurring pattern shows up in how R's `train()` maps onto scikit-learn?",
+    "question_type": "synthesis",
+    "source_page": "course/decision-trees.md"
+  },
+  {
+    "id": 9,
+    "question": "What is the historical lineage from CART to C5.0, and which of those algorithms does sklearn's `DecisionTreeClassifier` implement?",
+    "question_type": "factual",
+    "source_page": "course/decision-trees.md"
+  },
+  {
+    "id": 10,
+    "question": "How does the dating-app analogy in the slides map onto the four steps of the tree-building algorithm?",
+    "question_type": "conceptual",
+    "source_page": "course/decision-trees.md"
+  },
+  {
+    "id": 11,
+    "question": "What does the DT_Class_Lab.ipynb ask students to predict, and what train/tune/test split does it use?",
+    "question_type": "factual",
+    "source_page": "course/decision-trees.md"
+  },
+  {
+    "id": 12,
+    "question": "Why does instability motivate ensemble methods like Random Forest, and where would that topic live relative to this page?",
+    "question_type": "synthesis",
+    "source_page": "course/decision-trees.md"
+  },
+  {
+    "id": 13,
+    "question": "This page was built from the 2022 slide deck even though 2021 and 2024-modified decks exist in the folder \u2014 how should I handle a discrepancy between this page and what was taught in a particular semester?",
+    "question_type": "currency",
+    "source_page": "course/decision-trees.md"
+  },
+  {
+    "id": 14,
+    "question": "Is the regression-tree variant of CART covered anywhere in this wiki yet, and when is it taught in DS-3021?",
+    "question_type": "currency",
+    "source_page": "course/decision-trees.md"
+  },
+  {
+    "id": 15,
+    "question": "Which scaling method does DS-3021 use for KNN preprocessing, and what sklearn class implements it?",
+    "question_type": "factual",
+    "source_page": "course/knn.md"
+  },
+  {
+    "id": 16,
+    "question": "What range of k values does the chooseK() function test, and why are only odd values used?",
+    "question_type": "factual",
+    "source_page": "course/knn.md"
+  },
+  {
+    "id": 17,
+    "question": "Why is feature scaling mandatory for KNN rather than just a nice-to-have?",
+    "question_type": "conceptual",
+    "source_page": "course/knn.md"
+  },
+  {
+    "id": 18,
+    "question": "In the bank marketing example, what percentage of cases are positive, and why does that make raw accuracy a misleading metric?",
+    "question_type": "factual",
+    "source_page": "course/knn.md"
+  },
+  {
+    "id": 19,
+    "question": "Why does the notebook flag k=1 as a teaching moment rather than just accepting it as the best model?",
+    "question_type": "conceptual",
+    "source_page": "course/knn.md"
+  },
+  {
+    "id": 20,
+    "question": "How are the outer and inner loops of the nested cross-validation set up in the rewritten KNN code, and what does each one accomplish?",
+    "question_type": "factual",
+    "source_page": "course/knn.md"
+  },
+  {
+    "id": 21,
+    "question": "How does nested cross-validation address the overfitting problem that the k=1 result hints at?",
+    "question_type": "conceptual",
+    "source_page": "course/knn.md"
+  },
+  {
+    "id": 22,
+    "question": "Why does the R-to-Python conversion need two function calls (plot_confusion_matrix and classification_report) where R produced a single model print-out?",
+    "question_type": "conceptual",
+    "source_page": "course/knn.md"
+  },
+  {
+    "id": 23,
+    "question": "How would you compute sensitivity and specificity manually in Python, and why aren't they built in?",
+    "question_type": "factual",
+    "source_page": "course/knn.md"
+  },
+  {
+    "id": 24,
+    "question": "Since sklearn has no built-in variable importance for KNN, how does the course compute it instead?",
+    "question_type": "conceptual",
+    "source_page": "course/knn.md"
+  },
+  {
+    "id": 25,
+    "question": "How do decision trees differ from KNN in terms of preprocessing requirements, and why does that difference exist?",
+    "question_type": "synthesis",
+    "source_page": "course/knn.md"
+  },
+  {
+    "id": 26,
+    "question": "How do the confusion matrix concepts introduced in the KNN lecture feed into the fairness metrics discussed on the ML bias page?",
+    "question_type": "synthesis",
+    "source_page": "course/knn.md"
+  },
+  {
+    "id": 27,
+    "question": "Nested CV appears in both KNN and decision tree hyperparameter tuning \u2014 what would a shared cross-validation concept page need to cover for both?",
+    "question_type": "synthesis",
+    "source_page": "course/knn.md"
+  },
+  {
+    "id": 28,
+    "question": "What dataset does the Graduation Lab use, and what are students asked to do with it beyond fitting a basic KNN model?",
+    "question_type": "factual",
+    "source_page": "course/knn.md"
+  },
+  {
+    "id": 29,
+    "question": "Which files document the current (rewritten) version of the KNN material, and how does that version differ from the 2024-10-29 lecture notebook?",
+    "question_type": "currency",
+    "source_page": "course/knn.md"
+  },
+  {
+    "id": 30,
+    "question": "What is Tom Mitchell's 1980 definition of bias in machine learning, and why does the course start there?",
+    "question_type": "factual",
+    "source_page": "course/ml-bias.md"
+  },
+  {
+    "id": 31,
+    "question": "Which three real-world case studies does the ML Bias and Fairness lecture use, and what went wrong in each?",
+    "question_type": "factual",
+    "source_page": "course/ml-bias.md"
+  },
+  {
+    "id": 32,
+    "question": "How do you compute True Positive Rate and False Positive Rate from a confusion matrix as presented in Week 14?",
+    "question_type": "factual",
+    "source_page": "course/ml-bias.md"
+  },
+  {
+    "id": 33,
+    "question": "Why does the course argue that bias is a requirement for learning rather than inherently a flaw?",
+    "question_type": "conceptual",
+    "source_page": "course/ml-bias.md"
+  },
+  {
+    "id": 34,
+    "question": "What does the YouTube watch-time example illustrate about the difference between a model bug and a badly chosen objective?",
+    "question_type": "conceptual",
+    "source_page": "course/ml-bias.md"
+  },
+  {
+    "id": 35,
+    "question": "Why is demographic parity considered a crude fairness metric compared with equality of odds?",
+    "question_type": "conceptual",
+    "source_page": "course/ml-bias.md"
+  },
+  {
+    "id": 36,
+    "question": "How does Equal Opportunity differ from Equality of Odds, and when would you prefer the narrower metric?",
+    "question_type": "conceptual",
+    "source_page": "course/ml-bias.md"
+  },
+  {
+    "id": 37,
+    "question": "Why do the slides walk through setting the classification threshold to 0 and to 100 before introducing ROC curves?",
+    "question_type": "conceptual",
+    "source_page": "course/ml-bias.md"
+  },
+  {
+    "id": 38,
+    "question": "Why do some fairness approaches reweight variables before training instead of adjusting the decision threshold afterward?",
+    "question_type": "conceptual",
+    "source_page": "course/ml-bias.md"
+  },
+  {
+    "id": 39,
+    "question": "How does the confusion matrix work from the kNN page's bank-marketing example support the fairness metrics introduced in Week 14?",
+    "question_type": "synthesis",
+    "source_page": "course/ml-bias.md"
+  },
+  {
+    "id": 40,
+    "question": "Class imbalance is flagged on both the kNN and decision trees pages \u2014 why is it a fairness concern and not just an accuracy problem?",
+    "question_type": "synthesis",
+    "source_page": "course/ml-bias.md"
+  },
+  {
+    "id": 41,
+    "question": "Using the Data Science Value Domain framing, where in the pipeline could Amazon's recruiting engine failure have been caught, and with what intervention?",
+    "question_type": "synthesis",
+    "source_page": "course/ml-bias.md"
+  },
+  {
+    "id": 42,
+    "question": "If I want to run a fairness metric example myself, what materials does the wiki have and what is currently missing?",
+    "question_type": "currency",
+    "source_page": "course/ml-bias.md"
+  },
+  {
+    "id": 43,
+    "question": "Which datasets and source files back the Week 14 ML bias material, and which one is referenced for the fairness exercise?",
+    "question_type": "factual",
+    "source_page": "course/ml-bias.md"
+  },
+  {
+    "id": 44,
+    "question": "How does the link between cognitive bias / behavioral economics and training data explain the Google Cloud Natural Language API sentiment results?",
+    "question_type": "synthesis",
+    "source_page": "course/ml-bias.md"
+  },
+  {
+    "id": 45,
+    "question": "Which three DS-3021 topic pages have been built for the pilot so far, and which weeks' materials does each synthesize?",
+    "question_type": "factual",
+    "source_page": "course/pilot-plan.md"
+  },
+  {
+    "id": 46,
+    "question": "What distinguishes Condition A from Condition B in the pilot's comparison design?",
+    "question_type": "factual",
+    "source_page": "course/pilot-plan.md"
+  },
+  {
+    "id": 47,
+    "question": "Why were KNN, Decision Trees, and ML Bias specifically chosen as the three pilot topics rather than three similar topics?",
+    "question_type": "conceptual",
+    "source_page": "course/pilot-plan.md"
+  },
+  {
+    "id": 48,
+    "question": "What three things is the evaluator supposed to record for each question asked under both conditions?",
+    "question_type": "factual",
+    "source_page": "course/pilot-plan.md"
+  },
+  {
+    "id": 49,
+    "question": "Why does the pilot include exact/code-level questions where the plain RAG baseline might win, instead of only questions the wiki is expected to win?",
+    "question_type": "conceptual",
+    "source_page": "course/pilot-plan.md"
+  },
+  {
+    "id": 50,
+    "question": "What is the known confound in how the RAG condition is currently set up, and why was that simplification made deliberately?",
+    "question_type": "conceptual",
+    "source_page": "course/pilot-plan.md"
+  },
+  {
+    "id": 51,
+    "question": "How would running the RAG condition against the original messy DS-3021 folder change what the pilot measures?",
+    "question_type": "currency",
+    "source_page": "course/pilot-plan.md"
+  },
+  {
+    "id": 52,
+    "question": "What is the purpose of the classnotes and discussion-board raw folders in relation to the pilot's hypotheses?",
+    "question_type": "conceptual",
+    "source_page": "course/pilot-plan.md"
+  },
+  {
+    "id": 53,
+    "question": "Why can't the three bulk-ingested topic pages test the wiki's 'compounding' claim, and what comparison would test it?",
+    "question_type": "conceptual",
+    "source_page": "course/pilot-plan.md"
+  },
+  {
+    "id": 54,
+    "question": "Where are pilot results supposed to be recorded, and what principle of the wiki framework motivates that?",
+    "question_type": "factual",
+    "source_page": "course/pilot-plan.md"
+  },
+  {
+    "id": 55,
+    "question": "Which Decision Trees slide deck does the wiki identify as the current one, and how does the pilot expect that to expose a weakness in plain RAG?",
+    "question_type": "currency",
+    "source_page": "course/pilot-plan.md"
+  },
+  {
+    "id": 56,
+    "question": "Has the pilot been run yet, and what is the stated next step?",
+    "question_type": "factual",
+    "source_page": "course/pilot-plan.md"
+  },
+  {
+    "id": 57,
+    "question": "Using the KNN and Decision Trees pages, how would you actually answer the pilot's conceptual question about why KNN requires feature scaling but Decision Trees don't?",
+    "question_type": "synthesis",
+    "source_page": "course/pilot-plan.md"
+  },
+  {
+    "id": 58,
+    "question": "How does the reading procedure for Condition A relate to what the getting-started page describes for the rest of this space?",
+    "question_type": "synthesis",
+    "source_page": "course/pilot-plan.md"
+  },
+  {
+    "id": 59,
+    "question": "Drawing on the ml-bias page, which earlier weeks' concepts would a student need to review to explain the Amazon and Google bias examples?",
+    "question_type": "synthesis",
+    "source_page": "course/pilot-plan.md"
+  },
+  {
+    "id": 60,
+    "question": "Which three DS-3021 topics were chosen for the course wiki pilot, and why were those three picked?",
+    "question_type": "factual",
+    "source_page": "course/README.md"
+  },
+  {
+    "id": 61,
+    "question": "What are the two intake folders under raw/course/DS-3021/ that feed the topic pages incrementally during the semester?",
+    "question_type": "factual",
+    "source_page": "course/README.md"
+  },
+  {
+    "id": 62,
+    "question": "Why do the course topic pages link back to the raw notebooks instead of restating their code verbatim?",
+    "question_type": "conceptual",
+    "source_page": "course/README.md"
+  },
+  {
+    "id": 63,
+    "question": "When multiple years' versions of the same lecture deck exist (like the three Decision Trees decks from 2021, 2022, and 2024), how is that handled during ingest, and what's the reasoning?",
+    "question_type": "conceptual",
+    "source_page": "course/README.md"
+  },
+  {
+    "id": 64,
+    "question": "Why is xx_reinforcement-lab/assignment-submissions/ excluded from the course wiki?",
+    "question_type": "factual",
+    "source_page": "course/README.md"
+  },
+  {
+    "id": 65,
+    "question": "What are the steps for folding a new class note or discussion thread into an existing topic page?",
+    "question_type": "factual",
+    "source_page": "course/README.md"
+  },
+  {
+    "id": 66,
+    "question": "How does the incremental ingest loop test something different about the wiki pattern than the initial bulk ingest of slides and notebooks did?",
+    "question_type": "conceptual",
+    "source_page": "course/README.md"
+  },
+  {
+    "id": 67,
+    "question": "How is the course domain meant to be evaluated against a plain-RAG baseline, according to the pilot plan?",
+    "question_type": "synthesis",
+    "source_page": "course/README.md"
+  },
+  {
+    "id": 68,
+    "question": "How does the course wiki differ in purpose and structure from the ATA business wiki elsewhere in this space?",
+    "question_type": "synthesis",
+    "source_page": "course/README.md"
+  },
+  {
+    "id": 69,
+    "question": "What does the decision-trees page say about the older 2021 and 2022 slide decks that weren't ingested?",
+    "question_type": "synthesis",
+    "source_page": "course/README.md"
+  },
+  {
+    "id": 70,
+    "question": "What kinds of files are treated as junk and deliberately excluded when copying source files into raw/course/DS-3021/?",
+    "question_type": "factual",
+    "source_page": "course/README.md"
+  },
+  {
+    "id": 71,
+    "question": "Why does discussion board content need anonymizing before it goes into the intake folder, and where would I find the specific rules for that?",
+    "question_type": "synthesis",
+    "source_page": "course/README.md"
+  },
+  {
+    "id": 72,
+    "question": "What does it mean for a page here to be a \"topic/concept page\" for one week of the course, as opposed to just a summary of the slides?",
+    "question_type": "conceptual",
+    "source_page": "course/README.md"
+  },
+  {
+    "id": 73,
+    "question": "If I'm a student who wants exact runnable code for KNN rather than the concepts, what path through this wiki should I take?",
+    "question_type": "synthesis",
+    "source_page": "course/README.md"
+  },
+  {
+    "id": 74,
+    "question": "Why does each topic page maintain a Sources list linking the raw files, and what role does that list play as the semester progresses?",
+    "question_type": "conceptual",
+    "source_page": "course/README.md"
+  },
+  {
+    "id": 75,
+    "question": "What naming convention should I use for files I drop into the `raw/` folder?",
+    "question_type": "factual",
+    "source_page": "getting-started.md"
+  },
+  {
+    "id": 76,
+    "question": "What are the five steps for adding a new meeting to the wiki?",
+    "question_type": "factual",
+    "source_page": "getting-started.md"
+  },
+  {
+    "id": 77,
+    "question": "Where do decision pages live, and what three things should a decision page cover?",
+    "question_type": "factual",
+    "source_page": "getting-started.md"
+  },
+  {
+    "id": 78,
+    "question": "Why does the wiki forbid editing anything in `raw/` while allowing wiki pages to change freely?",
+    "question_type": "conceptual",
+    "source_page": "getting-started.md"
+  },
+  {
+    "id": 79,
+    "question": "What should I do if two source documents contradict each other, and why is that preferred over just correcting the page?",
+    "question_type": "conceptual",
+    "source_page": "getting-started.md"
+  },
+  {
+    "id": 80,
+    "question": "Why does the guide say `wiki/status.md` should be updated in place rather than appended to?",
+    "question_type": "conceptual",
+    "source_page": "getting-started.md"
+  },
+  {
+    "id": 81,
+    "question": "What does it mean for a page to be \"effectively invisible,\" and how do I prevent that when I create one?",
+    "question_type": "conceptual",
+    "source_page": "getting-started.md"
+  },
+  {
+    "id": 82,
+    "question": "A meeting produced a decision \u2014 which pages need to be created or updated, and how should they link to each other?",
+    "question_type": "synthesis",
+    "source_page": "getting-started.md"
+  },
+  {
+    "id": 83,
+    "question": "According to the current [[status]] page, which active workstreams and open blockers exist right now?",
+    "question_type": "synthesis",
+    "source_page": "getting-started.md"
+  },
+  {
+    "id": 84,
+    "question": "Starting from [[index]], what categories of pages are listed there and do they match the page types described in this guide?",
+    "question_type": "synthesis",
+    "source_page": "getting-started.md"
+  },
+  {
+    "id": 85,
+    "question": "If I want to know who owns a particular workstream, which page type should I look at and how would I get there from the index?",
+    "question_type": "synthesis",
+    "source_page": "getting-started.md"
+  },
+  {
+    "id": 86,
+    "question": "What is the difference between a meeting page and the raw transcript it is based on?",
+    "question_type": "conceptual",
+    "source_page": "getting-started.md"
+  },
+  {
+    "id": 87,
+    "question": "What information belongs on a person's page, and where must it be linked from?",
+    "question_type": "factual",
+    "source_page": "getting-started.md"
+  },
+  {
+    "id": 88,
+    "question": "What is the stated goal for a reader of this wiki with respect to the `raw/` folder?",
+    "question_type": "conceptual",
+    "source_page": "getting-started.md"
+  },
+  {
+    "id": 89,
+    "question": "What is the rule about page scope, and what should I do if a page ends up covering two topics?",
+    "question_type": "factual",
+    "source_page": "getting-started.md"
+  },
+  {
+    "id": 90,
+    "question": "Which decision covers the pivot to extracting known OMOP medical concepts from zero-day forms, and what date was it recorded?",
+    "question_type": "factual",
+    "source_page": "index.md"
+  },
+  {
+    "id": 91,
+    "question": "What is the deadline and program type for the DARPA FALCON SBIR that ATA and DSLabs agreed to partner on?",
+    "question_type": "factual",
+    "source_page": "index.md"
+  },
+  {
+    "id": 92,
+    "question": "Which three people have pages in this wiki, and where would I look to find how each relates to the ATA work?",
+    "question_type": "synthesis",
+    "source_page": "index.md"
+  },
+  {
+    "id": 93,
+    "question": "Why does the index page insist that every page be reachable from it, directly or indirectly?",
+    "question_type": "conceptual",
+    "source_page": "index.md"
+  },
+  {
+    "id": 94,
+    "question": "What materials sections currently have no linked pages, and what does that gap suggest about the wiki's completeness?",
+    "question_type": "factual",
+    "source_page": "index.md"
+  },
+  {
+    "id": 95,
+    "question": "How does the decision to use a knowledge graph instead of a pure vector store shape the ATA knowledge assistant plan?",
+    "question_type": "synthesis",
+    "source_page": "index.md"
+  },
+  {
+    "id": 96,
+    "question": "What is the purpose of the DS-3021 course pilot and how is it different from the rest of the wiki's content?",
+    "question_type": "conceptual",
+    "source_page": "index.md"
+  },
+  {
+    "id": 97,
+    "question": "Which meeting page is likely the source of the OMOP concept extraction decision, and how can you tell from the index?",
+    "question_type": "synthesis",
+    "source_page": "index.md"
+  },
+  {
+    "id": 98,
+    "question": "What does the 'ingest backlog flag' on the 2025-2026 running notes entry mean for someone trusting this wiki as complete?",
+    "question_type": "conceptual",
+    "source_page": "index.md"
+  },
+  {
+    "id": 99,
+    "question": "Where should a newcomer start reading, and what is the difference between that page and the status page?",
+    "question_type": "conceptual",
+    "source_page": "index.md"
+  },
+  {
+    "id": 100,
+    "question": "What is currently true about the FALCON SBIR partnership according to the status page?",
+    "question_type": "currency",
+    "source_page": "index.md"
+  },
+  {
+    "id": 101,
+    "question": "Which course pages exist under the DS-3021 pilot, and what evaluation plan governs the pilot?",
+    "question_type": "factual",
+    "source_page": "index.md"
+  },
+  {
+    "id": 102,
+    "question": "What RFI is captured in the materials section, and which agency does it come from?",
+    "question_type": "factual",
+    "source_page": "index.md"
+  },
+  {
+    "id": 103,
+    "question": "How do the two plans listed under Materials differ in scope, and which one relates to LLM quality monitoring?",
+    "question_type": "synthesis",
+    "source_page": "index.md"
+  },
+  {
+    "id": 104,
+    "question": "Given the three recorded decisions, what does the trajectory from June to July 2026 say about the project's direction?",
+    "question_type": "synthesis",
+    "source_page": "index.md"
+  },
+  {
+    "id": 105,
+    "question": "What are the two active technical workstreams for the ATA team, and who owns each one?",
+    "question_type": "factual",
+    "source_page": "status.md"
+  },
+  {
+    "id": 106,
+    "question": "Why is the status page maintained as a snapshot that gets edited in place rather than appended to like the rest of the wiki?",
+    "question_type": "conceptual",
+    "source_page": "status.md"
+  },
+  {
+    "id": 107,
+    "question": "What was the reasoning behind pivoting the zero-day form extraction work toward OMOP-concept extraction?",
+    "question_type": "synthesis",
+    "source_page": "status.md"
+  },
+  {
+    "id": 108,
+    "question": "Why did the knowledge assistant move away from flat vector search toward a knowledge-graph structure?",
+    "question_type": "synthesis",
+    "source_page": "status.md"
+  },
+  {
+    "id": 109,
+    "question": "What git repository configuration problem was flagged on 2026-07-10, and what is its current resolution status?",
+    "question_type": "factual",
+    "source_page": "status.md"
+  },
+  {
+    "id": 110,
+    "question": "What pipeline is Brian Wright building for the ATA knowledge assistant, and which component is still missing?",
+    "question_type": "factual",
+    "source_page": "status.md"
+  },
+  {
+    "id": 111,
+    "question": "Why is ATA unable to price its bids confidently right now, and what is being done about it?",
+    "question_type": "conceptual",
+    "source_page": "status.md"
+  },
+  {
+    "id": 112,
+    "question": "Which topics are sitting in the un-ingested backlog from Brian's older running notes log?",
+    "question_type": "synthesis",
+    "source_page": "status.md"
+  },
+  {
+    "id": 113,
+    "question": "What variants of the LLM quality drift tool are planned but not yet built, and what medical use cases are targeted?",
+    "question_type": "synthesis",
+    "source_page": "status.md"
+  },
+  {
+    "id": 114,
+    "question": "What is Van's outstanding action item, and how does it relate to the zero-day extraction workstream?",
+    "question_type": "conceptual",
+    "source_page": "status.md"
+  },
+  {
+    "id": 115,
+    "question": "Which funding sources is Jonathan pursuing, and for which project?",
+    "question_type": "factual",
+    "source_page": "status.md"
+  },
+  {
+    "id": 116,
+    "question": "What is the status of the DFAS RFI response, and where would the details be recorded?",
+    "question_type": "synthesis",
+    "source_page": "status.md"
+  },
+  {
+    "id": 117,
+    "question": "Which source materials was this wiki initially built from?",
+    "question_type": "factual",
+    "source_page": "status.md"
+  },
+  {
+    "id": 118,
+    "question": "How does the SBIR partnership workstream differ in maturity from the other two workstreams listed?",
+    "question_type": "conceptual",
+    "source_page": "status.md"
+  },
+  {
+    "id": 119,
+    "question": "Looking across the open items and next actions, how much of the current workload falls on Brian Wright compared to other team members?",
+    "question_type": "synthesis",
+    "source_page": "status.md"
+  },
+  {
+    "id": 120,
+    "question": "Why does the KNN lab insist on MinMax scaling while the Decision Tree lab explicitly tells students not to scale, and what property of each algorithm drives that difference?",
+    "question_type": "conceptual",
+    "source_page": "(cross-page)"
+  },
+  {
+    "id": 121,
+    "question": "Trace how the confusion-matrix machinery introduced in the week 6 KNN lecture is reused in week 14 to define Equality of Odds and Equal Opportunity.",
+    "question_type": "synthesis",
+    "source_page": "(cross-page)"
+  },
+  {
+    "id": 122,
+    "question": "Both the KNN and Decision Trees pages flag class imbalance. How does each page frame the problem differently, and how does the ML Bias page reframe imbalance as a fairness issue rather than just an accuracy issue?",
+    "question_type": "synthesis",
+    "source_page": "(cross-page)"
+  },
+  {
+    "id": 123,
+    "question": "Which DS-3021 weeks' materials would a student need to review to understand why the Amazon recruiting and Google Natural Language bias examples happened, and what specific prerequisite concepts come from each of those earlier weeks?",
+    "question_type": "synthesis",
+    "source_page": "(cross-page)"
+  },
+  {
+    "id": 124,
+    "question": "How does the sensitivity/specificity formula that the KNN page says Python doesn't provide built-in compare to the True Positive Rate formula given on the ML Bias page?",
+    "question_type": "factual",
+    "source_page": "(cross-page)"
+  },
+  {
+    "id": 125,
+    "question": "Which Decision Trees slide deck is canonical, and how does the course/README curation policy explain why the other two decks aren't ingested?",
+    "question_type": "currency",
+    "source_page": "(cross-page)"
+  },
+  {
+    "id": 126,
+    "question": "Cross-validation appears in both the KNN and Decision Trees pages. Describe the nested CV setup documented for KNN and the hyperparameter-search approach used for trees, and explain why the KNN page proposes a shared concept page.",
+    "question_type": "synthesis",
+    "source_page": "(cross-page)"
+  },
+  {
+    "id": 127,
+    "question": "The pilot plan lists a question about the exact scikit-learn call for decision tree variable importance. Based on the topic pages, what is that call for trees, and how does the KNN page say variable importance must be obtained instead?",
+    "question_type": "factual",
+    "source_page": "(cross-page)"
+  },
+  {
+    "id": 128,
+    "question": "According to the pilot plan and the course README, which topic pages were chosen for the pilot and what characteristic of each one justified its selection?",
+    "question_type": "conceptual",
+    "source_page": "(cross-page)"
+  },
+  {
+    "id": 129,
+    "question": "How does the general contributor guidance in getting-started about conflicting sources compare to how the Decision Trees page actually handles its three-deck version conflict?",
+    "question_type": "conceptual",
+    "source_page": "(cross-page)"
+  },
+  {
+    "id": 130,
+    "question": "What is the 'known confound' in the pilot design, and how does it relate to the specific exclusions listed in the course README's curation notes?",
+    "question_type": "conceptual",
+    "source_page": "(cross-page)"
+  },
+  {
+    "id": 131,
+    "question": "The wiki flags two pieces of incomplete or missing content in the course domain \u2014 an unfinished code stub and topics not yet ingested. Where are each of these flagged and what are they?",
+    "question_type": "currency",
+    "source_page": "(cross-page)"
+  },
+  {
+    "id": 132,
+    "question": "Which not-yet-ingested topics do the Decision Trees and ML Bias pages both point to as natural next pages, and how does the course README's 'Ongoing sources' section describe the process for folding new material in?",
+    "question_type": "synthesis",
+    "source_page": "(cross-page)"
+  },
+  {
+    "id": 133,
+    "question": "How does the incremental-ingest loop described in the course README connect to the 'compounding' hypothesis the pilot plan says needs testing?",
+    "question_type": "synthesis",
+    "source_page": "(cross-page)"
+  },
+  {
+    "id": 134,
+    "question": "Both the KNN and Decision Trees pages document R\u2192Python conversion tables. What single R function appears in both tables for missing-data inspection, and how do the two pages describe its Python replacement differently?",
+    "question_type": "factual",
+    "source_page": "(cross-page)"
+  },
+  {
+    "id": 135,
+    "question": "How does the DS-3021 course pilot differ in purpose from the rest of this wiki, according to the index, getting-started, and course README pages?",
+    "question_type": "conceptual",
+    "source_page": "(cross-page)"
+  },
+  {
+    "id": 136,
+    "question": "The ML Bias page describes reweighting variables before training as an alternative to threshold adjustment. How does the imbalance advice on the Decision Trees page relate to that pre-processing intervention category?",
+    "question_type": "synthesis",
+    "source_page": "(cross-page)"
+  },
+  {
+    "id": 137,
+    "question": "The pilot plan claims the wiki should win on 'currency/version' questions. Which page provides the evidence for that claim, and what specifically would a naive RAG pass over the original folder get wrong?",
+    "question_type": "currency",
+    "source_page": "(cross-page)"
+  },
+  {
+    "id": 138,
+    "question": "What is 'greedy' about decision tree splitting, and how does the Decision Trees lab's instruction not to scale data invoke that greediness as justification in contrast to the KNN lab?",
+    "question_type": "conceptual",
+    "source_page": "(cross-page)"
+  },
+  {
+    "id": 139,
+    "question": "Where should pilot results be logged once the comparison is run, and how does that instruction reflect the wiki-maintenance principles stated in getting-started and index?",
+    "question_type": "conceptual",
+    "source_page": "(cross-page)"
+  },
+  {
+    "id": 140,
+    "question": "The status page mentions a backlog item about 'bias/fairness classification' among un-ingested topics. How does that relate to the existing course/ml-bias page, and what does that suggest about overlap between the ATA and course domains?",
+    "question_type": "currency",
+    "source_page": "(cross-page)"
+  },
+  {
+    "id": 141,
+    "question": "Reconstruct the DS-3021 week ordering implied across the course pages (including the not-yet-ingested weeks named), and explain which pedagogical dependencies run between them.",
+    "question_type": "synthesis",
+    "source_page": "(cross-page)"
+  },
+  {
+    "id": 142,
+    "question": "Both KNN and Decision Trees pages describe hyperparameter tuning that risks overfitting. Compare the k=1 teaching moment on the KNN page with the max_depth/pruning discussion on the Decision Trees page.",
+    "question_type": "conceptual",
+    "source_page": "(cross-page)"
+  },
+  {
+    "id": 143,
+    "question": "According to the index and status pages, which workstreams are active for the ATA team, and where does the DS-3021 course pilot sit relative to them in terms of current progress?",
+    "question_type": "currency",
+    "source_page": "(cross-page)"
+  },
+  {
+    "id": 144,
+    "question": "If a student asked 'is a decision tree or KNN better for interpretability and fairness auditing?', which claims from the Decision Trees page and which from the ML Bias page would you combine to answer?",
+    "question_type": "synthesis",
+    "source_page": "(cross-page)"
+  }
+]

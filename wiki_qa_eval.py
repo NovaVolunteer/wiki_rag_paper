@@ -9,8 +9,11 @@ Usage:
     python wiki_qa_eval.py --questions-file q.json    # reuse a saved question set
     python wiki_qa_eval.py --no-grade                 # just collect answers
 
-Needs ANTHROPIC_API_KEY in the environment or a .env file (project root or
-wiki/.env both work — python-dotenv searches upward from the cwd).
+Needs ANTHROPIC_API_KEY (question generation + answering) and OPENAI_API_KEY
+(grading judge) in the environment or a .env file (project root or wiki/.env
+both work — python-dotenv searches upward from the cwd). The judge uses a
+different provider (OpenAI) than the answerer (Claude) on purpose, so the
+same model isn't grading its own homework.
 """
 
 from __future__ import annotations
@@ -21,15 +24,21 @@ import json
 import sys
 import threading
 from pathlib import Path
-from typing import Literal
+from typing import Any, Literal
 
 from anthropic import Anthropic
 from dotenv import load_dotenv
 from pydantic import BaseModel
 
+try:
+    from openai import OpenAI
+except ImportError:
+    OpenAI = None  # only required when grading is enabled
+
 load_dotenv()
 
 DEFAULT_MODEL = "claude-opus-5"
+DEFAULT_GRADE_MODEL = "gpt-5-mini"
 
 
 # --------------------------------------------------------------------------
@@ -47,7 +56,7 @@ class QuestionBatch(BaseModel):
 
 
 class GradedAnswer(BaseModel):
-    score: Literal[1, 2, 3, 4, 5]
+    score: Literal[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     grounded: bool
     rationale: str
 
@@ -180,38 +189,39 @@ def answer_question(client: Anthropic, model: str, effort: str, system_blocks: l
 
 
 def grade_answer(
-    client: Anthropic, model: str, effort: str, context: str, question: Question, answer: str
+    openai_client: Any, model: str, context: str, question: Question, answer: str
 ) -> GradedAnswer:
+    """Judge with a different provider than the one that answered, so the
+    model isn't grading its own homework."""
     prompt = (
         "You are grading an AI-generated answer against source material for accuracy.\n\n"
         f"SOURCE MATERIAL (the wiki):\n{context}\n\n"
         f"QUESTION: {question.question}\n\n"
         f"ANSWER TO GRADE: {answer}\n\n"
-        "Score the answer 1-5:\n"
-        "5 = fully correct and well-grounded in the source material\n"
-        "4 = correct but missing a minor detail or nuance\n"
-        "3 = partially correct, or correct but poorly supported/cited\n"
-        "2 = mostly incorrect or unsupported by the source material\n"
+        "Score the answer from 1 to 10:\n"
+        "10 = fully correct and thoroughly grounded in the source material\n"
+        "8-9 = correct, only trivial omissions\n"
+        "6-7 = correct but missing meaningful detail or nuance\n"
+        "4-5 = partially correct, or correct but poorly supported/cited\n"
+        "2-3 = mostly incorrect or unsupported by the source material\n"
         "1 = wrong, fabricated, or contradicts the source material\n\n"
         "Set `grounded` to true only if every claim in the answer traces back "
         "to something actually stated in the source material (no fabrication)."
     )
-    resp = client.messages.parse(
+    completion = openai_client.chat.completions.parse(
         model=model,
-        max_tokens=1024,
-        output_config={"effort": effort},
         messages=[{"role": "user", "content": prompt}],
-        output_format=GradedAnswer,
+        response_format=GradedAnswer,
     )
-    return resp.parsed_output
+    return completion.choices[0].message.parsed
 
 
 def process_question(
     client: Anthropic,
+    openai_client: Any,
     answer_model: str,
     grade_model: str,
     effort: str,
-    grade_effort: str,
     system_blocks: list[dict],
     context: str,
     question: Question,
@@ -232,7 +242,7 @@ def process_question(
 
     if do_grade:
         try:
-            graded = grade_answer(client, grade_model, grade_effort, context, question, result["answer"])
+            graded = grade_answer(openai_client, grade_model, context, question, result["answer"])
             result["score"] = graded.score
             result["grounded"] = graded.grounded
             result["rationale"] = graded.rationale
@@ -250,9 +260,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--wiki-dir", default="wiki", help="Path to the wiki directory (default: wiki)")
     parser.add_argument("--model", default=DEFAULT_MODEL, help=f"Model for question generation + answering (default: {DEFAULT_MODEL})")
-    parser.add_argument("--grade-model", default=None, help="Model for grading (default: same as --model)")
+    parser.add_argument("--grade-model", default=DEFAULT_GRADE_MODEL, help=f"OpenAI model for grading (default: {DEFAULT_GRADE_MODEL})")
     parser.add_argument("--effort", default="medium", choices=["low", "medium", "high", "xhigh", "max"])
-    parser.add_argument("--grade-effort", default="low", choices=["low", "medium", "high", "xhigh", "max"])
     parser.add_argument("--questions-per-page", type=int, default=15, help="Generated questions per wiki page (default: 15)")
     parser.add_argument("--cross-page-questions", type=int, default=25, help="Generated cross-page synthesis questions (default: 25)")
     parser.add_argument("--questions-file", default=None, help="Load questions from a JSON file instead of generating them")
@@ -263,10 +272,15 @@ def main() -> None:
     parser.add_argument("--no-grade", action="store_true", help="Skip LLM-judge grading; just collect answers")
     args = parser.parse_args()
 
-    grade_model = args.grade_model or args.model
     do_grade = not args.no_grade
 
     client = Anthropic()
+    openai_client = None
+    if do_grade:
+        if OpenAI is None:
+            raise SystemExit("Grading needs the `openai` package: pip install openai (or pass --no-grade)")
+        openai_client = OpenAI()  # reads OPENAI_API_KEY
+
     wiki_dir = Path(args.wiki_dir)
     pages = load_wiki_pages(wiki_dir)
     context = build_context(pages)
@@ -310,7 +324,7 @@ def main() -> None:
 
     def run_one(q: Question) -> dict:
         r = process_question(
-            client, args.model, grade_model, args.effort, args.grade_effort, system_blocks, context, q, do_grade
+            client, openai_client, args.model, args.grade_model, args.effort, system_blocks, context, q, do_grade
         )
         with write_lock:
             with jsonl_path.open("a", encoding="utf-8") as f:
@@ -347,10 +361,10 @@ def main() -> None:
         if scored:
             avg = sum(scored) / len(scored)
             grounded_rate = sum(1 for r in results if r.get("grounded")) / len(scored)
-            dist = {n: scored.count(n) for n in range(1, 6)}
+            dist = {n: scored.count(n) for n in range(1, 11)}
             print(f"\n--- Summary ---", file=sys.stderr)
             print(f"Graded: {len(scored)}/{len(results)}", file=sys.stderr)
-            print(f"Average score: {avg:.2f}/5", file=sys.stderr)
+            print(f"Average score: {avg:.2f}/10", file=sys.stderr)
             print(f"Grounded rate: {grounded_rate:.0%}", file=sys.stderr)
             print(f"Score distribution: {dist}", file=sys.stderr)
             worst = sorted((r for r in results if "score" in r), key=lambda r: r["score"])[:5]

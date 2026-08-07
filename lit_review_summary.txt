@@ -1,0 +1,137 @@
+# **Graph** vs **RAG** for Classroom LLM Quality
+
+For a paper on **LLM response quality** with a Karpathy Wiki graph versus a RAG model in class learning, the literature splits into three facets: factual grounding, graph-specific advantages, and educational fit. Across the 20 papers, standard RAG usually improves factuality over LLM-only systems, while **graph-enhanced RAG** helps most when questions require structured relations, multi-hop reasoning, provenance, or explainability  (Peng et al., 2024; Brown et al., 2025; Zhu et al., 2025; Li et al., 2025).
+
+## Response Quality
+
+In most domains, RAG improves response quality by grounding outputs in external evidence, reducing hallucinations, and updating static model knowledge, which is why it is repeatedly framed as a practical reliability layer for knowledge-intensive tasks  (Peng et al., 2024; Neha et al., 2025; Li et al., 2024; AboulEla et al., 2025). Evidence is not uniform, though: gains depend strongly on retrieval relevance, task type, and evaluation design  (Zhou et al., 2025; Neha et al., 2025; Brown et al., 2025).
+
+- **Standard RAG** improved benchmark accuracy over a base LLM in one direct comparison, but not to the level of a strong fine-tuned model  (AboulEla et al., 2025).
+- In a large clinical evaluation, **GPT-4 RAG** reached 96.4% accuracy, exceeded human answers, and showed no hallucinations  (Ke et al., 2025).
+- A public-health RAG pipeline achieved **0.7913 accuracy** and **0.7904 F1**, outperforming both LLM-only and standard RAG baselines  (Xu et al., 2025).
+
+## Graph-Based Retrieval
+
+A graph built from the Karpathy Wiki is best justified when the classroom questions depend on relationships among concepts rather than isolated text chunks. Surveys and comparative studies agree that graph-enhanced retrieval can capture entity structure, support multi-hop reasoning, and improve explainability, but they also show that graph-only retrieval can underperform on simple fact lookup if it discards the original text context  (Peng et al., 2024; Zhu et al., 2025; Zhou et al., 2025).
+
+- **KG-RAG** improved multi-hop MetaQA accuracy, though with a slight single-hop trade-off  (Linders & Tomczak, 2025).
+- On HotpotQA, **KG²RAG** improved response F1 from 0.653 to 0.663 and retrieval F1 from 0.354 to 0.436 over Hybrid RAG  (Zhu et al., 2025).
+- Graph gains are task-sensitive: one study found Graph RAG underperformed naïve RAG on SQuAD-V2 and TriviaQA, yet still handled **complex queries** better through structured relations  (AboulEla et al., 2025).
+
+## Educational Use
+
+For in-class learning, the strongest education-specific theme is that retrieval should be aligned to vetted course materials and local curriculum, not just general correctness. RAG is repeatedly presented as useful in education because it improves factual accuracy, supports dynamic updates, and grounds answers in class-specific resources; however, overly rigid grounding can reduce human preference if responses become too textbook-bound  (Li et al., 2025; Levonian et al., 2023).
+
+- In math tutoring, **humans preferred RAG** responses, but not when grounding became too strong and reduced helpfulness  (Levonian et al., 2023).
+- A course-oriented educational **KG + Agentic-RAG** system reached 91.4% retrieval accuracy, 87.6% semantic consistency, 2.8 s latency, and improved learner satisfaction  (Gao et al., 2025).
+- In educational question generation, **ICL and hybrid RAG+ICL** outperformed baselines on contextual accuracy and relevance  (Maity et al., 2024).
+
+For your paper, the fairest conclusion is that a **Karpathy Wiki graph** is most defensible over plain RAG when classroom questions require concept linking, reasoning paths, and explainable provenance, whereas standard RAG is often sufficient for direct curriculum-grounded fact retrieval. The highest-quality in-class systems in this literature are usually **hybrid**, combining text retrieval with graph structure rather than treating graph and RAG as mutually exclusive alternatives.
+ 
+_These search results were found and analyzed using Consensus, an AI-powered search engine for research. Try it at https://www.consensus.app. © 2026 Consensus NLP, Inc. Personal, non-commercial use only; redistribution requires copyright holders’ consent._
+ 
+## References
+ 
+AboulEla, S., Zabihitari, P., Ibrahim, N., Afshar, M., & Kashef, R. F. (2025). Exploring RAG Solutions to Reduce Hallucinations in LLMs. *2025 IEEE International systems Conference (SysCon)*, 1-8. https://doi.org/10.1109/syscon64521.2025.11014810
+ 
+Brown, A., Roman, M., & Devereux, B. (2025). A Systematic Literature Review of Retrieval-Augmented Generation: Techniques, Metrics, and Challenges. *ArXiv, abs/2508.06401*. https://doi.org/10.48550/arxiv.2508.06401
+ 
+Gao, F., Xu, S.-Y., Hao, W., & Lu, T. (2025). KA-RAG: Integrating Knowledge Graphs and Agentic Retrieval-Augmented Generation for an Intelligent Educational Question-Answering Model. *Applied Sciences*. https://doi.org/10.3390/app152312547
+ 
+Ke, Y., Jin, L., Elangovan, K., Abdullah, H., Liu, N., Sia, A. T. H., Soh, C. R., Tung, J. Y. M., Ong, J., Kuo, C., Wu, S.-C., Kovacheva, V., & Ting, D. (2025). Retrieval augmented generation for 10 large language models and its generalizability in assessing medical fitness. *NPJ Digital Medicine, 8*. https://doi.org/10.1038/s41746-025-01519-z
+ 
+Levonian, Z., Li, C., Zhu, W., Gade, A., Henkel, O., Postle, M.-E., & Xing, W. (2023). Retrieval-augmented Generation to Improve Math Question-Answering: Trade-offs Between Groundedness and Human Preference. *ArXiv, abs/2310.03184*. https://doi.org/10.48550/arxiv.2310.03184
+ 
+Li, Z., Wang, Z., Wang, W., Hung, K., Xie, H., & Wang, F. (2025). Retrieval-augmented generation for educational application: A systematic survey. *Comput. Educ. Artif. Intell., 8*, 100417. https://doi.org/10.1016/j.caeai.2025.100417
+ 
+Li, J., Yuan, Y., & Zhang, Z. (2024). Enhancing LLM Factual Accuracy with RAG to Counter Hallucinations: A Case Study on Domain-Specific Queries in Private Knowledge-Bases. *ArXiv, abs/2403.10446*. https://doi.org/10.48550/arxiv.2403.10446
+ 
+Linders, J., & Tomczak, J. M. (2025). Knowledge graph-extended retrieval augmented generation for question answering. *Applied Intelligence, 55*. https://doi.org/10.1007/s10489-025-06885-5
+ 
+Maity, S., Deroy, A., & Sarkar, S. (2024). Leveraging In-Context Learning and Retrieval-Augmented Generation for Automatic Question Generation in Educational Domains. *Proceedings of the 16th Annual Meeting of the Forum for Information Retrieval Evaluation*. https://doi.org/10.1145/3734947.3734949
+ 
+Neha, F., Bhati, D., & Shukla, D. K. (2025). Retrieval-Augmented Generation (RAG) in Healthcare: A Comprehensive Review. *AI*. https://doi.org/10.3390/ai6090226
+ 
+Peng, B., Zhu, Y., Liu, Y., Bo, X., Shi, H., Hong, C., Zhang, Y., & Tang, S. (2024). Graph Retrieval-Augmented Generation: A Survey. *ACM Transactions on Information Systems, 44*, 1 - 52. https://doi.org/10.1145/3777378
+ 
+Xu, S., Yan, Z., Dai, C., & Wu, F. (2025). MEGA-RAG: a retrieval-augmented generation framework with multi-evidence guided answer refinement for mitigating hallucinations of LLMs in public health. *Frontiers in Public Health, 13*. https://doi.org/10.3389/fpubh.2025.1635381
+ 
+Zhou, Y., Su, Y., Sun, Y., Wang, S., Wang, T., He, R., Zhang, Y., Liang, S., Liu, X., Y., & Fang, Y. (2025). In-depth Analysis of Graph-based RAG in a Unified Framework. *ArXiv, abs/2503.04338*. https://doi.org/10.48550/arxiv.2503.04338
+ 
+Zhu, Z., Huang, T., Wang, K., Ye, J., Chen, X., & Luo, S. (2025). Graph-Based Approaches and Functionalities in Retrieval-Augmented Generation: A Comprehensive Survey. *ACM Computing Surveys*. https://doi.org/10.1145/3795880
+ 
+Zhu, X., Xie, Y., Liu, Y., Li, Y., & Hu, W. (2025). Knowledge Graph-Guided Retrieval Augmented Generation. 8912-8924. https://doi.org/10.48550/arxiv.2502.06864
+
+
+
+Additional context:
+
+# Yes, **a fair experiment** to compare **RAG** versus **Wiki** already exists and is easy to adapt.
+
+A sensible experiment is a **head-to-head classroom QA evaluation** with the same base LLM, same corpus, same questions, and separate scoring for answer accuracy, explanation quality, citation support, robustness to outdated material, and cost. That design is directly supported by an education-focused vector-versus-graph RAG study, a preregistered vector-RAG-versus-LLM-Wiki comparison, and broader RAG evaluation work showing that retrieval setup, context construction, and metric choice strongly affect conclusions  (Jain et al., 2025; Cochran, 2026; Lyu et al., 2024).
+
+| Feature | Result / Value |
+|---|---|
+| Study Type | Controlled **head-to-head comparison** with matched generator and corpus  (Cochran, 2026; Jain et al., 2025)|
+| Population | Classroom or curriculum QA is the best-fit target setting  (Jain et al., 2025; Li et al., 2025)|
+| Intervention | **Wiki/graph memory** built at ingest time and browsed at question time  (Cochran, 2026; Peng et al., 2024)|
+| Control | **Vector RAG** over the same source documents  (Jain et al., 2025; Cochran, 2026)|
+| Primary Endpoint | Score **accuracy, synthesis, claim-citation alignment, and cost separately**  (Cochran, 2026; Lyu et al., 2024)|
+| Key Result | No single architecture wins every dimension  (Cochran, 2026)|
+| Effect Size | Vector RAG wins **single-fact lookup**; wiki helps **cross-paper synthesis**  (Cochran, 2026)|
+| Follow-up Duration | Add a **knowledge-shift test** with altered textbooks or revised wiki pages  (Jain et al., 2025; Hou et al., 2024)|
+| Limitations | Results depend heavily on corpus structure, retrieval relevance, and evaluation design  (Zhou et al., 2025; Li et al., 2024)|
+
+**Figure 1:** Compact design for RAG versus wiki comparison
+
+## Recommended Design
+
+- **Core setup:** Use one fixed course corpus, then build two indexes from it: chunked vector RAG and a compiled wiki or graph wiki  (Cochran, 2026; Jain et al., 2025; Peng et al., 2024).
+- **Fair control:** Keep the answer-generating LLM, prompts, and question set identical across arms  (Cochran, 2026).
+- **Question mix:** Include fact lookup, multi-hop concept linking, thematic explanation, contradiction handling, and curriculum-update questions  (Jain et al., 2025; Hou et al., 2024; Amamou et al., 2025).
+- **Metrics:** Evaluate answer accuracy, student or teacher preference, citation support, robustness to noisy retrieval, and token or latency cost  (Levonian et al., 2023; Cochran, 2026; Mansurova et al., 2024; Wada et al., 2025).
+
+## Expected Outcomes
+
+Vector RAG tends to do best on **quick fact retrieval** and lower-cost querying, especially when answers depend on well-localized text spans  (Jain et al., 2025; Cochran, 2026). Wiki or graph-style systems tend to help more on **structured synthesis**, relational queries, and pedagogically rich explanations, though they often cost more at ingest or query time  (Jain et al., 2025; Cochran, 2026; Zhou et al., 2025; Peng et al., 2024).
+
+The evidence is mixed enough that the strongest paper-design choice is not a winner-take-all test but a **multi-endpoint comparison**. That matters because some studies find graph methods outperform vanilla RAG on abstract or multi-hop QA, while others find graph-only structure is insufficient for document QA or that performance shifts with corpus form and noise  (Zhou et al., 2025; Li et al., 2024).
+
+## Best Paper Model
+
+The closest existing template is the **preregistered Vector RAG vs LLM-Compiled Wiki** study: same corpus, same questions, blinded judging, and separate reporting of synthesis quality, citation alignment, and cost  (Cochran, 2026). For an in-class version, combine that design with the education study that compares vector and graph RAG on 3,176 multi-subject questions and explicit knowledge-shift tests, because classroom deployment also needs curriculum alignment and resistance to outdated knowledge  (Jain et al., 2025).
+
+So yes, **an experiment that makes sense** is to compare RAG and Wiki on the same course materials with separate endpoints for factual accuracy, synthesis, citation support, update robustness, and cost. The literature suggests that this will likely show **trade-offs rather than a single winner**  (Cochran, 2026; Arthana et al., 2026; Li et al., 2025).
+ 
+_These search results were found and analyzed using Consensus, an AI-powered search engine for research. Try it at https://www.consensus.app. © 2026 Consensus NLP, Inc. Personal, non-commercial use only; redistribution requires copyright holders’ consent._
+ 
+## References
+ 
+Amamou, H., Gagnon, S., Davoust, A., & Avila, A. R. (2025). Towards Robust Retrieval-Augmented Generation Based on Knowledge Graph: A Comparative Analysis. *2025 IEEE International Conference on Systems, Man, and Cybernetics (SMC)*, 80-85. https://doi.org/10.1109/smc58881.2025.11343466
+ 
+Arthana, I. R. K., Gunantara, N., Sudarma, M., & Sukarsa, M. (2026). A Systematic Literature Review of Retrieval-Augmented Generation Implementation for Enhancing Large Language Models in Education. *Jurnal Nasional Pendidikan Teknik Informatika (JANAPATI)*. https://doi.org/10.23887/janapati.v15i1.112281
+ 
+Cochran, T. O. (2026). Vector RAG vs LLM-Compiled Wiki: A Preregistered Comparison on a Small Multi-Domain Research. *ArXiv, abs/2605.18490*. https://doi.org/10.48550/arxiv.2605.18490
+ 
+Hou, Y., Pascale, A., Carnerero-Cano, J., Tchrakian, T., Marinescu, R., Daly, E., Padhi, I., & Sattigeri, P. (2024). WikiContradict: A Benchmark for Evaluating LLMs on Real-World Knowledge Conflicts from Wikipedia. *ArXiv, abs/2406.13805*. https://doi.org/10.52202/079017-3481
+ 
+Jain, A., Cui, L., & Chen, S. (2025). Aligning LLMs for the Classroom with Knowledge-Based Retrieval: A Comparative RAG Study. *2025 IEEE International Conference on Teaching, Assessment, and Learning for Engineering (TALE)*, 1-8. https://doi.org/10.1109/tale66047.2025.11346682
+ 
+Levonian, Z., Li, C., Zhu, W., Gade, A., Henkel, O., Postle, M.-E., & Xing, W. (2023). Retrieval-augmented Generation to Improve Math Question-Answering: Trade-offs Between Groundedness and Human Preference. *ArXiv, abs/2310.03184*. https://doi.org/10.48550/arxiv.2310.03184
+ 
+Li, Z., Wang, Z., Wang, W., Hung, K., Xie, H., & Wang, F. (2025). Retrieval-augmented generation for educational application: A systematic survey. *Comput. Educ. Artif. Intell., 8*, 100417. https://doi.org/10.1016/j.caeai.2025.100417
+ 
+Li, X., Cao, Y., Y., & Sun, A. (2024). Long Context vs. RAG for LLMs: An Evaluation and Revisits. *ArXiv, abs/2501.01880*. https://doi.org/10.48550/arxiv.2501.01880
+ 
+Lyu, Y., Li, Z., Niu, S., Xiong, F., Tang, B., Wang, W., Wu, H., Liu, H., Xu, T., & Chen, E. (2024). CRUD-RAG: A Comprehensive Chinese Benchmark for Retrieval-Augmented Generation of Large Language Models. *ACM Transactions on Information Systems, 43*, 1 - 32. https://doi.org/10.1145/3701228
+ 
+Mansurova, A., Mansurova, A., & Nugumanova, A. (2024). QA-RAG: Exploring LLM Reliance on External Knowledge. *Big Data Cogn. Comput., 8*, 115. https://doi.org/10.3390/bdcc8090115
+ 
+Peng, B., Zhu, Y., Liu, Y., Bo, X., Shi, H., Hong, C., Zhang, Y., & Tang, S. (2024). Graph Retrieval-Augmented Generation: A Survey. *ACM Transactions on Information Systems, 44*, 1 - 52. https://doi.org/10.1145/3777378
+ 
+Wada, A., Tanaka, Y., Nishizawa, M., Yamamoto, A., Akashi, T., Hagiwara, A., Hayakawa, Y., Kikuta, J., Shimoji, K., Sano, K., Kamagata, K., Nakanishi, A., & Aoki, S. (2025). Retrieval-augmented generation elevates local LLM quality in radiology contrast media consultation. *NPJ Digital Medicine, 8*. https://doi.org/10.1038/s41746-025-01802-z
+ 
+Zhou, Y., Su, Y., Sun, Y., Wang, S., Wang, T., He, R., Zhang, Y., Liang, S., Liu, X., Y., & Fang, Y. (2025). In-depth Analysis of Graph-based RAG in a Unified Framework. *ArXiv, abs/2503.04338*. https://doi.org/10.48550/arxiv.2503.04338
+ 
+
+ 

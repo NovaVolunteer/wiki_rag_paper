@@ -1,0 +1,415 @@
+[
+  {
+    "id": 0,
+    "question": "Which two impurity measures does the DS-3021 decision tree lecture list for choosing classification splits, and which one is described as most common in practice?",
+    "question_type": "factual",
+    "source_page": "course/decision-trees.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 1,
+    "question": "What is the Python equivalent of R's `varImp(model)` for extracting variable importance from a fitted decision tree, and what extra care does the Python version require?",
+    "question_type": "factual",
+    "source_page": "course/decision-trees.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 2,
+    "question": "Roughly how many terminal nodes does the lecture say a tree of 6 levels has, and which hyperparameters are recommended to control that growth?",
+    "question_type": "factual",
+    "source_page": "course/decision-trees.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 3,
+    "question": "Why does recursive binary splitting lead to trees that are only locally optimal rather than globally optimal?",
+    "question_type": "conceptual",
+    "source_page": "course/decision-trees.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 4,
+    "question": "How does the greedy nature of decision tree fitting explain why small perturbations in the training data can produce a completely different tree?",
+    "question_type": "conceptual",
+    "source_page": "course/decision-trees.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 5,
+    "question": "How is information gain computed from entropy in the 'should you play outside?' example, and why are child entropies weighted?",
+    "question_type": "conceptual",
+    "source_page": "course/decision-trees.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 6,
+    "question": "Why is scaling unnecessary for decision trees but essential in the KNN lab \u2014 what is the underlying difference between the two algorithms?",
+    "question_type": "synthesis",
+    "source_page": "course/decision-trees.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 7,
+    "question": "The page says trees are biased toward dominant classes in imbalanced data. How does the ml-bias page's framing of class imbalance extend that concern beyond accuracy?",
+    "question_type": "synthesis",
+    "source_page": "course/decision-trees.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 8,
+    "question": "Comparing the R\u2192Python conversion tables for decision trees and KNN, what recurring pattern shows up in how R's `train()` maps onto scikit-learn?",
+    "question_type": "synthesis",
+    "source_page": "course/decision-trees.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 9,
+    "question": "What is the historical lineage from CART to C5.0, and which of those algorithms does sklearn's `DecisionTreeClassifier` implement?",
+    "question_type": "factual",
+    "source_page": "course/decision-trees.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 10,
+    "question": "How does the dating-app analogy in the slides map onto the four steps of the tree-building algorithm?",
+    "question_type": "conceptual",
+    "source_page": "course/decision-trees.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 11,
+    "question": "What does the DT_Class_Lab.ipynb ask students to predict, and what train/tune/test split does it use?",
+    "question_type": "factual",
+    "source_page": "course/decision-trees.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 12,
+    "question": "Why does instability motivate ensemble methods like Random Forest, and where would that topic live relative to this page?",
+    "question_type": "synthesis",
+    "source_page": "course/decision-trees.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 13,
+    "question": "This page was built from the 2022 slide deck even though 2021 and 2024-modified decks exist in the folder \u2014 how should I handle a discrepancy between this page and what was taught in a particular semester?",
+    "question_type": "currency",
+    "source_page": "course/decision-trees.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 14,
+    "question": "Is the regression-tree variant of CART covered anywhere in this wiki yet, and when is it taught in DS-3021?",
+    "question_type": "currency",
+    "source_page": "course/decision-trees.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 15,
+    "question": "Which scaling method does DS-3021 use for KNN preprocessing, and what sklearn class implements it?",
+    "question_type": "factual",
+    "source_page": "course/knn.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 16,
+    "question": "What range of k values does the chooseK() function test, and why are only odd values used?",
+    "question_type": "factual",
+    "source_page": "course/knn.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 17,
+    "question": "Why is feature scaling mandatory for KNN rather than just a nice-to-have?",
+    "question_type": "conceptual",
+    "source_page": "course/knn.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 18,
+    "question": "In the bank marketing example, what percentage of cases are positive, and why does that make raw accuracy a misleading metric?",
+    "question_type": "factual",
+    "source_page": "course/knn.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 19,
+    "question": "Why does the notebook flag k=1 as a teaching moment rather than just accepting it as the best model?",
+    "question_type": "conceptual",
+    "source_page": "course/knn.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 20,
+    "question": "How are the outer and inner loops of the nested cross-validation set up in the rewritten KNN code, and what does each one accomplish?",
+    "question_type": "factual",
+    "source_page": "course/knn.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 21,
+    "question": "How does nested cross-validation address the overfitting problem that the k=1 result hints at?",
+    "question_type": "conceptual",
+    "source_page": "course/knn.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 22,
+    "question": "Why does the R-to-Python conversion need two function calls (plot_confusion_matrix and classification_report) where R produced a single model print-out?",
+    "question_type": "conceptual",
+    "source_page": "course/knn.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 23,
+    "question": "How would you compute sensitivity and specificity manually in Python, and why aren't they built in?",
+    "question_type": "factual",
+    "source_page": "course/knn.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 24,
+    "question": "Since sklearn has no built-in variable importance for KNN, how does the course compute it instead?",
+    "question_type": "conceptual",
+    "source_page": "course/knn.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 25,
+    "question": "How do decision trees differ from KNN in terms of preprocessing requirements, and why does that difference exist?",
+    "question_type": "synthesis",
+    "source_page": "course/knn.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 26,
+    "question": "How do the confusion matrix concepts introduced in the KNN lecture feed into the fairness metrics discussed on the ML bias page?",
+    "question_type": "synthesis",
+    "source_page": "course/knn.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 27,
+    "question": "Nested CV appears in both KNN and decision tree hyperparameter tuning \u2014 what would a shared cross-validation concept page need to cover for both?",
+    "question_type": "synthesis",
+    "source_page": "course/knn.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 28,
+    "question": "What dataset does the Graduation Lab use, and what are students asked to do with it beyond fitting a basic KNN model?",
+    "question_type": "factual",
+    "source_page": "course/knn.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 29,
+    "question": "Which files document the current (rewritten) version of the KNN material, and how does that version differ from the 2024-10-29 lecture notebook?",
+    "question_type": "currency",
+    "source_page": "course/knn.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 30,
+    "question": "What is Tom Mitchell's 1980 definition of bias in machine learning, and why does the course start there?",
+    "question_type": "factual",
+    "source_page": "course/ml-bias.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 31,
+    "question": "Which three real-world case studies does the ML Bias and Fairness lecture use, and what went wrong in each?",
+    "question_type": "factual",
+    "source_page": "course/ml-bias.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 32,
+    "question": "How do you compute True Positive Rate and False Positive Rate from a confusion matrix as presented in Week 14?",
+    "question_type": "factual",
+    "source_page": "course/ml-bias.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 33,
+    "question": "Why does the course argue that bias is a requirement for learning rather than inherently a flaw?",
+    "question_type": "conceptual",
+    "source_page": "course/ml-bias.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 34,
+    "question": "What does the YouTube watch-time example illustrate about the difference between a model bug and a badly chosen objective?",
+    "question_type": "conceptual",
+    "source_page": "course/ml-bias.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 35,
+    "question": "Why is demographic parity considered a crude fairness metric compared with equality of odds?",
+    "question_type": "conceptual",
+    "source_page": "course/ml-bias.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 36,
+    "question": "How does Equal Opportunity differ from Equality of Odds, and when would you prefer the narrower metric?",
+    "question_type": "conceptual",
+    "source_page": "course/ml-bias.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 37,
+    "question": "Why do the slides walk through setting the classification threshold to 0 and to 100 before introducing ROC curves?",
+    "question_type": "conceptual",
+    "source_page": "course/ml-bias.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 38,
+    "question": "Why do some fairness approaches reweight variables before training instead of adjusting the decision threshold afterward?",
+    "question_type": "conceptual",
+    "source_page": "course/ml-bias.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 39,
+    "question": "How does the confusion matrix work from the kNN page's bank-marketing example support the fairness metrics introduced in Week 14?",
+    "question_type": "synthesis",
+    "source_page": "course/ml-bias.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 40,
+    "question": "Class imbalance is flagged on both the kNN and decision trees pages \u2014 why is it a fairness concern and not just an accuracy problem?",
+    "question_type": "synthesis",
+    "source_page": "course/ml-bias.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 41,
+    "question": "Using the Data Science Value Domain framing, where in the pipeline could Amazon's recruiting engine failure have been caught, and with what intervention?",
+    "question_type": "synthesis",
+    "source_page": "course/ml-bias.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 42,
+    "question": "If I want to run a fairness metric example myself, what materials does the wiki have and what is currently missing?",
+    "question_type": "currency",
+    "source_page": "course/ml-bias.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 43,
+    "question": "Which datasets and source files back the Week 14 ML bias material, and which one is referenced for the fairness exercise?",
+    "question_type": "factual",
+    "source_page": "course/ml-bias.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 44,
+    "question": "How does the link between cognitive bias / behavioral economics and training data explain the Google Cloud Natural Language API sentiment results?",
+    "question_type": "synthesis",
+    "source_page": "course/ml-bias.md",
+    "question_class": "topic-page"
+  },
+  {
+    "id": 120,
+    "question": "Why does the KNN lab insist on MinMax scaling while the Decision Tree lab explicitly tells students not to scale, and what property of each algorithm drives that difference?",
+    "question_type": "conceptual",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page"
+  },
+  {
+    "id": 121,
+    "question": "Trace how the confusion-matrix machinery introduced in the week 6 KNN lecture is reused in week 14 to define Equality of Odds and Equal Opportunity.",
+    "question_type": "synthesis",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page"
+  },
+  {
+    "id": 122,
+    "question": "Both the KNN and Decision Trees pages flag class imbalance. How does each page frame the problem differently, and how does the ML Bias page reframe imbalance as a fairness issue rather than just an accuracy issue?",
+    "question_type": "synthesis",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page"
+  },
+  {
+    "id": 123,
+    "question": "Which DS-3021 weeks' materials would a student need to review to understand why the Amazon recruiting and Google Natural Language bias examples happened, and what specific prerequisite concepts come from each of those earlier weeks?",
+    "question_type": "synthesis",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page"
+  },
+  {
+    "id": 124,
+    "question": "How does the sensitivity/specificity formula that the KNN page says Python doesn't provide built-in compare to the True Positive Rate formula given on the ML Bias page?",
+    "question_type": "factual",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page"
+  },
+  {
+    "id": 125,
+    "question": "Which Decision Trees slide deck is canonical, and how does the course/README curation policy explain why the other two decks aren't ingested?",
+    "question_type": "currency",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page"
+  },
+  {
+    "id": 126,
+    "question": "Cross-validation appears in both the KNN and Decision Trees pages. Describe the nested CV setup documented for KNN and the hyperparameter-search approach used for trees, and explain why the KNN page proposes a shared concept page.",
+    "question_type": "synthesis",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page"
+  },
+  {
+    "id": 127,
+    "question": "The pilot plan lists a question about the exact scikit-learn call for decision tree variable importance. Based on the topic pages, what is that call for trees, and how does the KNN page say variable importance must be obtained instead?",
+    "question_type": "factual",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page"
+  },
+  {
+    "id": 134,
+    "question": "Both the KNN and Decision Trees pages document R\u2192Python conversion tables. What single R function appears in both tables for missing-data inspection, and how do the two pages describe its Python replacement differently?",
+    "question_type": "factual",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page"
+  },
+  {
+    "id": 136,
+    "question": "The ML Bias page describes reweighting variables before training as an alternative to threshold adjustment. How does the imbalance advice on the Decision Trees page relate to that pre-processing intervention category?",
+    "question_type": "synthesis",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page"
+  },
+  {
+    "id": 138,
+    "question": "What is 'greedy' about decision tree splitting, and how does the Decision Trees lab's instruction not to scale data invoke that greediness as justification in contrast to the KNN lab?",
+    "question_type": "conceptual",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page"
+  },
+  {
+    "id": 141,
+    "question": "Reconstruct the DS-3021 week ordering implied across the course pages (including the not-yet-ingested weeks named), and explain which pedagogical dependencies run between them.",
+    "question_type": "synthesis",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page"
+  },
+  {
+    "id": 142,
+    "question": "Both KNN and Decision Trees pages describe hyperparameter tuning that risks overfitting. Compare the k=1 teaching moment on the KNN page with the max_depth/pruning discussion on the Decision Trees page.",
+    "question_type": "conceptual",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page"
+  },
+  {
+    "id": 144,
+    "question": "If a student asked 'is a decision tree or KNN better for interpretability and fairness auditing?', which claims from the Decision Trees page and which from the ML Bias page would you combine to answer?",
+    "question_type": "synthesis",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page"
+  }
+]

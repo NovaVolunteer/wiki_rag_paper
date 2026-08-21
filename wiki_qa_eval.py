@@ -39,6 +39,7 @@ load_dotenv()
 
 DEFAULT_MODEL = "claude-opus-5"
 DEFAULT_GRADE_MODEL = "gpt-5-mini"
+DEFAULT_ANTHROPIC_GRADE_MODEL = "claude-haiku-4-5"
 
 
 # --------------------------------------------------------------------------
@@ -66,6 +67,7 @@ class Question(BaseModel):
     question: str
     question_type: str
     source_page: str  # "(cross-page)" for synthesis questions spanning pages
+    question_class: str = ""  # "topic-page" / "cross-page" when a filtered set is used
 
 
 # --------------------------------------------------------------------------
@@ -188,12 +190,8 @@ def answer_question(client: Anthropic, model: str, effort: str, system_blocks: l
     return "".join(b.text for b in resp.content if b.type == "text").strip()
 
 
-def grade_answer(
-    openai_client: Any, model: str, context: str, question: Question, answer: str
-) -> GradedAnswer:
-    """Judge with a different provider than the one that answered, so the
-    model isn't grading its own homework."""
-    prompt = (
+def build_grade_prompt(context: str, question: Question, answer: str) -> str:
+    return (
         "You are grading an AI-generated answer against source material for accuracy.\n\n"
         f"SOURCE MATERIAL (the wiki):\n{context}\n\n"
         f"QUESTION: {question.question}\n\n"
@@ -205,20 +203,56 @@ def grade_answer(
         "4-5 = partially correct, or correct but poorly supported/cited\n"
         "2-3 = mostly incorrect or unsupported by the source material\n"
         "1 = wrong, fabricated, or contradicts the source material\n\n"
+        "Use the FULL range of the scale. "
         "Set `grounded` to true only if every claim in the answer traces back "
         "to something actually stated in the source material (no fabrication)."
     )
-    completion = openai_client.chat.completions.parse(
+
+
+def grade_answer(
+    judge_client: Any,
+    provider: str,
+    model: str,
+    context: str,
+    question: Question,
+    answer: str,
+) -> GradedAnswer:
+    """Judge with a different model than the one that answered, so the model
+    isn't grading its own homework.
+
+    provider="openai" is the original cross-provider design. provider="anthropic"
+    is a fallback for environments where the OpenAI API is unreachable; it uses a
+    different Anthropic model from the answerer, which is a weaker independence
+    guarantee and should be reported as such.
+    """
+    prompt = build_grade_prompt(context, question, answer)
+    if provider == "openai":
+        completion = judge_client.chat.completions.parse(
+            model=model,
+            messages=[{"role": "user", "content": prompt}],
+            response_format=GradedAnswer,
+        )
+        parsed = completion.choices[0].message.parsed
+        if parsed is None:
+            raise RuntimeError(
+                f"judge returned no parsed output "
+                f"(finish_reason={completion.choices[0].finish_reason}, "
+                f"refusal={completion.choices[0].message.refusal})"
+            )
+        return parsed
+    resp = judge_client.messages.parse(
         model=model,
+        max_tokens=1500,
         messages=[{"role": "user", "content": prompt}],
-        response_format=GradedAnswer,
+        output_format=GradedAnswer,
     )
-    return completion.choices[0].message.parsed
+    return resp.parsed_output
 
 
 def process_question(
     client: Anthropic,
-    openai_client: Any,
+    judge_client: Any,
+    judge_provider: str,
     answer_model: str,
     grade_model: str,
     effort: str,
@@ -232,6 +266,7 @@ def process_question(
         "question": question.question,
         "question_type": question.question_type,
         "source_page": question.source_page,
+        "question_class": question.question_class,
     }
     try:
         result["answer"] = answer_question(client, answer_model, effort, system_blocks, question)
@@ -242,7 +277,9 @@ def process_question(
 
     if do_grade:
         try:
-            graded = grade_answer(openai_client, grade_model, context, question, result["answer"])
+            graded = grade_answer(
+                judge_client, judge_provider, grade_model, context, question, result["answer"]
+            )
             result["score"] = graded.score
             result["grounded"] = graded.grounded
             result["rationale"] = graded.rationale
@@ -260,7 +297,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--wiki-dir", default="wiki", help="Path to the wiki directory (default: wiki)")
     parser.add_argument("--model", default=DEFAULT_MODEL, help=f"Model for question generation + answering (default: {DEFAULT_MODEL})")
-    parser.add_argument("--grade-model", default=DEFAULT_GRADE_MODEL, help=f"OpenAI model for grading (default: {DEFAULT_GRADE_MODEL})")
+    parser.add_argument("--grade-model", default=None, help=f"Judge model (default: {DEFAULT_GRADE_MODEL} for openai, {DEFAULT_ANTHROPIC_GRADE_MODEL} for anthropic)")
+    parser.add_argument("--judge-provider", default="openai", choices=["openai", "anthropic"], help="Which provider grades. 'openai' is the intended cross-provider design; 'anthropic' is a fallback for networks where the OpenAI API is unreachable (weaker independence -- report it).")
     parser.add_argument("--effort", default="medium", choices=["low", "medium", "high", "xhigh", "max"])
     parser.add_argument("--questions-per-page", type=int, default=15, help="Generated questions per wiki page (default: 15)")
     parser.add_argument("--cross-page-questions", type=int, default=25, help="Generated cross-page synthesis questions (default: 25)")
@@ -273,13 +311,25 @@ def main() -> None:
     args = parser.parse_args()
 
     do_grade = not args.no_grade
+    grade_model = args.grade_model or (
+        DEFAULT_GRADE_MODEL if args.judge_provider == "openai" else DEFAULT_ANTHROPIC_GRADE_MODEL
+    )
 
     client = Anthropic()
-    openai_client = None
+    judge_client = None
     if do_grade:
-        if OpenAI is None:
-            raise SystemExit("Grading needs the `openai` package: pip install openai (or pass --no-grade)")
-        openai_client = OpenAI()  # reads OPENAI_API_KEY
+        if args.judge_provider == "openai":
+            if OpenAI is None:
+                raise SystemExit("Grading needs the `openai` package: pip install openai (or pass --no-grade)")
+            judge_client = OpenAI()  # reads OPENAI_API_KEY
+        else:
+            judge_client = Anthropic()
+            if grade_model == args.model:
+                raise SystemExit(
+                    f"Judge model and answerer model are both {grade_model}: the model would be "
+                    "grading its own homework. Pass a different --grade-model."
+                )
+        print(f"Judge: {args.judge_provider}/{grade_model}  |  Answerer: anthropic/{args.model}", file=sys.stderr)
 
     wiki_dir = Path(args.wiki_dir)
     pages = load_wiki_pages(wiki_dir)
@@ -324,7 +374,8 @@ def main() -> None:
 
     def run_one(q: Question) -> dict:
         r = process_question(
-            client, openai_client, args.model, args.grade_model, args.effort, system_blocks, context, q, do_grade
+            client, judge_client, args.judge_provider, args.model, grade_model,
+            args.effort, system_blocks, context, q, do_grade
         )
         with write_lock:
             with jsonl_path.open("a", encoding="utf-8") as f:
@@ -346,7 +397,7 @@ def main() -> None:
     results.sort(key=lambda r: r["id"])
 
     csv_path = Path(f"{args.output}.csv")
-    fieldnames = ["id", "question_type", "source_page", "question", "answer", "score", "grounded", "rationale", "error"]
+    fieldnames = ["id", "question_type", "question_class", "source_page", "question", "answer", "score", "grounded", "rationale", "error"]
     with csv_path.open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
         writer.writeheader()

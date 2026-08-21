@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wiki arm — bootstrap error distributions</title>
+<style>
+  .viz-root {
+    color-scheme: light;
+    --surface-1:      #fcfcfb;
+    --page:           #f9f9f7;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --muted:          #898781;
+    --grid:           #e1e0d9;
+    --baseline:       #c3c2b7;
+    --series-1:       #2a78d6;
+    --border:         rgba(11,11,11,0.10);
+    --tip-bg:         #0b0b0b;
+    --tip-ink:        #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) .viz-root {
+      color-scheme: dark;
+      --surface-1:      #1a1a19;
+      --page:           #0d0d0d;
+      --text-primary:   #ffffff;
+      --text-secondary: #c3c2b7;
+      --muted:          #898781;
+      --grid:           #2c2c2a;
+      --baseline:       #383835;
+      --series-1:       #3987e5;
+      --border:         rgba(255,255,255,0.10);
+      --tip-bg:         #ffffff;
+      --tip-ink:        #0b0b0b;
+    }
+  }
+  :root[data-theme="dark"] .viz-root {
+    color-scheme: dark;
+    --surface-1:      #1a1a19;
+    --page:           #0d0d0d;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --muted:          #898781;
+    --grid:           #2c2c2a;
+    --baseline:       #383835;
+    --series-1:       #3987e5;
+    --border:         rgba(255,255,255,0.10);
+    --tip-bg:         #ffffff;
+    --tip-ink:        #0b0b0b;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--page); }
+  .viz-root {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--page);
+    color: var(--text-primary);
+    padding: 28px 22px 40px;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 19px; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .sub { font-size: 13px; color: var(--text-secondary); margin: 0 0 22px; line-height: 1.5; }
+  .panel {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px 14px;
+    margin-bottom: 16px;
+  }
+  .panel h2 { font-size: 14px; margin: 0 0 2px; }
+  .panel .cap { font-size: 12px; color: var(--text-secondary); margin: 0 0 14px; line-height: 1.45; }
+  svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .tick { font-size: 11px; fill: var(--muted); font-variant-numeric: tabular-nums; }
+  .cat  { font-size: 12px; fill: var(--text-primary); }
+  .val  { font-size: 11px; fill: var(--text-secondary); font-variant-numeric: tabular-nums; }
+  .note { font-size: 11px; fill: var(--muted); }
+  .gridline { stroke: var(--grid); stroke-width: 1; }
+  .axis { stroke: var(--baseline); stroke-width: 1; }
+  .zero { stroke: var(--baseline); stroke-width: 2; stroke-dasharray: 3 3; }
+  .hit  { fill: transparent; cursor: pointer; }
+  #tip {
+    position: fixed; pointer-events: none; opacity: 0;
+    background: var(--tip-bg); color: var(--tip-ink);
+    font-size: 12px; line-height: 1.45; padding: 8px 10px;
+    border-radius: 7px; max-width: 260px; z-index: 50;
+    transition: opacity .1s;
+  }
+  details { margin-top: 8px; }
+  summary { font-size: 12px; color: var(--text-secondary); cursor: pointer; }
+  table { border-collapse: collapse; font-size: 12px; margin-top: 10px; width: 100%; }
+  th, td { text-align: right; padding: 5px 9px; border-bottom: 1px solid var(--grid); font-variant-numeric: tabular-nums; }
+  th:first-child, td:first-child { text-align: left; font-variant-numeric: normal; }
+  th { color: var(--text-secondary); font-weight: 600; }
+  .foot { font-size: 11.5px; color: var(--text-secondary); line-height: 1.55; margin-top: 18px; }
+</style>
+</head>
+<body>
+<div class="viz-root">
+  <h1>Wiki arm — bootstrap error distributions</h1>
+  <p class="sub">
+    59 DS-3021 course questions, answered by <code>claude-opus-5</code> over the full wiki, graded 1–10 by
+    <code>claude-haiku-4-5</code>. Intervals are 95% BCa bootstrap, 20,000 resamples of the question set.
+    Resampling captures <strong>question-sampling error only</strong> — not judge or answerer stochasticity,
+    which need repeated runs.
+  </p>
+
+  <div class="panel">
+    <h2>The ceiling</h2>
+    <p class="cap">57 of 59 answers scored 9 or 10. The scale is bounded at 10, so there is no room above.</p>
+    <svg id="dist" viewBox="0 0 900 190" role="img" aria-label="Score distribution: 31 answers at 9, 26 at 10, one each at 6 and 8."></svg>
+  </div>
+
+  <div class="panel">
+    <h2>Mean score by question type</h2>
+    <p class="cap">Point = observed mean; bar = 95% BCa interval. Ordering runs factual → synthesis, the opposite of what H2 predicts.</p>
+    <svg id="means" viewBox="0 0 900 250" role="img" aria-label="Mean score by question type with 95% confidence intervals."></svg>
+  </div>
+
+  <div class="panel">
+    <h2>Pairwise differences in mean</h2>
+    <p class="cap">Bootstrap distribution of each contrast. An interval clearing the dashed zero line is a difference that survives question resampling — marked ✦ and labelled.</p>
+    <svg id="diffs" viewBox="0 0 900 300" role="img" aria-label="Pairwise differences between question types with confidence intervals."></svg>
+    <details>
+      <summary>Table view</summary>
+      <table id="tbl"><thead><tr><th>Contrast</th><th>Diff</th><th>95% CI</th><th>P(diff&gt;0)</th></tr></thead><tbody></tbody></table>
+    </details>
+  </div>
+
+  <p class="foot">
+    <strong>Reading this:</strong> the two intervals clearing zero say the factual-over-synthesis gap is not an artifact of
+    which questions were drawn. It says nothing about whether a different judge, or a re-run of the same answers, would
+    reproduce it — those are separate error terms this bootstrap does not touch.
+  </p>
+</div>
+<div id="tip" role="status"></div>
+
+<script>
+const DIST = [{s:6,n:1},{s:7,n:0},{s:8,n:1},{s:9,n:31},{s:10,n:26}];
+const MEANS = [
+  {k:"factual",    n:18, m:9.78, lo:9.56, hi:9.94},
+  {k:"currency",   n:5,  m:9.40, lo:9.00, hi:9.80},
+  {k:"conceptual", n:18, m:9.28, lo:8.61, hi:9.61},
+  {k:"synthesis",  n:18, m:9.06, lo:9.00, hi:9.28},
+];
+const DIFFS = [
+  {k:"factual − synthesis",    d:0.72, lo:0.50, hi:0.94, p:1.000, sig:true},
+  {k:"factual − conceptual",   d:0.50, lo:0.06, hi:1.06, p:0.981, sig:true},
+  {k:"factual − currency",     d:0.38, lo:-0.13, hi:0.83, p:0.935, sig:false},
+  {k:"currency − synthesis",   d:0.34, lo:-0.06, hi:0.80, p:0.918, sig:false},
+  {k:"conceptual − synthesis", d:0.22, lo:-0.28, hi:0.61, p:0.800, sig:false},
+  {k:"currency − conceptual",  d:0.12, lo:-0.47, hi:0.77, p:0.639, sig:false},
+];
+
+const NS = "http://www.w3.org/2000/svg";
+const el = (t, a={}) => { const n = document.createElementNS(NS, t);
+  for (const k in a) n.setAttribute(k, a[k]); return n; };
+const tip = document.getElementById("tip");
+function wire(node, html){
+  node.addEventListener("mousemove", e => {
+    tip.innerHTML = html; tip.style.opacity = 1;
+    const r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(e.clientX + 14, innerWidth - r.width - 10) + "px";
+    tip.style.top  = Math.max(e.clientY - r.height - 12, 8) + "px";
+  });
+  node.addEventListener("mouseleave", () => tip.style.opacity = 0);
+}
+
+/* ---------- Panel A: distribution ---------- */
+(function(){
+  const svg = document.getElementById("dist");
+  const L=52, R=24, T=14, B=34, W=900, H=190;
+  const pw = W-L-R, ph = H-T-B;
+  const max = 32, bw = pw/DIST.length;
+  for (let v=0; v<=30; v+=10){
+    const y = T+ph-(v/max)*ph;
+    svg.appendChild(el("line",{x1:L,x2:W-R,y1:y,y2:y,class:"gridline"}));
+    const t = el("text",{x:L-10,y:y+4,class:"tick","text-anchor":"end"}); t.textContent=v; svg.appendChild(t);
+  }
+  svg.appendChild(el("line",{x1:L,x2:W-R,y1:T+ph,y2:T+ph,class:"axis"}));
+  DIST.forEach((d,i)=>{
+    const x = L + i*bw + 2, w = bw-4;
+    const h = (d.n/max)*ph;
+    if (d.n>0){
+      const bar = el("path",{d:roundTop(x,T+ph-h,w,h,4), fill:"var(--series-1)"});
+      svg.appendChild(bar);
+      const lab = el("text",{x:x+w/2,y:T+ph-h-7,class:"val","text-anchor":"middle"});
+      lab.textContent = d.n; svg.appendChild(lab);
+    }
+    const t = el("text",{x:x+w/2,y:T+ph+20,class:"cat","text-anchor":"middle"}); t.textContent=d.s; svg.appendChild(t);
+    const hit = el("rect",{x:x,y:T,width:w,height:ph,class:"hit"});
+    wire(hit, `<b>Score ${d.s}</b><br>${d.n} of 59 answers (${(100*d.n/59).toFixed(0)}%)`);
+    svg.appendChild(hit);
+  });
+  const cap = el("text",{x:L+pw/2,y:H-2,class:"note","text-anchor":"middle"});
+  cap.textContent="judge score (1–10)"; svg.appendChild(cap);
+})();
+function roundTop(x,y,w,h,r){
+  r = Math.min(r,h);
+  return `M${x},${y+h} L${x},${y+r} Q${x},${y} ${x+r},${y} L${x+w-r},${y} Q${x+w},${y} ${x+w},${y+r} L${x+w},${y+h} Z`;
+}
+
+/* ---------- Panel B: means + CI ---------- */
+(function(){
+  const svg = document.getElementById("means");
+  const L=118, R=90, T=16, B=42, W=900, H=250;
+  const pw=W-L-R, ph=H-T-B;
+  const x0=8.5, x1=10, X = v => L + (v-x0)/(x1-x0)*pw;
+  for (let v=8.5; v<=10.001; v+=0.25){
+    svg.appendChild(el("line",{x1:X(v),x2:X(v),y1:T,y2:T+ph,class:"gridline"}));
+    const t=el("text",{x:X(v),y:T+ph+20,class:"tick","text-anchor":"middle"});
+    t.textContent=v.toFixed(2); svg.appendChild(t);
+  }
+  svg.appendChild(el("line",{x1:L,x2:L,y1:T,y2:T+ph,class:"axis"}));
+  const step = ph/MEANS.length;
+  MEANS.forEach((d,i)=>{
+    const y = T + step*(i+0.5);
+    svg.appendChild(el("line",{x1:X(d.lo),x2:X(d.hi),y1:y,y2:y,
+      stroke:"var(--series-1)","stroke-width":2,"stroke-linecap":"round"}));
+    [d.lo,d.hi].forEach(v=>svg.appendChild(el("line",{x1:X(v),x2:X(v),y1:y-5,y2:y+5,
+      stroke:"var(--series-1)","stroke-width":2,"stroke-linecap":"round"})));
+    svg.appendChild(el("circle",{cx:X(d.m),cy:y,r:5.5,fill:"var(--series-1)",
+      stroke:"var(--surface-1)","stroke-width":2}));
+    const c=el("text",{x:L-12,y:y+4,class:"cat","text-anchor":"end"});
+    c.textContent=`${d.k} (n=${d.n})`; svg.appendChild(c);
+    const v=el("text",{x:W-R+10,y:y+4,class:"val"});
+    v.textContent=`${d.m.toFixed(2)}  [${d.lo.toFixed(2)}, ${d.hi.toFixed(2)}]`; svg.appendChild(v);
+    const hit=el("rect",{x:L,y:y-step/2,width:pw,height:step,class:"hit"});
+    wire(hit,`<b>${d.k}</b><br>mean ${d.m.toFixed(2)} / 10 &nbsp;(n=${d.n})<br>95% BCa [${d.lo.toFixed(2)}, ${d.hi.toFixed(2)}]`);
+    svg.appendChild(hit);
+  });
+  const cap=el("text",{x:L+pw/2,y:H-6,class:"note","text-anchor":"middle"});
+  cap.textContent="mean judge score, 95% BCa interval"; svg.appendChild(cap);
+})();
+
+/* ---------- Panel C: contrasts ---------- */
+(function(){
+  const svg = document.getElementById("diffs");
+  const L=168, R=96, T=16, B=42, W=900, H=300;
+  const pw=W-L-R, ph=H-T-B;
+  const x0=-0.6, x1=1.2, X=v=>L+(v-x0)/(x1-x0)*pw;
+  for(let v=-0.5; v<=1.201; v+=0.25){
+    svg.appendChild(el("line",{x1:X(v),x2:X(v),y1:T,y2:T+ph,class:"gridline"}));
+    const t=el("text",{x:X(v),y:T+ph+20,class:"tick","text-anchor":"middle"});
+    t.textContent=(Math.round(v*100)/100).toFixed(2); svg.appendChild(t);
+  }
+  svg.appendChild(el("line",{x1:X(0),x2:X(0),y1:T,y2:T+ph,class:"zero"}));
+  const step=ph/DIFFS.length;
+  DIFFS.forEach((d,i)=>{
+    const y=T+step*(i+0.5);
+    svg.appendChild(el("line",{x1:X(d.lo),x2:X(d.hi),y1:y,y2:y,
+      stroke:"var(--series-1)","stroke-width":2,"stroke-linecap":"round",
+      opacity: d.sig?1:0.45}));
+    [d.lo,d.hi].forEach(v=>svg.appendChild(el("line",{x1:X(v),x2:X(v),y1:y-5,y2:y+5,
+      stroke:"var(--series-1)","stroke-width":2,"stroke-linecap":"round",opacity:d.sig?1:0.45})));
+    svg.appendChild(el("circle",{cx:X(d.d),cy:y,r:5.5,fill:"var(--series-1)",
+      stroke:"var(--surface-1)","stroke-width":2,opacity:d.sig?1:0.55}));
+    const c=el("text",{x:L-12,y:y+4,class:"cat","text-anchor":"end"});
+    c.textContent=(d.sig?"✦ ":"")+d.k; svg.appendChild(c);
+    const v=el("text",{x:W-R+10,y:y+4,class:"val"});
+    v.textContent=`${d.d>=0?"+":""}${d.d.toFixed(2)}${d.sig?"  excl. 0":""}`; svg.appendChild(v);
+    const hit=el("rect",{x:L,y:y-step/2,width:pw,height:step,class:"hit"});
+    wire(hit,`<b>${d.k}</b><br>difference ${d.d.toFixed(2)}<br>95% CI [${d.lo.toFixed(2)}, ${d.hi.toFixed(2)}]<br>P(diff&gt;0) = ${d.p.toFixed(3)}<br>${d.sig?"<b>Interval excludes zero</b>":"Interval spans zero"}`);
+    svg.appendChild(hit);
+  });
+  const cap=el("text",{x:L+pw/2,y:H-6,class:"note","text-anchor":"middle"});
+  cap.textContent="difference in mean score (points)"; svg.appendChild(cap);
+  const tb=document.querySelector("#tbl tbody");
+  DIFFS.forEach(d=>{
+    const tr=document.createElement("tr");
+    tr.innerHTML=`<td>${d.sig?"✦ ":""}${d.k}</td><td>${d.d.toFixed(2)}</td>`+
+      `<td>[${d.lo.toFixed(2)}, ${d.hi.toFixed(2)}]</td><td>${d.p.toFixed(3)}</td>`;
+    tb.appendChild(tr);
+  });
+})();
+</script>
+</body>
+</html>

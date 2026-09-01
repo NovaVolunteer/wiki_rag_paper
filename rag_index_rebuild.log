@@ -1,0 +1,6 @@
+Loaded 12 wiki pages.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (1837 > 512). Running this sequence through the model will result in indexing errors
+Chunked into 21 chunks (tokens: min 257, max 1500, total 23255).
+Embedding with sentence-transformers/all-mpnet-base-v2 ...
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|##########| 199/199 [00:00<00:00, 4414.54it/s]
+Upserted. Index now holds: 21 vectors

@@ -6,11 +6,15 @@ Each page here is a **topic/concept page** for one week of DS-3021: it synthesiz
 
 ## Pilot scope
 
-Three topics only, chosen for variety (technical/procedural, mathematical, discussion-based):
+Started with three topics chosen for variety (technical/procedural, mathematical, discussion-based), since expanded to seven as more DS-3021 weeks were ingested:
 
 - [[course/knn]] — K-Nearest Neighbors classification
 - [[course/decision-trees]] — CART decision trees
 - [[course/ml-bias]] — ML bias and fairness
+- [[course/ml-eval-metrics]] — confusion matrix, precision/recall/F1, ROC/AUC, log loss (week 7)
+- [[course/dt-regression]] — CART applied to a continuous target (week 9; extends [[course/decision-trees]])
+- [[course/kmeans-clustering]] — unsupervised clustering (week 10)
+- [[course/ensemble-methods]] — bagging and Random Forest (week 12; extends [[course/decision-trees]])
 
 See [[course/pilot-plan]] for how this pilot is meant to be evaluated against a plain-RAG baseline.
 

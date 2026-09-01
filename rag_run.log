@@ -1,0 +1,35 @@
+Loaded 8 wiki pages.
+Creating Pinecone index 'llm-wiki-rag' ...
+C:\Users\bw2zd\OneDrive - University of Virginia\llm-wiki-paper\.venv\Lib\site-packages\huggingface_hub\file_download.py:141: UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does not support them in C:\Users\bw2zd\.cache\huggingface\hub\models--sentence-transformers--all-mpnet-base-v2. Caching files will still work but in a degraded version that might require more space on your disk. This warning can be disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In order to activate developer mode, see this article: https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+  warnings.warn(message)
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (1774 > 512). Running this sequence through the model will result in indexing errors
+Chunked into 9 chunks (tokens: min 374, max 1500, total 8463).
+Embedding with sentence-transformers/all-mpnet-base-v2 ...
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|##########| 199/199 [00:00<00:00, 4309.45it/s]
+Upserted. Index now holds: 9 vectors
+Judge: openai/gpt-5-mini  |  Answerer: anthropic/claude-opus-5
+Loaded 59 questions from course_questions.json.
+Answering 59 questions (top-k=5, backend=pinecone) with 5 workers ...
+  10/59 done
+  20/59 done
+  30/59 done
+  40/59 done
+  50/59 done
+  59/59 done
+
+Wrote 59 results -> rag_course_eval_results.jsonl , rag_course_eval_results.csv
+
+--- Summary ---
+Graded: 59/59
+Average score: 9.59/10
+Grounded rate: 86%
+Source-page retrieval hit rate (topic-page qs): 93%
+Score distribution: {1: 0, 2: 0, 3: 2, 4: 0, 5: 0, 6: 0, 7: 1, 8: 2, 9: 3, 10: 51}
+
+Lowest-scoring questions:
+  [3] Which files document the current (rewritten) version of the KNN material, and how does that version differ from the 2024-10-29 lecture notebook?  (course/knn.md)
+  [3] How do you compute True Positive Rate and False Positive Rate from a confusion matrix as presented in Week 14?  (course/ml-bias.md)
+  [7] Reconstruct the DS-3021 week ordering implied across the course pages (including the not-yet-ingested weeks named), and explain which pedagogical dependencies run between them.  ((cross-page))
+  [8] This page was built from the 2022 slide deck even though 2021 and 2024-modified decks exist in the folder — how should I handle a discrepancy between this page and what was taught in a particular semester?  (course/decision-trees.md)
+  [8] Using the Data Science Value Domain framing, where in the pipeline could Amazon's recruiting engine failure have been caught, and with what intervention?  (course/ml-bias.md)

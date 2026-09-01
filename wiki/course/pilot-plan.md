@@ -4,7 +4,9 @@ The project goal (see the space's top-level instructions) is to test the wiki fr
 
 ## What's built so far
 
-Three topic pages ([[course/knn]], [[course/decision-trees]], [[course/ml-bias]]) synthesizing DS-3021's week 6, 8, and 14 materials. Chosen for variety: KNN is procedural/code-heavy, Decision Trees is mathematical, ML Bias is discussion/case-study-driven.
+The original three topic pages ([[course/knn]], [[course/decision-trees]], [[course/ml-bias]]) synthesizing DS-3021's week 6, 8, and 14 materials, chosen for variety: KNN is procedural/code-heavy, Decision Trees is mathematical, ML Bias is discussion/case-study-driven.
+
+Four more topics were bulk-ingested on 2026-08-31 as raw material for weeks 7, 9, 10, and 12 arrived: [[course/ml-eval-metrics]] (week 7 — confusion matrix, precision/recall/F1, ROC/AUC, log loss), [[course/dt-regression]] (week 9 — CART applied to a continuous target, extends [[course/decision-trees]]), [[course/kmeans-clustering]] (week 10 — the pilot's first unsupervised topic), and [[course/ensemble-methods]] (week 12 — bagging/Random Forest, extends [[course/decision-trees]]). This expansion is a second bulk-ingest pass, same as the original three-page pass — it doesn't yet test the incremental/compounding claim described below, which still rests on the classnotes/discussion-board intake folders.
 
 ## The comparison
 

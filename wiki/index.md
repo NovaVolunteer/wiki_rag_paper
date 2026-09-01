@@ -41,3 +41,7 @@ Separate domain testing the wiki pattern as a course-delivery format — see [[c
 - [[course/knn]]
 - [[course/decision-trees]]
 - [[course/ml-bias]]
+- [[course/ml-eval-metrics]]
+- [[course/dt-regression]]
+- [[course/kmeans-clustering]]
+- [[course/ensemble-methods]]

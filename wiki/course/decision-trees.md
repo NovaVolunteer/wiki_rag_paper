@@ -1,6 +1,6 @@
 # Decision Trees (CART)
 
-Week 8 of DS-3021 (classification trees; week 9 covers the regression-tree variant and isn't ingested yet — see Related topics below). A hierarchical model: ask a sequence of yes/no questions about the data, each one chosen to maximize information gain, until a stopping criterion is met.
+Week 8 of DS-3021 (classification trees; week 9 covers the regression-tree variant — see [[course/dt-regression]]). A hierarchical model: ask a sequence of yes/no questions about the data, each one chosen to maximize information gain, until a stopping criterion is met.
 
 ⚠️ **Version note:** this folder had three different years' slide decks for the same lecture (2021, 2022, 2024-modified). This page is built from the most recently taught version (`2022-10-20-decision-trees-slides-current.pptx`, last edited 2026). The older decks weren't ingested — if something here looks inconsistent with what was actually taught in a given semester, check which deck was used that year.
 
@@ -14,7 +14,7 @@ Key structural vocabulary: **root node** (no incoming edges), **internal nodes**
 
 Decision trees use **recursive binary splitting**: considering every possible partition of the data is computationally infeasible, so at each step the tree picks the locally best split without looking ahead to whether a different split now would lead to a better tree later. This greediness is the source of two of the model's main weaknesses (both noted explicitly in the slides):
 
-- **Instability** — small changes in the training data can produce a completely different tree. This is the direct motivation for ensembles like Random Forest, which train many trees on resampled data and average them out — a natural next page once that topic is ingested.
+- **Instability** — small changes in the training data can produce a completely different tree. This is the direct motivation for ensembles like Random Forest, which train many trees on resampled data and average them out — see [[course/ensemble-methods]].
 - **No global optimality guarantee** — same fix (ensembling).
 
 The other major failure mode is **overfitting**: an unconstrained tree keeps splitting until nodes contain very few points (leaf nodes roughly double with each added depth level — 6 levels ≈ 64 terminal nodes), which is controlled with `max_depth`, minimum leaf size, or pruning.
@@ -55,7 +55,9 @@ Same conversion-in-progress pattern as [[course/knn]]:
 
 - [[course/knn]] — contrasting non-distance-based vs. distance-based approach to classification; scaling required there, not here
 - [[course/ml-bias]] — class imbalance and evaluation metrics apply to trees the same way they do to any classifier
-- *(not yet ingested)* Decision Tree Regression (week 9, same course) and Random Forest / Ensembles (week 12) — both are direct extensions of what's on this page and are natural next pages
+- [[course/ml-eval-metrics]] — the metrics used to evaluate a tree's predictions (confusion matrix, precision/recall/F1, ROC/AUC)
+- [[course/dt-regression]] — the same CART algorithm applied to a continuous target (week 9); covers only what's different from this page
+- [[course/ensemble-methods]] — Random Forest, the direct fix for the instability/no-global-optimality weaknesses noted above (week 12)
 
 ## Sources
 

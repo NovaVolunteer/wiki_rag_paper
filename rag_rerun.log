@@ -1,0 +1,27 @@
+Loaded 12 wiki pages.
+Judge: openai/gpt-5-mini  |  Answerer: anthropic/claude-opus-5
+Loaded 59 questions from course_questions.json.
+Answering 59 questions (top-k=5, backend=pinecone) with 5 workers ...
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|##########| 199/199 [00:00<00:00, 5615.77it/s]
+  10/59 done
+  20/59 done
+  30/59 done
+  40/59 done
+  50/59 done
+  59/59 done
+
+Wrote 59 results -> rag_course_eval_results.jsonl , rag_course_eval_results.csv
+
+--- Summary ---
+Graded: 59/59
+Average score: 9.05/10
+Grounded rate: 81%
+Source-page retrieval hit rate (topic-page qs): 96%
+Score distribution: {1: 0, 2: 0, 3: 3, 4: 2, 5: 2, 6: 1, 7: 1, 8: 0, 9: 6, 10: 44}
+
+Lowest-scoring questions:
+  [3] What are the pre-processing, in-processing, and post-processing interventions described in the companion Value_1.pptx deck?  (course/ml-bias.md)
+  [3] Across KNN, decision trees, evaluation metrics, decision-tree regression, and ensembles, the wiki repeatedly documents an R\u2192Python conversion pattern. Give three concrete examples where one R function call maps to multiple Python calls, drawn from at least three different pages.  ((cross-page))
+  [3] Several pages carry version or currency warnings — multiple slide decks, superseded PDFs, incomplete code stubs, or repo-vs-local lab differences. List these caveats and identify which pages they appear on.  ((cross-page))
+  [4] What Python calls replace R's confusionMatrix() and the ROCR prediction()/performance() pair, and why does the conversion table list several Python functions for one R function?  (course/ml-eval-metrics.md)
+  [4] Which slide deck version is treated as canonical for this topic, and what content does it add over the 2021 PDF?  (course/kmeans-clustering.md)

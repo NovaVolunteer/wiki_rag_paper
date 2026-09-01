@@ -1,0 +1,187 @@
+\documentclass[letterpaper]{article} % DO NOT CHANGE THIS
+\usepackage[submission]{aaai2027}  % DO NOT CHANGE THIS
+\usepackage[hyphens]{url}  % DO NOT CHANGE THIS
+\usepackage{graphicx} % DO NOT CHANGE THIS
+\urlstyle{rm} % DO NOT CHANGE THIS
+\def\UrlFont{\rm}  % DO NOT CHANGE THIS
+\usepackage{natbib}  % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\usepackage{caption} % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\frenchspacing  % DO NOT CHANGE THIS
+\usepackage{booktabs}
+\pdfinfo{
+/TemplateVersion (2027.1)
+}
+
+\setcounter{secnumdepth}{2}
+
+\title{LLM-Compiled Wiki vs.\ Vector RAG for Classroom Question Answering}
+\author{Anonymous Submission}
+\affiliations{Draft --- Sections 1--5}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Large language models (LLMs) are increasingly deployed as course-specific tutors, but their usefulness depends on being grounded in vetted instructional materials. Our prior work built a multimodal retrieval-augmented generation (RAG) system over an authentic data science course corpus (DS3001) and found that retrieval improved contextual grounding, but that fixed retrieval strategies were suboptimal: performance depended sharply on question specificity and on how text and image context were composed. That result motivates a different question---whether \emph{how} a corpus is structured at ingest time matters more than \emph{how much} is retrieved at query time. We present a controlled head-to-head comparison of two knowledge representations over an identical classroom corpus: (A) vector RAG, replicating the best-performing configuration from our prior study, and (B) an LLM-compiled wiki, in which the corpus is synthesized at ingest into linked concept pages with explicit cross-references and citations back to source materials, which the model navigates at question time. Generator LLM, prompts, context budget, and question set are held constant; only the representation differs. We extend our prior 30-question generic/specific set into a five-part taxonomy spanning single-fact lookup, multi-hop concept linking, thematic synthesis, contradiction handling, and curriculum-update questions, and evaluate with RAGAS metrics alongside new endpoints for claim--citation alignment, blinded synthesis quality, robustness to curriculum revision, and cost. We hypothesize trade-offs rather than a single winner: vector RAG favored for fact lookup and cost, the wiki for multi-hop reasoning, synthesis, and provenance.
+\end{abstract}
+
+\section{Introduction}
+
+\subsection{Motivation}
+
+Large language models are rapidly being adopted as course-specific tutoring tools. Left ungrounded, however, a general-purpose LLM answers from parametric knowledge that may conflict with how a particular course defines, sequences, or scopes its content; effective educational deployment therefore requires grounding responses in vetted course materials so that answers align with the local curriculum and instructional level \citep{li2025retrieval,jain2025aligning}.
+
+Retrieval-augmented generation (RAG) is the standard mechanism for such grounding \citep{lewis2020retrieval}. In our prior work, we built a multimodal RAG system over authentic materials from a data science course (DS3001)---lecture slides, lecture audio transcripts, and course readings---and found that retrieval substantially improved contextual grounding \citep{wright2026multimodal}. But the same study surfaced a more troubling result: \emph{fixed retrieval strategies are suboptimal}. Performance depended sharply on question specificity and on how the context window was composed. Swapping retrieved text for top-ranked images achieved perfect context recall on specific questions under a five-text, five-image configuration, yet the same strategy degraded faithfulness and factual correctness on generic questions. No single retrieval configuration served all question types well.
+
+This finding reframes the design problem. Vector RAG makes its structural commitments at query time: it retrieves isolated, similarity-ranked chunks and asks the generator to assemble them into a coherent answer. An alternative is to make those commitments at \emph{ingest} time---compiling the corpus into a structured, linked wiki of concept pages, with explicit cross-references and citations back to the raw source materials, which the model then navigates when answering. This ``LLM-compiled wiki'' approach trades query-time chunk retrieval for curated synthesis, explicit concept links, and built-in provenance. If how context is structured and selected matters more than how much is retrieved, then the representation itself---not the retrieval policy---may be the more consequential design choice.
+
+\subsection{The Gap}
+
+Head-to-head comparisons of compiled wikis against vector RAG are beginning to appear: \citet{cochran2026vector} preregistered such a comparison on a small multi-domain research corpus, finding that vector RAG won on single-fact lookup while the wiki won on cross-paper synthesis, with no architecture dominating every endpoint. But no such comparison exists in an educational setting with authentic classroom data, where the corpus is multimodal, the question distribution is pedagogically shaped, and alignment with vetted materials matters as much as raw correctness \citep{jain2025aligning}. Meanwhile, the graph- and structure-augmented retrieval literature suggests that structure helps multi-hop and relational questions but can hurt simple fact lookup \citep{peng2024graph,zhou2025indepth,aboulela2025exploring}---a trade-off that remains untested on course corpora.
+
+\subsection{Research Questions}
+
+We ask three questions. \textbf{RQ1:} Does an LLM-compiled wiki improve response quality over vector RAG on classroom question answering, holding the generator LLM, corpus, and question set constant? \textbf{RQ2:} How do gains vary by question type---single-fact lookup vs.\ multi-hop concept linking vs.\ synthesis and explanation---extending the generic/specific split of our prior study into a finer taxonomy? \textbf{RQ3:} What are the trade-offs in citation support, robustness to curriculum updates, and ingest/query cost?
+
+\subsection{Contributions}
+
+This paper makes three contributions: (1) the first wiki-vs-RAG comparison on an authentic multimodal course corpus (DS3001); (2) a question taxonomy and evaluation protocol extending our prior 30-question generic/specific set to five question types with multi-endpoint measurement; and (3) empirical evidence on when structure-at-ingest beats retrieval-at-query for educational LLM deployment.
+
+\section{Background}
+
+\subsection{Retrieval-Augmented Generation}
+
+RAG conditions a generator on documents retrieved from an external corpus, originally formulated for knowledge-intensive NLP tasks \citep{lewis2020retrieval}. It is now widely framed as a practical reliability layer: grounding outputs in external evidence, reducing hallucination, and enabling knowledge updates without retraining \citep{peng2024graph,neha2025retrieval,li2024enhancing}. Domain results can be striking---a clinical GPT-4 RAG system reached 96.4\% accuracy with no observed hallucinations \citep{ke2025retrieval}, and the MEGA-RAG pipeline outperformed both LLM-only and standard RAG baselines in public health question answering \citep{xu2025megarag}. Yet the gains are contingent: systematic reviews and unified-framework analyses consistently find that RAG's benefit depends on retrieval relevance, task type, and evaluation design \citep{zhou2025indepth,brown2025systematic}. These contingencies are precisely what our prior study observed at the level of retrieval configuration, and they motivate treating the knowledge representation as an experimental variable in its own right.
+
+\subsection{Structured and Graph-Based Retrieval}
+
+Graph-enhanced RAG augments or replaces chunk retrieval with explicit entity and relation structure, supporting multi-hop reasoning and improving explainability \citep{peng2024graph,zhu2025graphsurvey}. The empirical evidence, however, is mixed in an instructive way. KG\textsuperscript{2}RAG improves answer and retrieval F1 on HotpotQA over hybrid RAG baselines \citep{zhu2025kg2rag}; knowledge-graph-extended RAG improves multi-hop MetaQA accuracy at the cost of a slight single-hop degradation \citep{linders2025knowledge}; and graph RAG has been found to \emph{underperform} na\"ive RAG on SQuAD-V2 and TriviaQA even while handling complex relational queries better \citep{aboulela2025exploring}. The recurring pattern---structure helps composition, hurts lookup---is the central trade-off our design tests in the classroom setting.
+
+LLM-compiled wikis are a distinct point in this design space: rather than extracting a graph over the original chunks, the corpus is rewritten at ingest into human-readable, linked concept pages with citations to source material. In the only controlled comparison to date, \citet{cochran2026vector} found vector RAG better at single-fact lookup and the wiki better at cross-paper synthesis, with no single architecture winning every dimension.
+
+\subsection{RAG in Education}
+
+Education-specific work adds a constraint that generic benchmarks miss: retrieval should align to vetted course materials and the local curriculum, not merely to generally correct information \citep{li2025retrieval,jain2025aligning}. The relationship between grounding and quality is also non-monotonic---in math tutoring, humans preferred RAG-grounded responses \emph{unless} grounding became so rigid that helpfulness suffered \citep{levonian2023retrieval}. On the structured side, an educational knowledge-graph plus agentic-RAG system achieved 91.4\% retrieval accuracy with improved learner satisfaction \citep{gao2025karag}, and hybrid RAG with in-context learning outperformed baselines for educational question generation \citep{maity2024leveraging}. Together these results suggest structure has pedagogical value, but no study has isolated the representation itself on an authentic course corpus.
+
+\subsection{Prior Work: Multimodal RAG on DS3001}
+
+This study extends our prior evaluation of multimodal retrieval over DS3001 course data \citep{wright2026multimodal}. That work showed that multimodal retrieval improved context recall, and that selectively replacing retrieved text with top-ranked images helped specific questions---reaching perfect context recall at five text plus five image chunks---while hurting faithfulness and factual correctness on generic questions. The takeaway that motivates the present study is that \emph{how context is structured and selected matters more than how much is retrieved}. If context composition dominates context volume, the natural next experiment compares an ingest-time structured representation against query-time chunk retrieval under matched budgets.
+
+\subsection{Evaluating RAG Systems}
+
+Lexical overlap metrics such as BLEU and ROUGE are unstable under LLM output stochasticity, motivating LLM-as-judge and embedding-based evaluation \citep{lyu2024crudrag}. We retain the RAGAS framework \citep{ragas2023} used in our prior paper for continuity, and follow the multi-endpoint reporting of \citet{cochran2026vector}---scoring accuracy, synthesis quality, citation alignment, and cost separately---to avoid winner-take-all conclusions that single aggregate scores invite \citep{lyu2024crudrag}.
+
+\section{Study Design}
+
+\subsection{Overview}
+
+We run a controlled head-to-head comparison: same corpus, same base LLM, same prompts, same question set; only the knowledge representation differs. The design is modeled on the preregistered comparison of \citet{cochran2026vector}, combined with the classroom-focused evaluation approach of \citet{jain2025aligning}, including its knowledge-shift testing.
+
+\subsection{Corpus}
+
+The corpus comprises the DS3001/DS-3021 course materials used in our prior study: lecture slides (text and images), lecture audio transcripts, and assigned ML papers and textbook excerpts. We reuse the prior extraction pipeline unchanged, so that differences between arms cannot be attributed to preprocessing.
+
+\subsection{Conditions}
+
+\textbf{Arm A --- Vector RAG (control).} A replication of our prior pipeline: text chunked at 1{,}500 tokens with 100-token overlap, embedded with all-mpnet-base-v2, indexed in Pinecone. The best-performing configuration from the prior study serves as the baseline, making Arm A a strong rather than straw-man control.
+
+\textbf{Arm B --- LLM-compiled wiki.} The same corpus is compiled at ingest into a linked wiki (a \texttt{raw/} + \texttt{wiki/} structure): concept pages synthesized by an LLM, cross-links between related pages, and citations from every page back to the raw source materials. At query time the generator navigates and reads relevant pages rather than receiving similarity-ranked chunks.
+
+A hybrid arm (wiki navigation plus vector retrieval) is deferred to future work; this study is a clean two-arm comparison. Held constant across arms: generator LLM, system prompt, context token budget, question set, and decoding parameters. Matching the context budget matters because the wiki condition otherwise risks conflating representation with context volume---an LLM handed an entire compiled corpus is tested on reading comprehension, not on the representation.
+
+\subsection{Question Set}
+
+We extend the prior 30-question generic/specific set into a five-part taxonomy: (a) single-fact lookup, (b) multi-hop concept linking, (c) thematic explanation and synthesis, (d) contradiction and ambiguity handling \citep{hou2024wikicontradict}, and (e) curriculum-update questions probing sensitivity to revised materials. Questions are human-generated with reference answers and word limits, as before, and balanced across course topics.
+
+\subsection{Metrics}
+
+For continuity with the prior paper we retain the RAGAS core metrics: context recall, faithfulness, and factual correctness \citep{ragas2023}. We add four endpoint families: claim--citation alignment (does each claim trace to a cited source?); answer synthesis quality via blinded LLM-judge scoring with a human rubric; robustness under knowledge shift, following \citet{jain2025aligning} and \citet{hou2024wikicontradict}; and cost, measured as ingest compute, query tokens, and latency.
+
+\subsection{Procedure}
+
+Both indexes are built from a frozen corpus snapshot. All questions are run through each arm; metric stability is estimated by bootstrapped sampling (10 rounds, as in the prior paper), separating question-sampling error from answerer and judge stochasticity. Synthesis and preference endpoints use blinded judging with arm labels hidden. In the knowledge-shift phase, a subset of source materials is revised, both arms are re-ingested, and affected questions are re-asked to measure staleness and update cost.
+
+\subsection{Hypotheses}
+
+We preregister four hypotheses. \textbf{H1:} vector RAG performs at least as well as the wiki on single-fact lookup, at lower cost. \textbf{H2:} the wiki outperforms vector RAG on multi-hop and synthesis questions. \textbf{H3:} the wiki provides better claim--citation alignment and provenance. \textbf{H4:} across endpoints the outcome is a set of trade-offs rather than a single winner, consistent with \citet{cochran2026vector}.
+
+\section{Preliminary Results}
+
+Before running the full multimodal, RAGAS-scored protocol described in Section 3 on the complete DS3001 corpus, we ran a smaller two-arm pilot to validate the pipeline end-to-end and get a first directional read on H1--H2. This section reports that pilot. It is scoped down from the full design in ways we flag explicitly in Section 4.5: text-only rather than multimodal, scored with a single LLM-judge rating rather than the RAGAS triad, and run once rather than bootstrapped. We report it because the pattern it surfaces is already informative, not because it settles RQ1--RQ3.
+
+\subsection{Pilot Corpus and Question Set}
+
+The pilot corpus is the subset of DS-3021 currently compiled into the wiki: 12 pages, 7 of them course concept pages (K-Nearest Neighbors, Decision Trees, Model Evaluation Metrics, Decision Tree Regression, K-Means Clustering, Ensemble Methods/Random Forest, and ML Bias \& Fairness) and 5 navigational/meta pages (index, getting-started, status, and two course-level overview pages). For Arm A, this corpus chunks into 21 vectors at the prior study's configuration (1{,}500 tokens, 100-token overlap, all-mpnet-base-v2, top-$k=5$)---small enough that retrieval failure is possible but not guaranteed, unlike an earlier 9-vector version of this pilot (3 topics only) where top-$k=5$ covered more than half the index on every query and could not meaningfully fail.
+
+The question set holds at 59 questions, split 45 topic-page (questions answerable from a single concept page, 6--7 per topic) and 14 cross-page (requiring synthesis across two or more topics)---a coarser stand-in for the single-fact-lookup/multi-hop-and-synthesis distinction in the five-part taxonomy of Section 3.3, not yet the full taxonomy itself.
+
+\subsection{Setup}
+
+Both arms use the same answerer (\texttt{claude-opus-5}) and the same judge (\texttt{gpt-5-mini}, a different provider from the answerer so the model is not grading its own output), matching Section 3.2's requirement that the generator be held constant across arms. In place of the RAGAS triad, the judge here returns a single 1--10 correctness score plus a binary groundedness flag (whether every claim in the answer traces to the material the answerer actually saw)---a lightweight proxy for RAGAS factual correctness and faithfulness respectively, not a substitute for them. The judge grades against the full wiki in both arms, so only the answerer's context---full wiki (Arm B) versus top-$k$ retrieved chunks (Arm A)---differs between conditions.
+
+\subsection{Headline Results}
+
+\begin{table}[t]
+\centering
+\begin{tabular}{lcc}
+\toprule
+ & Arm A (RAG) & Arm B (Wiki) \\
+\midrule
+Avg.\ score (1--10) & 9.05 & \textbf{9.95} \\
+Grounded rate & 81\% & \textbf{98\%} \\
+\bottomrule
+\end{tabular}
+\caption{Pilot headline results, 59 questions, both arms graded 59/59 with zero errors.}
+\label{tab:pilot-headline}
+\end{table}
+
+Table~\ref{tab:pilot-headline} shows the wiki ahead of vector RAG on both measures at this scale, with the larger gap in groundedness (17 points) than in raw score (0.9 points)---consistent with the qualitative pattern that RAG can produce a fluent, plausible-sounding answer that leans on knowledge outside what it actually retrieved.
+
+\begin{table}[t]
+\centering
+\begin{tabular}{lcccc}
+\toprule
+ & \multicolumn{2}{c}{Arm A (RAG)} & \multicolumn{2}{c}{Arm B (Wiki)} \\
+ & Score & Grounded & Score & Grounded \\
+\midrule
+Topic-page ($n{=}45$) & 9.33 & 87\% & 9.96 & 98\% \\
+Cross-page ($n{=}14$) & 8.14 & 64\% & 9.93 & 100\% \\
+\bottomrule
+\end{tabular}
+\caption{Results split by question class. The wiki's advantage over RAG is roughly three times larger on cross-page questions than on topic-page questions, in both score and groundedness.}
+\label{tab:pilot-byclass}
+\end{table}
+
+Table~\ref{tab:pilot-byclass} is the more informative result: splitting by question class reproduces, directionally, the pattern \citet{cochran2026vector} report on their research-paper corpus---RAG is closer to competitive on single-topic questions and falls further behind on synthesis. Full-context answering (Arm B) is nearly indifferent to question class (9.96 vs.\ 9.93 score, 98\% vs.\ 100\% grounded); vector RAG is not (9.33 vs.\ 8.14 score, an 0.63-point gap on topic-page widening to 1.79 on cross-page; 87\% vs.\ 64\% grounded).
+
+\subsection{Where Vector RAG Lost Ground}
+
+Retrieval itself was largely successful: 43 of 45 topic-page questions (96\%) retrieved a chunk from the question's actual source page in the top-5. The two misses both pulled in short navigational pages (index, getting-started, status, course overview) instead of the target concept page, on questions about ML Bias interventions and about which k-means slide deck is canonical---both scored low (3 and 4) and were marked ungrounded, as expected when the answerer never saw the relevant material.
+
+More striking is that retrieval failure explains only 2 of the 11 ungrounded Arm A answers. The other 9 retrieved the correct page (or, for cross-page questions, relevant chunks from more than one page) and were \emph{still} marked ungrounded---the answerer added unsupported detail even with the right excerpts in context. This suggests chunked context invites fabrication in a way full-document context does not, independent of whether retrieval itself succeeded, and is worth isolating explicitly once the full RAGAS faithfulness metric is in place.
+
+\subsection{Relation to the Preregistered Hypotheses}
+
+This pilot speaks only partially to H1--H4. \textbf{H1} (RAG competitive on single-fact lookup, at lower cost) is partially supported on quality---Arm A's topic-page score (9.33) is within a point of Arm B's---but we have not yet measured the cost side of H1 in this pilot. \textbf{H2} (wiki outperforms on multi-hop/synthesis) is directionally supported: the wiki's advantage on cross-page questions is roughly three times its advantage on topic-page questions. \textbf{H3} (citation/provenance) is untested here; our binary groundedness flag is a coarser instrument than the claim--citation alignment endpoint in Section 3.5. \textbf{H4} (trade-offs rather than one architecture dominating) is not yet supported in this pilot specifically---the wiki led on both question classes at this corpus scale---though whether that holds at full DS3001 scale, with cost and citation endpoints included, remains open.
+
+\subsection{Limitations of This Pilot}
+
+This pilot differs from the design in Section 3 in ways that bound how much weight its results should carry: (1) the corpus is text-only and roughly an order of magnitude smaller than the full multimodal DS3001 corpus targeted by the study design; (2) scoring uses a single LLM-judge rating and a binary groundedness flag rather than the full RAGAS context-recall/faithfulness/factual-correctness triad; (3) each arm was run once rather than bootstrapped, so we cannot yet separate question-sampling error from judge stochasticity; (4) judging was not blinded to arm; (5) cost (ingest compute, query tokens, latency) was not measured; and (6) the knowledge-shift/curriculum-revision phase has not been run. We report this pilot as evidence the pipeline works end-to-end and as a directional signal worth following up, not as a substitute for the full protocol.
+
+\section{Discussion}
+
+\textit{[Placeholder --- to be written once the full multimodal, RAGAS-scored run on the complete DS3001 corpus is in. Points to cover:]}
+
+\begin{itemize}
+    \item \textbf{RQ1/RQ2 verdict.} Does the full run confirm the pilot's directional pattern (Section 4.4) --- wiki ahead on both classes but by a much larger margin on cross-page/synthesis --- or does the gap close (or reverse) once Arm A gets a larger, more realistic index where top-$k$ retrieval is a smaller fraction of the corpus?
+    \item \textbf{RQ3 (cost/citation trade-offs).} Once ingest compute, query tokens, latency, and claim--citation alignment are measured (H1, H3), does either arm's quality advantage survive being weighed against its cost --- e.g.\ does the wiki's higher score justify its ingest-time synthesis cost, or does RAG's lower per-query cost make its smaller quality gap acceptable in practice?
+    \item \textbf{The groundedness-without-retrieval-failure finding (Section 4.4).} The pilot's most surprising result was that most of RAG's ungrounded answers happened \emph{despite} correct retrieval. If this replicates at full scale, it argues that RAG's grounding gap is partly an artifact of chunked context itself, not just a retrieval problem --- worth explicit discussion versus the graph-RAG literature's usual framing (Section 2.2), which treats structure as fixing retrieval, not generation.
+    \item \textbf{Fit with \citet{cochran2026vector} and the broader graph-RAG pattern (Section 2.2).} Does the classroom setting reproduce the same "structure helps composition, hurts lookup" trade-off found on research-paper and open-domain QA corpora, or does the pedagogical, curriculum-aligned nature of course content change the picture (Section 2.3)?
+    \item \textbf{Practical recommendation for educational deployment.} Given the full results, what should an instructor or ed-tech team actually build --- vector RAG, an LLM-compiled wiki, or the hybrid arm deferred in Section 3.3 --- and under what constraints (corpus size, update frequency, available compute) does that recommendation change?
+    \item \textbf{Limitations and threats to validity.} Single course corpus (DS3001) and generalization to other domains; LLM-judge reliability versus human raters; the specific chunking/embedding configuration inherited from prior work (Section 3.3) as a possible confound if a different RAG configuration would close the gap.
+\end{itemize}
+
+\bibliography{references}
+
+\end{document}

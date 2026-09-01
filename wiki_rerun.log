@@ -1,0 +1,25 @@
+Judge: openai/gpt-5-mini  |  Answerer: anthropic/claude-opus-5
+Loaded 12 wiki pages (86,944 chars).
+Loaded 59 questions from course_questions.json.
+Answering 59 questions with 5 workers ...
+  10/59 done
+  20/59 done
+  30/59 done
+  40/59 done
+  50/59 done
+  59/59 done
+
+Wrote 59 results -> course_eval_results.jsonl , course_eval_results.csv
+
+--- Summary ---
+Graded: 59/59
+Average score: 9.95/10
+Grounded rate: 98%
+Score distribution: {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 3, 10: 56}
+
+Lowest-scoring questions:
+  [9] How does information gain get computed in the 'should you play outside?' example — what role does the weighting of child-node entropies play?  (course/decision-trees.md)
+  [9] Why does a regression tree leaf predict the arithmetic mean of the training targets that land there rather than some other summary statistic?  (course/dt-regression.md)
+  [9] Several pages carry version or currency warnings — multiple slide decks, superseded PDFs, incomplete code stubs, or repo-vs-local lab differences. List these caveats and identify which pages they appear on.  ((cross-page))
+  [10] Why is MinMax scaling described as mandatory rather than optional for KNN, and what would happen if you skipped it on a dataset with income and age columns?  (course/knn.md)
+  [10] The bank marketing example found k=1 to be the best-performing value. Why does the notebook treat this as a warning sign rather than a good result?  (course/knn.md)

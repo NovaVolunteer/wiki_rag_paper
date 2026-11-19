@@ -2,6 +2,8 @@
 
 Week 9 of DS-3021 — the direct extension of [[course/decision-trees]] (week 8's CART classification trees) to a continuous target. Same algorithm skeleton: hierarchical, greedy recursive binary splitting, root/internal/leaf structure, same overfitting risk and pruning hyperparameters. What changes is the arithmetic inside each split and what a leaf hands back as a prediction. This page assumes the CART fundamentals from [[course/decision-trees]] and only covers what's different here — read that page first if the vocabulary (root/internal/leaf nodes, recursive binary splitting, greedy vs. globally optimal) isn't already familiar.
 
+⚠️ **Possible conflict — see below.** This page originally described `2025-09-25-dt-regression-lab.ipynb` as the *current* lab (per the instructor's public reference repo) and treated the version with the normality/transform and "what-if" steps as an older, locally stored copy. The newly ingested `2026-03-10-dt-regression-lab-v2.ipynb` is that longer version. It carries the later date and a "v2" label, which suggests it may now be the current one. The sources don't say which version is taught. Both are described in the [Lab](#lab) section, so check which one a given semester actually used.
+
 **Note on sources:** the lecture slides for this week (`Decision_Trees_3.24.22.pptx`) are literally the same deck used for week 8 — it's one continuous lecture that covers classification first (slides 1–31, entropy/Gini/information-gain worked example, CART/ID3/C4.5/C5.0 lineage) and then regression trees second (slides 32–44). This page draws only from the regression portion; the classification portion is already synthesized on [[course/decision-trees]] and isn't repeated here.
 
 ## What carries over unchanged
@@ -64,10 +66,22 @@ The `.py` script version of this same example (`DT_Reg_Example.py`) is a rougher
 
 `DT_Reg_Lab.ipynb` continues the exact same fictional scenario as the week 8 classification lab, one rung up the org chart: "Congrats....again! Based off the amazing work you did on the classification model, you've been promoted to chief of all data scientists in Hollywood... your boss... has now asked you to build a model to predict gross revenue." Same `movie_metadata.csv` dataset, same "you don't need to scale the data, because DTs don't require this... they make local greedy decisions" callback as the classification lab — but the task swaps from predicting IMDb-score class to predicting continuous gross revenue, and the step list swaps out confusion-matrix/evaluation questions for the target-range/variance check and RMSE/R²/MAE evaluation questions described above. (This page uses the lab's current wording from the instructor's public reference repo, which tightens several of the step prompts and trims a couple of "what-if experimentation" steps present in the locally-stored copy — the underlying assignment is the same.)
 
+### Lab v2 (`2026-03-10-dt-regression-lab-v2.ipynb`)
+
+Same scenario, intro text, dataset, and "don't scale" step 4. v2 has 22 steps instead of 19 and is more open-ended, with a fuller train → tune → test workflow. Differences from the 2025-09-25 version:
+
+- **Step 2** drops "including the target variable" from the variable-typing instruction.
+- **Step 5** asks for the target's **variance and whether it is normally distributed**, and if not, whether to **transform** it ("Why might this be important?"). The 2025 version asks for "range and variance." This is the normality/transform framing discussed under *Target variable considerations* above.
+- **Step 8** lets students "choose a hyperparameter to optimize" instead of prescribing `max_depth`. The separate "grid search for max depth" and "what is the best depth?" steps collapse into one: "Print the output of the grid search. What is the best parameter and score?"
+- **Steps 14–16 evaluate on the tune set** (predict, compare tune vs. training, and list the five movies with the lowest predicted gross revenue from the **tune** set). The 2025 version does all of this on the test set.
+- **New "WHAT IF?!" steps (17–18):** brainstorm ways to improve the model, try two, and report whether it improved and by how much. If it didn't improve, report what you learned. Code for every experiment isn't required.
+- **New final-evaluation steps (19–21):** predict on the test set with the best model, compare test performance against training *and* tune ("Why or why not?"), and do **error analysis**: "Where are the errors occurring in your predictions? Are they systematic or random?" plus the implications.
+- Step 22 keeps the closing "summarize… recommendations… careful not to over promise."
+
 ## Related topics
 
 - [[course/decision-trees]] — shared CART fundamentals: node vocabulary, greedy recursive splitting, overfitting/pruning hyperparameters, "white box" interpretability
-- *(not yet ingested)* Random Forest / Ensembles (week 12) — `DecisionTreeRegressor` plugs into `RandomForestRegressor` the same way `DecisionTreeClassifier` extends to `RandomForestClassifier`; the instability argument for ensembling made on the classification page applies identically here
+- [[course/ensemble-methods]] — Random Forest / Ensembles (week 12): `DecisionTreeRegressor` plugs into `RandomForestRegressor` the same way `DecisionTreeClassifier` extends to `RandomForestClassifier`; the instability argument for ensembling made on the classification page applies identically here
 
 ## Sources
 
@@ -76,3 +90,4 @@ The `.py` script version of this same example (`DT_Reg_Example.py`) is a rougher
 - `raw/course/DS-3021/dt-regression/2024-10-29-dt-regression-lecture-notebook.ipynb` — in-class notebook, wine-quality dataset, predicting alcohol content
 - `raw/course/DS-3021/dt-regression/2026-03-10-dt-regression-lecture-script.py` — companion `.py` version of the same example, grid-searches a different hyperparameter (`min_impurity_decrease` vs. the notebook's `max_depth`) and contains two source-level debugging quirks noted above
 - `raw/course/DS-3021/dt-regression/2025-09-25-dt-regression-lab.ipynb` — lab assignment (movie gross-revenue prediction), current version per the instructor's public reference repo
+- `raw/course/DS-3021/dt-regression/2026-03-10-dt-regression-lab-v2.ipynb` — lab v2: 22 steps, open hyperparameter choice, normality/transform check, tune-set evaluation, "what-if" experiments, error analysis (see the ⚠️ note at top on which version is current)

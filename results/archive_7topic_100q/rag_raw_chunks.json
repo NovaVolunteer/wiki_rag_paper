@@ -1,0 +1,482 @@
+[
+ {
+  "id": "raw/course/DS-3021/knn/2024-10-29-knn-and-probability-slides.pdf::chunk0",
+  "page": "raw/course/DS-3021/knn/2024-10-29-knn-and-probability-slides.pdf",
+  "chunk_index": 0,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/knn/2024-10-29-knn-and-probability-slides.pdf::chunk1",
+  "page": "raw/course/DS-3021/knn/2024-10-29-knn-and-probability-slides.pdf",
+  "chunk_index": 1,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/knn/2024-10-29-knn-and-probability-slides.pdf::chunk2",
+  "page": "raw/course/DS-3021/knn/2024-10-29-knn-and-probability-slides.pdf",
+  "chunk_index": 2,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/knn/2024-10-29-knn-and-probability-slides.pdf::chunk3",
+  "page": "raw/course/DS-3021/knn/2024-10-29-knn-and-probability-slides.pdf",
+  "chunk_index": 3,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/knn/2024-10-29-knn-and-probability-slides.pdf::chunk4",
+  "page": "raw/course/DS-3021/knn/2024-10-29-knn-and-probability-slides.pdf",
+  "chunk_index": 4,
+  "n_tokens": 589
+ },
+ {
+  "id": "raw/course/DS-3021/knn/2024-10-29-knn-graduation-lab.ipynb::chunk0",
+  "page": "raw/course/DS-3021/knn/2024-10-29-knn-graduation-lab.ipynb",
+  "chunk_index": 0,
+  "n_tokens": 1066
+ },
+ {
+  "id": "raw/course/DS-3021/knn/2024-10-29-knn-lecture-notebook.ipynb::chunk0",
+  "page": "raw/course/DS-3021/knn/2024-10-29-knn-lecture-notebook.ipynb",
+  "chunk_index": 0,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/knn/2024-10-29-knn-lecture-notebook.ipynb::chunk1",
+  "page": "raw/course/DS-3021/knn/2024-10-29-knn-lecture-notebook.ipynb",
+  "chunk_index": 1,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/knn/2024-10-29-knn-lecture-notebook.ipynb::chunk2",
+  "page": "raw/course/DS-3021/knn/2024-10-29-knn-lecture-notebook.ipynb",
+  "chunk_index": 2,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/knn/2024-10-29-knn-lecture-notebook.ipynb::chunk3",
+  "page": "raw/course/DS-3021/knn/2024-10-29-knn-lecture-notebook.ipynb",
+  "chunk_index": 3,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/knn/2024-10-29-knn-lecture-notebook.ipynb::chunk4",
+  "page": "raw/course/DS-3021/knn/2024-10-29-knn-lecture-notebook.ipynb",
+  "chunk_index": 4,
+  "n_tokens": 402
+ },
+ {
+  "id": "raw/course/DS-3021/knn/2024-10-29-knn-r-to-python-changes.docx::chunk0",
+  "page": "raw/course/DS-3021/knn/2024-10-29-knn-r-to-python-changes.docx",
+  "chunk_index": 0,
+  "n_tokens": 836
+ },
+ {
+  "id": "raw/course/DS-3021/knn/2024-10-29-machine-learning-III-reading.pdf::chunk0",
+  "page": "raw/course/DS-3021/knn/2024-10-29-machine-learning-III-reading.pdf",
+  "chunk_index": 0,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/knn/2024-10-29-machine-learning-III-reading.pdf::chunk1",
+  "page": "raw/course/DS-3021/knn/2024-10-29-machine-learning-III-reading.pdf",
+  "chunk_index": 1,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/knn/2024-10-29-machine-learning-III-reading.pdf::chunk2",
+  "page": "raw/course/DS-3021/knn/2024-10-29-machine-learning-III-reading.pdf",
+  "chunk_index": 2,
+  "n_tokens": 1461
+ },
+ {
+  "id": "raw/course/DS-3021/knn/README.md::chunk0",
+  "page": "raw/course/DS-3021/knn/README.md",
+  "chunk_index": 0,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/knn/README.md::chunk1",
+  "page": "raw/course/DS-3021/knn/README.md",
+  "chunk_index": 1,
+  "n_tokens": 419
+ },
+ {
+  "id": "raw/course/DS-3021/decision-trees/2022-10-20-decision-trees-slides-current.pptx::chunk0",
+  "page": "raw/course/DS-3021/decision-trees/2022-10-20-decision-trees-slides-current.pptx",
+  "chunk_index": 0,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/decision-trees/2022-10-20-decision-trees-slides-current.pptx::chunk1",
+  "page": "raw/course/DS-3021/decision-trees/2022-10-20-decision-trees-slides-current.pptx",
+  "chunk_index": 1,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/decision-trees/2022-10-20-decision-trees-slides-current.pptx::chunk2",
+  "page": "raw/course/DS-3021/decision-trees/2022-10-20-decision-trees-slides-current.pptx",
+  "chunk_index": 2,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/decision-trees/2022-10-20-decision-trees-slides-current.pptx::chunk3",
+  "page": "raw/course/DS-3021/decision-trees/2022-10-20-decision-trees-slides-current.pptx",
+  "chunk_index": 3,
+  "n_tokens": 703
+ },
+ {
+  "id": "raw/course/DS-3021/decision-trees/2024-10-29-cart-loh-academic-reference.pdf::chunk0",
+  "page": "raw/course/DS-3021/decision-trees/2024-10-29-cart-loh-academic-reference.pdf",
+  "chunk_index": 0,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/decision-trees/2024-10-29-cart-loh-academic-reference.pdf::chunk1",
+  "page": "raw/course/DS-3021/decision-trees/2024-10-29-cart-loh-academic-reference.pdf",
+  "chunk_index": 1,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/decision-trees/2024-10-29-cart-loh-academic-reference.pdf::chunk2",
+  "page": "raw/course/DS-3021/decision-trees/2024-10-29-cart-loh-academic-reference.pdf",
+  "chunk_index": 2,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/decision-trees/2024-10-29-cart-loh-academic-reference.pdf::chunk3",
+  "page": "raw/course/DS-3021/decision-trees/2024-10-29-cart-loh-academic-reference.pdf",
+  "chunk_index": 3,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/decision-trees/2024-10-29-cart-loh-academic-reference.pdf::chunk4",
+  "page": "raw/course/DS-3021/decision-trees/2024-10-29-cart-loh-academic-reference.pdf",
+  "chunk_index": 4,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/decision-trees/2024-10-29-cart-loh-academic-reference.pdf::chunk5",
+  "page": "raw/course/DS-3021/decision-trees/2024-10-29-cart-loh-academic-reference.pdf",
+  "chunk_index": 5,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/decision-trees/2024-10-29-cart-loh-academic-reference.pdf::chunk6",
+  "page": "raw/course/DS-3021/decision-trees/2024-10-29-cart-loh-academic-reference.pdf",
+  "chunk_index": 6,
+  "n_tokens": 437
+ },
+ {
+  "id": "raw/course/DS-3021/decision-trees/2024-10-29-week08-r-to-python-conversion.docx::chunk0",
+  "page": "raw/course/DS-3021/decision-trees/2024-10-29-week08-r-to-python-conversion.docx",
+  "chunk_index": 0,
+  "n_tokens": 740
+ },
+ {
+  "id": "raw/course/DS-3021/decision-trees/2025-02-13-decision-trees-lecture-notebook.ipynb::chunk0",
+  "page": "raw/course/DS-3021/decision-trees/2025-02-13-decision-trees-lecture-notebook.ipynb",
+  "chunk_index": 0,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/decision-trees/2025-02-13-decision-trees-lecture-notebook.ipynb::chunk1",
+  "page": "raw/course/DS-3021/decision-trees/2025-02-13-decision-trees-lecture-notebook.ipynb",
+  "chunk_index": 1,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/decision-trees/2025-02-13-decision-trees-lecture-notebook.ipynb::chunk2",
+  "page": "raw/course/DS-3021/decision-trees/2025-02-13-decision-trees-lecture-notebook.ipynb",
+  "chunk_index": 2,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/decision-trees/2025-02-13-decision-trees-lecture-notebook.ipynb::chunk3",
+  "page": "raw/course/DS-3021/decision-trees/2025-02-13-decision-trees-lecture-notebook.ipynb",
+  "chunk_index": 3,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/decision-trees/2025-02-13-decision-trees-lecture-notebook.ipynb::chunk4",
+  "page": "raw/course/DS-3021/decision-trees/2025-02-13-decision-trees-lecture-notebook.ipynb",
+  "chunk_index": 4,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/decision-trees/2025-02-13-decision-trees-lecture-notebook.ipynb::chunk5",
+  "page": "raw/course/DS-3021/decision-trees/2025-02-13-decision-trees-lecture-notebook.ipynb",
+  "chunk_index": 5,
+  "n_tokens": 588
+ },
+ {
+  "id": "raw/course/DS-3021/decision-trees/2026-03-10-dt-class-lab.ipynb::chunk0",
+  "page": "raw/course/DS-3021/decision-trees/2026-03-10-dt-class-lab.ipynb",
+  "chunk_index": 0,
+  "n_tokens": 764
+ },
+ {
+  "id": "raw/course/DS-3021/ml-eval-metrics/2022-07-22-eval-metrics-r-to-python-conversion.docx::chunk0",
+  "page": "raw/course/DS-3021/ml-eval-metrics/2022-07-22-eval-metrics-r-to-python-conversion.docx",
+  "chunk_index": 0,
+  "n_tokens": 617
+ },
+ {
+  "id": "raw/course/DS-3021/ml-eval-metrics/2025-06-09-knn-eval-example-notebook.ipynb::chunk0",
+  "page": "raw/course/DS-3021/ml-eval-metrics/2025-06-09-knn-eval-example-notebook.ipynb",
+  "chunk_index": 0,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/ml-eval-metrics/2025-06-09-knn-eval-example-notebook.ipynb::chunk1",
+  "page": "raw/course/DS-3021/ml-eval-metrics/2025-06-09-knn-eval-example-notebook.ipynb",
+  "chunk_index": 1,
+  "n_tokens": 598
+ },
+ {
+  "id": "raw/course/DS-3021/ml-eval-metrics/2025-06-09-model-metrics-lab.md::chunk0",
+  "page": "raw/course/DS-3021/ml-eval-metrics/2025-06-09-model-metrics-lab.md",
+  "chunk_index": 0,
+  "n_tokens": 517
+ },
+ {
+  "id": "raw/course/DS-3021/ml-eval-metrics/2025-06-09-perfmet-slides.pdf::chunk0",
+  "page": "raw/course/DS-3021/ml-eval-metrics/2025-06-09-perfmet-slides.pdf",
+  "chunk_index": 0,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/ml-eval-metrics/2025-06-09-perfmet-slides.pdf::chunk1",
+  "page": "raw/course/DS-3021/ml-eval-metrics/2025-06-09-perfmet-slides.pdf",
+  "chunk_index": 1,
+  "n_tokens": 881
+ },
+ {
+  "id": "raw/course/DS-3021/dt-regression/2022-03-24-decision-trees-regression-slides.pptx::chunk0",
+  "page": "raw/course/DS-3021/dt-regression/2022-03-24-decision-trees-regression-slides.pptx",
+  "chunk_index": 0,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/dt-regression/2022-03-24-decision-trees-regression-slides.pptx::chunk1",
+  "page": "raw/course/DS-3021/dt-regression/2022-03-24-decision-trees-regression-slides.pptx",
+  "chunk_index": 1,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/dt-regression/2022-03-24-decision-trees-regression-slides.pptx::chunk2",
+  "page": "raw/course/DS-3021/dt-regression/2022-03-24-decision-trees-regression-slides.pptx",
+  "chunk_index": 2,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/dt-regression/2022-03-24-decision-trees-regression-slides.pptx::chunk3",
+  "page": "raw/course/DS-3021/dt-regression/2022-03-24-decision-trees-regression-slides.pptx",
+  "chunk_index": 3,
+  "n_tokens": 665
+ },
+ {
+  "id": "raw/course/DS-3021/dt-regression/2022-08-25-week09-r-to-python-conversion.docx::chunk0",
+  "page": "raw/course/DS-3021/dt-regression/2022-08-25-week09-r-to-python-conversion.docx",
+  "chunk_index": 0,
+  "n_tokens": 371
+ },
+ {
+  "id": "raw/course/DS-3021/dt-regression/2024-10-29-dt-regression-lecture-notebook.ipynb::chunk0",
+  "page": "raw/course/DS-3021/dt-regression/2024-10-29-dt-regression-lecture-notebook.ipynb",
+  "chunk_index": 0,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/dt-regression/2024-10-29-dt-regression-lecture-notebook.ipynb::chunk1",
+  "page": "raw/course/DS-3021/dt-regression/2024-10-29-dt-regression-lecture-notebook.ipynb",
+  "chunk_index": 1,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/dt-regression/2024-10-29-dt-regression-lecture-notebook.ipynb::chunk2",
+  "page": "raw/course/DS-3021/dt-regression/2024-10-29-dt-regression-lecture-notebook.ipynb",
+  "chunk_index": 2,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/dt-regression/2024-10-29-dt-regression-lecture-notebook.ipynb::chunk3",
+  "page": "raw/course/DS-3021/dt-regression/2024-10-29-dt-regression-lecture-notebook.ipynb",
+  "chunk_index": 3,
+  "n_tokens": 268
+ },
+ {
+  "id": "raw/course/DS-3021/dt-regression/2025-09-25-dt-regression-lab.ipynb::chunk0",
+  "page": "raw/course/DS-3021/dt-regression/2025-09-25-dt-regression-lab.ipynb",
+  "chunk_index": 0,
+  "n_tokens": 615
+ },
+ {
+  "id": "raw/course/DS-3021/dt-regression/2026-03-10-dt-regression-lecture-script.py::chunk0",
+  "page": "raw/course/DS-3021/dt-regression/2026-03-10-dt-regression-lecture-script.py",
+  "chunk_index": 0,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/dt-regression/2026-03-10-dt-regression-lecture-script.py::chunk1",
+  "page": "raw/course/DS-3021/dt-regression/2026-03-10-dt-regression-lecture-script.py",
+  "chunk_index": 1,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/dt-regression/2026-03-10-dt-regression-lecture-script.py::chunk2",
+  "page": "raw/course/DS-3021/dt-regression/2026-03-10-dt-regression-lecture-script.py",
+  "chunk_index": 2,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/dt-regression/2026-03-10-dt-regression-lecture-script.py::chunk3",
+  "page": "raw/course/DS-3021/dt-regression/2026-03-10-dt-regression-lecture-script.py",
+  "chunk_index": 3,
+  "n_tokens": 380
+ },
+ {
+  "id": "raw/course/DS-3021/kmeans-clustering/2026-03-10-cluster-example.py::chunk0",
+  "page": "raw/course/DS-3021/kmeans-clustering/2026-03-10-cluster-example.py",
+  "chunk_index": 0,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/kmeans-clustering/2026-03-10-cluster-example.py::chunk1",
+  "page": "raw/course/DS-3021/kmeans-clustering/2026-03-10-cluster-example.py",
+  "chunk_index": 1,
+  "n_tokens": 600
+ },
+ {
+  "id": "raw/course/DS-3021/kmeans-clustering/2026-03-10-clustering-lab.ipynb::chunk0",
+  "page": "raw/course/DS-3021/kmeans-clustering/2026-03-10-clustering-lab.ipynb",
+  "chunk_index": 0,
+  "n_tokens": 809
+ },
+ {
+  "id": "raw/course/DS-3021/kmeans-clustering/2026-03-10-clustering-slides.pptx::chunk0",
+  "page": "raw/course/DS-3021/kmeans-clustering/2026-03-10-clustering-slides.pptx",
+  "chunk_index": 0,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/kmeans-clustering/2026-03-10-clustering-slides.pptx::chunk1",
+  "page": "raw/course/DS-3021/kmeans-clustering/2026-03-10-clustering-slides.pptx",
+  "chunk_index": 1,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/kmeans-clustering/2026-03-10-clustering-slides.pptx::chunk2",
+  "page": "raw/course/DS-3021/kmeans-clustering/2026-03-10-clustering-slides.pptx",
+  "chunk_index": 2,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/kmeans-clustering/2026-03-10-clustering-slides.pptx::chunk3",
+  "page": "raw/course/DS-3021/kmeans-clustering/2026-03-10-clustering-slides.pptx",
+  "chunk_index": 3,
+  "n_tokens": 979
+ },
+ {
+  "id": "raw/course/DS-3021/ensemble-methods/2020-11-09-ensemble-rf-slides.pptx::chunk0",
+  "page": "raw/course/DS-3021/ensemble-methods/2020-11-09-ensemble-rf-slides.pptx",
+  "chunk_index": 0,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/ensemble-methods/2020-11-09-ensemble-rf-slides.pptx::chunk1",
+  "page": "raw/course/DS-3021/ensemble-methods/2020-11-09-ensemble-rf-slides.pptx",
+  "chunk_index": 1,
+  "n_tokens": 665
+ },
+ {
+  "id": "raw/course/DS-3021/ensemble-methods/2022-09-13-week12-r-to-python-conversion.docx::chunk0",
+  "page": "raw/course/DS-3021/ensemble-methods/2022-09-13-week12-r-to-python-conversion.docx",
+  "chunk_index": 0,
+  "n_tokens": 590
+ },
+ {
+  "id": "raw/course/DS-3021/ensemble-methods/2026-08-31-rf-lab.ipynb::chunk0",
+  "page": "raw/course/DS-3021/ensemble-methods/2026-08-31-rf-lab.ipynb",
+  "chunk_index": 0,
+  "n_tokens": 789
+ },
+ {
+  "id": "raw/course/DS-3021/ensemble-methods/2026-08-31-rf-lecture-notebook.ipynb::chunk0",
+  "page": "raw/course/DS-3021/ensemble-methods/2026-08-31-rf-lecture-notebook.ipynb",
+  "chunk_index": 0,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/ensemble-methods/2026-08-31-rf-lecture-notebook.ipynb::chunk1",
+  "page": "raw/course/DS-3021/ensemble-methods/2026-08-31-rf-lecture-notebook.ipynb",
+  "chunk_index": 1,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/ensemble-methods/2026-08-31-rf-lecture-notebook.ipynb::chunk2",
+  "page": "raw/course/DS-3021/ensemble-methods/2026-08-31-rf-lecture-notebook.ipynb",
+  "chunk_index": 2,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/ensemble-methods/2026-08-31-rf-lecture-notebook.ipynb::chunk3",
+  "page": "raw/course/DS-3021/ensemble-methods/2026-08-31-rf-lecture-notebook.ipynb",
+  "chunk_index": 3,
+  "n_tokens": 412
+ },
+ {
+  "id": "raw/course/DS-3021/ml-bias/2024-10-29-fairness-example.py::chunk0",
+  "page": "raw/course/DS-3021/ml-bias/2024-10-29-fairness-example.py",
+  "chunk_index": 0,
+  "n_tokens": 38
+ },
+ {
+  "id": "raw/course/DS-3021/ml-bias/2024-10-29-ml-bias-and-fairness-slides.pdf::chunk0",
+  "page": "raw/course/DS-3021/ml-bias/2024-10-29-ml-bias-and-fairness-slides.pdf",
+  "chunk_index": 0,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/ml-bias/2024-10-29-ml-bias-and-fairness-slides.pdf::chunk1",
+  "page": "raw/course/DS-3021/ml-bias/2024-10-29-ml-bias-and-fairness-slides.pdf",
+  "chunk_index": 1,
+  "n_tokens": 1310
+ },
+ {
+  "id": "raw/course/DS-3021/ml-bias/2024-10-29-value-ethics-slides.pptx::chunk0",
+  "page": "raw/course/DS-3021/ml-bias/2024-10-29-value-ethics-slides.pptx",
+  "chunk_index": 0,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/ml-bias/2024-10-29-value-ethics-slides.pptx::chunk1",
+  "page": "raw/course/DS-3021/ml-bias/2024-10-29-value-ethics-slides.pptx",
+  "chunk_index": 1,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/ml-bias/2024-10-29-value-ethics-slides.pptx::chunk2",
+  "page": "raw/course/DS-3021/ml-bias/2024-10-29-value-ethics-slides.pptx",
+  "chunk_index": 2,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/ml-bias/2024-10-29-value-ethics-slides.pptx::chunk3",
+  "page": "raw/course/DS-3021/ml-bias/2024-10-29-value-ethics-slides.pptx",
+  "chunk_index": 3,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/ml-bias/2024-10-29-value-ethics-slides.pptx::chunk4",
+  "page": "raw/course/DS-3021/ml-bias/2024-10-29-value-ethics-slides.pptx",
+  "chunk_index": 4,
+  "n_tokens": 1500
+ },
+ {
+  "id": "raw/course/DS-3021/ml-bias/2024-10-29-value-ethics-slides.pptx::chunk5",
+  "page": "raw/course/DS-3021/ml-bias/2024-10-29-value-ethics-slides.pptx",
+  "chunk_index": 5,
+  "n_tokens": 1005
+ }
+]

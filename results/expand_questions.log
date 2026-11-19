@@ -1,0 +1,72 @@
+Retained 50: topic-page=23, cross-page=22, unanswerable=5
+New: 9 topic-page jobs (22 q), 26 cross-page jobs (target 23), 5 unanswerable
+  cross: ml-foundations + data-prep
+  cross: python-basics + ml-foundations
+  cross: logistic-regression + pca
+  cross: dt-regression + dev-environment
+  cross: ensemble-methods + course-overview
+  cross: knn + ml-foundations
+  cross: decision-trees + dev-environment
+  cross: decision-trees + ml-foundations
+  cross: ml-bias + linear-regression
+  cross: ml-eval-metrics + data-prep
+  cross: ensemble-methods + pca
+  cross: python-basics + logistic-regression
+  cross: ensemble-methods + logistic-regression
+  cross: knn + logistic-regression
+  cross: ml-bias + final-project
+  cross: dev-environment + data-prep
+  cross: dt-regression + pca
+  cross: decision-trees + course-overview
+  cross: dev-environment + logistic-regression
+  cross: dt-regression + data-prep
+  cross: dev-environment + pca
+  cross: ml-eval-metrics + linear-regression
+  cross: ml-bias + pca
+  cross: data-prep + logistic-regression
+  cross: ml-bias + dev-environment + final-project
+  cross: ml-eval-metrics + ml-foundations + linear-regression
+  topic-page ['dev-environment']: 2/2
+  topic-page ['course-overview']: 2/2
+  topic-page ['data-prep']: 3/3
+  topic-page ['logistic-regression']: 2/2
+  topic-page ['linear-regression']: 3/3
+  topic-page ['pca']: 2/2
+  topic-page ['python-basics']: 3/3
+  topic-page ['ml-foundations']: 3/3
+  topic-page ['final-project']: 2/2
+  cross-page ['logistic-regression', 'pca']: 1/1
+  cross-page ['dt-regression', 'dev-environment']: 1/1
+  cross-page ['ensemble-methods', 'course-overview']: 1/1
+  cross-page ['ml-foundations', 'data-prep']: 1/1
+  cross-page ['python-basics', 'ml-foundations']: 1/1
+  cross-page ['knn', 'ml-foundations']: 1/1
+  cross-page ['decision-trees', 'dev-environment']: 1/1
+  cross-page ['decision-trees', 'ml-foundations']: 1/1
+  cross-page ['ensemble-methods', 'pca']: 1/1
+  cross-page ['ensemble-methods', 'logistic-regression']: 1/1
+  cross-page ['ml-bias', 'linear-regression']: 1/1
+  cross-page ['ml-eval-metrics', 'data-prep']: 1/1
+  cross-page ['python-basics', 'logistic-regression']: 1/1
+  cross-page ['knn', 'logistic-regression']: 1/1
+  cross-page ['ml-bias', 'final-project']: 1/1
+  cross-page ['dev-environment', 'data-prep']: 1/1
+  cross-page ['dt-regression', 'pca']: 1/1
+  cross-page ['dev-environment', 'logistic-regression']: 1/1
+  cross-page ['decision-trees', 'course-overview']: 1/1
+  cross-page ['dt-regression', 'data-prep']: 1/1
+  cross-page ['ml-eval-metrics', 'linear-regression']: 1/1
+  cross-page ['dev-environment', 'pca']: 1/1
+  cross-page ['data-prep', 'logistic-regression']: 1/1
+  cross-page ['ml-bias', 'pca']: 1/1
+  cross-page ['ml-bias', 'dev-environment', 'final-project']: 1/1
+  cross-page ['ml-eval-metrics', 'ml-foundations', 'linear-regression']: 1/1
+  unanswerable candidate rejected (answered by ['raw/course/DS-3021/kmeans-clustering/2026-03-10-clustering-slides.pptx', 'raw/course/DS-3021/kmeans-clustering/2026-03-10-cluster-example.py', 'raw/course/DS-3021/kmeans-clustering/2026-03-10-clustering-lab.ipynb', 'raw/course/DS-3021/kmeans-clustering/2024-10-29-kmeans-worked-example-slide.pptx']): How should I choose the number of clusters for k-means in a real proje
+  unanswerable candidate rejected (answered by ['raw/course/DS-3021/data-prep/2024-10-29-ml-bootcamp-II-reading.pdf', 'raw/course/DS-3021/data-prep/2024-10-29-ml-bootcamp-data-prep-slides.pptx', 'raw/course/DS-3021/dt-regression/2024-10-29-dt-regression-lecture-notebook.ipynb', 'raw/course/DS-3021/dt-regression/2026-03-10-dt-regression-lecture-script.py', 'raw/course/DS-3021/decision-trees/2024-10-29-week08-r-to-python-conversion.docx']): If my dataset has missing values that are not missing completely at ra
+  unanswerable candidate rejected (answered by ['raw/course/DS-3021/knn/README.md', 'raw/course/DS-3021/knn/2024-10-29-knn-lecture-notebook.ipynb', 'raw/course/DS-3021/decision-trees/2025-02-13-decision-trees-lecture-notebook.ipynb', 'raw/course/DS-3021/ml-foundations/2024-10-29-machine-learning-III-reading.pdf', 'raw/course/DS-3021/data-prep/2024-10-29-ml-bootcamp-II-reading.pdf', 'raw/course/DS-3021/ml-eval-metrics/2025-06-09-perfmet-slides.pdf']): For a small, imbalanced classification dataset, how should I choose th
+  unanswerable candidate rejected (answered by ['raw/course/MLBook/logistic-regression/2026-05-21-logistic-regression-overview.ipynb', 'raw/course/DS-3021/logistic-regression/2026-03-19-logistic-regression-slides.pptx', 'raw/course/DS-3021/ml-foundations/2024-10-29-ml-overview-reading.pdf', 'raw/course/DS-3021/ml-eval-metrics/2025-06-09-perfmet-slides.pdf', 'raw/course/DS-3021/decision-trees/2025-02-13-decision-trees-lecture-notebook.ipynb']): When tuning logistic regression, how should I choose the regularizatio
+  unanswerable candidate rejected (answered by ['raw/course/MLBook/pca/2026-05-21-pca.ipynb', 'raw/course/MLBook/pca/2026-05-21-pca-examples.ipynb', 'raw/course/MLBook/linear-regression/2026-05-21-multiple-features.ipynb', 'raw/course/MLBook/ml-foundations/2026-05-21-ds-lifecycle.ipynb', 'raw/course/DS-3021/ml-eval-metrics/2025-06-09-perfmet-slides.pdf', 'raw/course/DS-3021/ml-foundations/2024-10-29-ml-overview-reading.pdf']): How should I decide whether PCA is helping a supervised model’s predic
+  unanswerable candidate rejected (answered by ['raw/course/DS-3021/knn/2024-10-29-knn-and-probability-slides.pdf', 'raw/course/DS-3021/linear-regression/2026-03-12-makeup-regression-script.py', 'raw/course/DS-3021/linear-regression/2026-03-12-linear-regression-lecture-notebook.ipynb', 'raw/course/DS-3021/linear-regression/2026-03-17-log-conversion-reading.pdf', 'raw/course/MLBook/linear-regression/2026-05-21-regression-assignment.ipynb']): If a linear regression residual plot shows heteroskedasticity, what ro
+  unanswerable candidate rejected (answered by ['raw/course/MLBook/dev-environment/2026-05-21-class-materials-vscode-github.ipynb']): If my forked class repository and local work both changed the same not
+  unanswerable candidate rejected (answered by ['raw/course/DS-3021/ml-bias/2024-10-29-ml-bias-and-fairness-slides.pdf', 'raw/course/DS-3021/ml-bias/2024-10-29-value-ethics-slides.pptx', 'raw/course/DS-3021/final-project/2024-10-29-final-project-overview.md', 'raw/course/DS-3021/final-project/2026-04-15-final-project-instructions.docx', 'raw/course/DS-3021/ml-eval-metrics/2025-06-09-perfmet-slides.pdf']): For the final project, if my dataset includes protected classes, which
+Wrote 97 questions -> course_questions_raw.json  {('retained', 'topic-page'): 23, ('retained', 'cross-page'): 22, ('retained', 'unanswerable'): 5, ('new', 'topic-page'): 22, ('new', 'cross-page'): 23, ('new', 'unanswerable'): 2}

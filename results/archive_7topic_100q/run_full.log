@@ -1,0 +1,23 @@
+Wiki: 12 pages (22,801 tok); raw: 30 docs (92,468 tok)
+[C0] 100 to run (0 already done)
+  [C0] 10/100
+  [C0] 20/100
+  [C0] 30/100
+  [C0] 40/100
+  [C0] 50/100
+  [C0] 60/100
+  [C0] 70/100
+  [C0] 80/100
+  [C0] 90/100
+  [C0] 100/100
+[C0] wrote 100 rows -> results\C0.jsonl  (4 errors; rerun with --resume)
+[A-ret] 100 to run (0 already done)
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|##########| 199/199 [00:00<00:00, 3808.55it/s]
+  [A-ret] 10/100
+  [A-ret] 20/100
+  [A-ret] 30/100
+  [A-ret] 40/100
+  [A-ret] 50/100
+  [A-ret] 60/100
+  [A-ret] 70/100
+  [A-ret] 80/100

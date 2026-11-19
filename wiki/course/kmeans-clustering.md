@@ -10,7 +10,21 @@ Every prior topic (KNN, decision trees) starts from a labeled target: input `x`,
 
 k-means clustering: 1) randomly choose `k` data points as initial centroids, 2) assign every point to its closest centroid (by a distance metric — usually Euclidean: distance = √((x₂−x₁)² + (y₂−y₁)²)), 3) recalculate each centroid as the mean location of its current members, 4) repeat steps 2–3 until centroid assignments stop changing. A centroid is not generally an actual data point — it's just the average location of whatever points currently belong to it.
 
-The slides work this by hand on a trivial 1-D example that's worth tracing because it makes "convergence" concrete: given `D = {2,4,10,12,3,11,20,25,30}` and `k=2`, starting from arbitrary means m1=3, m2=4, reassigning points and recomputing means each round settles after four iterations at `K1={2,3,4,10,11,12}` (m1=7) and `K2={20,25,30}` (m2=25) — and running the same reassignment again produces the identical split, which is the stopping condition. Because the *starting* centroids are random, k-means is non-deterministic by default: different runs can converge to different local optima. The course's code fixes this with `set.seed()` in R and `random_state=` in Python's `sklearn.cluster.KMeans` so results are reproducible for grading and comparison, not because the algorithm itself is deterministic.
+The slides work this by hand on a trivial 1-D example that's worth tracing because it makes "convergence" concrete: given `D = {2,4,10,12,3,11,20,25,30}` and `k=2`, starting from arbitrary means m1=3, m2=4, reassigning points and recomputing means each round settles after four iterations at `K1={2,3,4,10,11,12}` (m1=7) and `K2={20,25,30}` (m2=25) — and running the same reassignment again produces the identical split, which is the stopping condition.
+
+The standalone worked-example slide ("Example of K-Means, What is Happening?") lists every iteration. Each row assigns points to the nearer of the current means, then recomputes each mean from its new members:
+
+| Iteration | Means used | K1 | K2 | New m1 | New m2 |
+|---|---|---|---|---|---|
+| 1 | m1=3, m2=4 (random start) | {2,3} | {4,10,12,11,20,25,30} | 2.5 | 16 |
+| 2 | 2.5, 16 | {2,3,4} | {10,12,11,20,25,30} | 3 | 18 |
+| 3 | 3, 18 | {2,3,4,10} | {12,11,20,25,30} | 4.75 | 19.6 |
+| 4 | 4.75, 19.6 | {2,3,4,10,11,12} | {20,25,30} | 7 | 25 |
+| 5 | 7, 25 | {2,3,4,10,11,12} | {20,25,30} | 7 | 25 |
+
+"Stop, since the clusters and the means found in all subsequent iterations will be the same." The trace shows how a poor random start (two means right next to each other at the low end) gets corrected. K1 grows by one or two points per round as m2 is pulled up toward the high values, until the assignment stops changing. The same slide also appears in the main deck, right after the "write out the steps in kMeans Clustering in your own words" prompt.
+
+Because the *starting* centroids are random, k-means is non-deterministic by default: different runs can converge to different local optima. The course's code fixes this with `set.seed()` in R and `random_state=` in Python's `sklearn.cluster.KMeans` so results are reproducible for grading and comparison, not because the algorithm itself is deterministic.
 
 ## In-class example: does Congress vote in patterns?
 
@@ -60,12 +74,14 @@ Two versions of the slide deck exist in the source folder. `Clustering_InClass_9
 ## Related topics
 
 - [[course/knn]] — both are distance-based methods, but `k` means something different in each. In KNN, `k` is the number of labeled neighbors to poll for a vote when classifying a *new* point — a supervised hyperparameter tuned against held-out accuracy. In k-means, `k` is the number of groups to partition *unlabeled* data into — there's no accuracy to tune against, only internal fit measures (variance explained, silhouette) and, if you're lucky, an external label to validate against afterward (party, salary). Both methods share the same prerequisite, though: because everything reduces to distance, features need to be scaled before clustering or the variable with the largest raw range will dominate the distance calculation, exactly as flagged on the KNN page.
+- [[course/pca]] — the course's other unsupervised method. PCA reduces the number of features rather than grouping rows, and it is likewise scale-sensitive (standardize first). It also responds to the curse of dimensionality that this page lists as a clustering risk.
 
 ## Sources
 
 - `raw/course/DS-3021/kmeans-clustering/2026-03-10-clustering-slides.pptx` — canonical lecture deck (kept over the 2021 PDF version — see note above)
 - `raw/course/DS-3021/kmeans-clustering/2026-03-10-cluster-example.py` — in-class Python/sklearn code: house-votes clustering, elbow loop, variance explained, silhouette score, cluster-as-feature decision tree comparison
 - `raw/course/DS-3021/kmeans-clustering/2026-03-10-clustering-lab.ipynb` — NBA player performance/salary clustering lab assignment
+- `raw/course/DS-3021/kmeans-clustering/2024-10-29-kmeans-worked-example-slide.pptx` — standalone slide with the hand-worked 1-D k-means example (D = {2,4,10,12,3,11,20,25,30}, k=2), iteration by iteration; duplicates the same slide in the main deck
 - `raw/course/DS-3021/kmeans-clustering/2026-01-13-manual-variance-explained.xlsx` — hand-worked variance-explained calculation on a toy dataset
 - `raw/course/DS-3021/kmeans-clustering/2024-10-29-house-votes-clusters-raw.png` — house-votes cluster plot, no party information (the "before" validation step)
 - `raw/course/DS-3021/kmeans-clustering/2024-10-29-house-votes-clusters-by-party.png` — same plot re-colored by actual party affiliation (the "after" validation step)

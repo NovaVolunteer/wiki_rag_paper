@@ -1,0 +1,699 @@
+[
+  {
+    "id": 0,
+    "question": "Why is MinMax scaling described as mandatory rather than optional for KNN, and what would happen if you skipped it on a dataset with income and age columns?",
+    "question_type": "conceptual",
+    "source_page": "course/knn.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/knn.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 1,
+    "question": "The bank marketing example found k=1 to be the best-performing value. Why does the notebook treat this as a warning sign rather than a good result?",
+    "question_type": "conceptual",
+    "source_page": "course/knn.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/knn.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 2,
+    "question": "How does the nested cross-validation setup in the newer knn.py code work (outer vs. inner loop), and what specific problem does it fix?",
+    "question_type": "conceptual",
+    "source_page": "course/knn.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/knn.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 3,
+    "question": "Which R functions from the original KNN lab map to sklearn's MinMaxScaler and KNeighborsClassifier, and what does the conversion note say about getting sensitivity and specificity in Python?",
+    "question_type": "factual",
+    "source_page": "course/knn.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/knn.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 4,
+    "question": "KNN requires scaling and one-hot encoding before fitting. How do decision trees differ on these preprocessing requirements, and why does that difference exist?",
+    "question_type": "synthesis",
+    "source_page": "course/knn.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/knn.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 5,
+    "question": "The KNN dataset has only ~11.6% positive cases. How do the confusion matrix concepts introduced here connect to the fairness metrics discussed on the ML bias page?",
+    "question_type": "synthesis",
+    "source_page": "course/knn.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/knn.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 6,
+    "question": "Which R function does the DS-3021 decision tree material map to Python's `cost_complexity_pruning_path`, and what practical difference does the page note between the two?",
+    "question_type": "factual",
+    "source_page": "course/decision-trees.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/decision-trees.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 7,
+    "question": "Which slide deck is this decision-trees page built from, and why does the page warn students to check which deck was used in a given semester?",
+    "question_type": "currency",
+    "source_page": "course/decision-trees.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/decision-trees.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 8,
+    "question": "Why does recursive binary splitting make decision trees unstable and only locally optimal, rather than globally optimal?",
+    "question_type": "conceptual",
+    "source_page": "course/decision-trees.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/decision-trees.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 9,
+    "question": "How does information gain get computed in the 'should you play outside?' example \u2014 what role does the weighting of child-node entropies play?",
+    "question_type": "conceptual",
+    "source_page": "course/decision-trees.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/decision-trees.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 10,
+    "question": "Why does the DT class lab explicitly tell students not to scale the data, when the KNN lab insists on scaling?",
+    "question_type": "synthesis",
+    "source_page": "course/decision-trees.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/decision-trees.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 11,
+    "question": "How does the instability weakness of a single decision tree connect to what's covered in the ensemble methods lecture in week 12?",
+    "question_type": "synthesis",
+    "source_page": "course/decision-trees.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/decision-trees.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 12,
+    "question": "What is the historical lineage from CART to C5.0, and which of these algorithms does sklearn's `DecisionTreeClassifier` implement?",
+    "question_type": "factual",
+    "source_page": "course/decision-trees.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/decision-trees.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 13,
+    "question": "How do Equality of Odds, Equal Opportunity, and Demographic Parity differ, and why is Demographic Parity considered crude?",
+    "question_type": "conceptual",
+    "source_page": "course/ml-bias.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/ml-bias.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 14,
+    "question": "Why does the lecture re-derive confusion matrices and ROC/AUC before introducing the fairness metrics, and how does the fraud-detection toy example (135 emails, 50% threshold) illustrate the threshold tradeoff?",
+    "question_type": "conceptual",
+    "source_page": "course/ml-bias.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/ml-bias.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 15,
+    "question": "How does the class imbalance issue flagged on the k-NN and decision tree pages connect to the fairness metrics discussed here?",
+    "question_type": "synthesis",
+    "source_page": "course/ml-bias.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/ml-bias.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 16,
+    "question": "The page says the fairlearn example file is only a two-line import stub \u2014 what materials would I need to look at instead to work through a runnable fairness or confusion-matrix example?",
+    "question_type": "synthesis",
+    "source_page": "course/ml-bias.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/ml-bias.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 17,
+    "question": "Why did YouTube's 2011-12 shift from optimizing clicks to optimizing watch-time push viewers toward more extreme content, and why does the page say this wasn't a 'bug'?",
+    "question_type": "conceptual",
+    "source_page": "course/ml-bias.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/ml-bias.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 18,
+    "question": "What are the pre-processing, in-processing, and post-processing interventions described in the companion Value_1.pptx deck?",
+    "question_type": "factual",
+    "source_page": "course/ml-bias.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/ml-bias.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 19,
+    "question": "In the bank-marketing KNN worked example, what are the confusion matrix counts and what recall does the model achieve on the positive class?",
+    "question_type": "factual",
+    "source_page": "course/ml-eval-metrics.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/ml-eval-metrics.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 20,
+    "question": "Why does the course recommend F1 over accuracy for the bank marketing dataset, given that accuracy is 88.8%?",
+    "question_type": "conceptual",
+    "source_page": "course/ml-eval-metrics.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/ml-eval-metrics.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 21,
+    "question": "How does log loss punish a confident wrong prediction compared to an uncertain one, and what numbers does the course's worked table give?",
+    "question_type": "factual",
+    "source_page": "course/ml-eval-metrics.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/ml-eval-metrics.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 22,
+    "question": "The 135-email fraud example reappears in the week 14 bias lecture \u2014 how does the confusion-matrix machinery on this page set up the fairness metrics on [[course/ml-bias]]?",
+    "question_type": "synthesis",
+    "source_page": "course/ml-eval-metrics.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/ml-eval-metrics.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 23,
+    "question": "Why is AUC described as the right metric for comparing two models, while precision and recall are not?",
+    "question_type": "conceptual",
+    "source_page": "course/ml-eval-metrics.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/ml-eval-metrics.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 24,
+    "question": "How do the evaluation metrics on this page fit into the nested cross-validation rewrite described on [[course/knn]]?",
+    "question_type": "synthesis",
+    "source_page": "course/ml-eval-metrics.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/ml-eval-metrics.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 25,
+    "question": "What Python calls replace R's confusionMatrix() and the ROCR prediction()/performance() pair, and why does the conversion table list several Python functions for one R function?",
+    "question_type": "factual",
+    "source_page": "course/ml-eval-metrics.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/ml-eval-metrics.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 26,
+    "question": "What split criterion does a regression tree use instead of Gini or entropy, and how is it computed in the slides' worked example with values 75, 85, and 80?",
+    "question_type": "factual",
+    "source_page": "course/dt-regression.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/dt-regression.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 27,
+    "question": "Why does a regression tree leaf predict the arithmetic mean of the training targets that land there rather than some other summary statistic?",
+    "question_type": "conceptual",
+    "source_page": "course/dt-regression.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/dt-regression.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 28,
+    "question": "When passing a list of scoring metrics to GridSearchCV for a DecisionTreeRegressor, why does scikit-learn require you to set `refit`, and why do MSE/MAE come back as negative numbers?",
+    "question_type": "conceptual",
+    "source_page": "course/dt-regression.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/dt-regression.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 29,
+    "question": "In the wine-quality lecture notebook, what was the best max_depth and what were the test-set R\u00b2, RMSE, and MAE?",
+    "question_type": "factual",
+    "source_page": "course/dt-regression.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/dt-regression.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 30,
+    "question": "Why does the Pipeline + ColumnTransformer version of the wine example, which imputes medians inside each CV fold, end up doing worse on the test set than the simpler drop-NA version \u2014 and why does the notebook treat that as a discussion point rather than a bug?",
+    "question_type": "conceptual",
+    "source_page": "course/dt-regression.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/dt-regression.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 31,
+    "question": "Which parts of the CART workflow described on [[course/decision-trees]] carry over unchanged to regression trees, and which specific steps in the week 9 lab replace the classification lab's confusion-matrix work?",
+    "question_type": "synthesis",
+    "source_page": "course/dt-regression.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/dt-regression.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 32,
+    "question": "Why can't k-means' k be chosen by cross-validated accuracy the way KNN's k is, and what does the course use instead?",
+    "question_type": "conceptual",
+    "source_page": "course/kmeans-clustering.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/kmeans-clustering.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 33,
+    "question": "How does the house-votes example demonstrate 'validation after the fact,' and why isn't party affiliation given to the algorithm during clustering?",
+    "question_type": "conceptual",
+    "source_page": "course/kmeans-clustering.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/kmeans-clustering.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 34,
+    "question": "What does k mean in KNN versus k-means, and what prerequisite do both methods share because they're distance-based?",
+    "question_type": "synthesis",
+    "source_page": "course/kmeans-clustering.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/kmeans-clustering.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 35,
+    "question": "How does the NBA clustering lab mirror the in-class house-votes workflow, and what plays the role that party affiliation played there?",
+    "question_type": "synthesis",
+    "source_page": "course/kmeans-clustering.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/kmeans-clustering.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 36,
+    "question": "Which slide deck version is treated as canonical for this topic, and what content does it add over the 2021 PDF?",
+    "question_type": "currency",
+    "source_page": "course/kmeans-clustering.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/kmeans-clustering.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 37,
+    "question": "Why does the page say variance explained rising from \u22480.719 at k=2 to \u22480.795 at k=3 doesn't mean k=3 is a better choice?",
+    "question_type": "conceptual",
+    "source_page": "course/kmeans-clustering.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/kmeans-clustering.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 38,
+    "question": "What are the three main tuning parameters of a Random Forest as taught in DS-3021, and what does each control?",
+    "question_type": "factual",
+    "source_page": "course/ensemble-methods.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/ensemble-methods.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 39,
+    "question": "In the lecture notebook's pregnancy/shopper example, what happened to OOB error as n_estimators was swept from 100 to 1000?",
+    "question_type": "factual",
+    "source_page": "course/ensemble-methods.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/ensemble-methods.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 40,
+    "question": "Why does sampling rows with replacement leave about a third of the training data unused per tree, and how does Random Forest exploit that to produce an OOB error estimate?",
+    "question_type": "conceptual",
+    "source_page": "course/ensemble-methods.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/ensemble-methods.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 41,
+    "question": "The slides describe random feature subsetting per split as 'kinda boosting' that reduces bias \u2014 why does the page say decorrelation is the better explanation?",
+    "question_type": "conceptual",
+    "source_page": "course/ensemble-methods.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/ensemble-methods.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 42,
+    "question": "How do MDI and permutation feature importance differ, and when would you prefer permutation importance?",
+    "question_type": "conceptual",
+    "source_page": "course/ensemble-methods.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/ensemble-methods.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 43,
+    "question": "Random Forest gives up what the decision-trees page calls a single tree's biggest advantage \u2014 what is it, and what tools does the course use to compensate?",
+    "question_type": "synthesis",
+    "source_page": "course/ensemble-methods.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/ensemble-methods.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 44,
+    "question": "Which R randomForest() outputs have no direct sklearn equivalent, and how does the course reconstruct them in Python?",
+    "question_type": "factual",
+    "source_page": "course/ensemble-methods.md",
+    "question_class": "topic-page",
+    "gold_pages": [
+      "course/ensemble-methods.md"
+    ],
+    "gold_annotation": "construction"
+  },
+  {
+    "id": 45,
+    "question": "The KNN page says feature scaling is mandatory, while the decision tree lab explicitly tells students NOT to scale. Explain why these two pieces of course guidance are consistent, and say which of the two rules applies to k-means clustering and why.",
+    "question_type": "synthesis",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page",
+    "gold_pages": [
+      "course/knn.md",
+      "course/decision-trees.md",
+      "course/kmeans-clustering.md"
+    ],
+    "gold_annotation": "model",
+    "gold_rationale": "The question requires the KNN page (scaling mandatory because KNN is distance-based, MinMax scaling), the decision-trees page (lab step 4 explicitly says not to scale because trees make local greedy splits, scaling-free advantage), and the kmeans-clustering page (k-means is distance-based/Euclidean, so the KNN scaling rule applies, as stated in its Related topics section). Other pages (dt-regression, ensemble-methods, ml-bias, ml-eval-metrics) only restate or are irrelevant to the scaling contrast."
+  },
+  {
+    "id": 46,
+    "question": "Trace the ~11.6% positive-rate bank-marketing dataset across the wiki: which pages reference it, and what conclusion does each draw about model evaluation from that imbalance?",
+    "question_type": "synthesis",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page",
+    "gold_pages": [
+      "course/knn.md",
+      "course/ml-eval-metrics.md",
+      "course/ml-bias.md"
+    ],
+    "gold_annotation": "model",
+    "gold_rationale": "The bank-marketing dataset with ~11.6% positive cases is introduced on course/knn.md (scaling, k selection, accuracy misleading under imbalance). course/ml-eval-metrics.md reuses the exact same KNN pipeline on that dataset and gives the full metric table (accuracy 88.8%, recall 0.17, AUC 0.79, log loss 0.84) plus the argument for multiple metrics. course/ml-bias.md explicitly points back to the imbalanced bank-marketing dataset from KNN as the worked numeric example for confusion-matrix/sensitivity/specificity machinery underlying fairness metrics. Other pages (decision-trees, dt-regression, ensemble-methods, kmeans-clustering) discuss imbalance generally but not this dataset."
+  },
+  {
+    "id": 47,
+    "question": "The KNN lecture found k=1 was best. What problem does that flag, what specific fix does the current KNN codebase use, and where else in the course does that same fix (or its shallower cousin) appear?",
+    "question_type": "synthesis",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page",
+    "gold_pages": [
+      "course/knn.md",
+      "course/decision-trees.md",
+      "course/dt-regression.md",
+      "course/ml-eval-metrics.md"
+    ],
+    "gold_annotation": "model",
+    "gold_rationale": "The KNN page supplies the k=1 overfitting flag and the nested cross-validation fix (5-fold outer, 3-fold inner), plus its pointer to decision-tree hyperparameter search. The decision-trees page documents the k-fold grid search over max_depth (GridSearchCV) in the week 8 lab \u2014 the shallower cousin. The dt-regression page adds RepeatedKFold(10 splits, 5 repeats) with GridSearchCV and refit, another appearance of the same CV harness. The ml-eval-metrics page explicitly discusses evaluating within cross-validation vs. a single split and references the nested CV rewrite, which completes the 'where else does it appear' part. Other pages (kmeans, ensemble, ml-bias) don't bear on cross-validation as a fix for tuning/evaluation leakage.\n"
+  },
+  {
+    "id": 48,
+    "question": "Sensitivity and specificity are defined on at least three pages. Compare how [[course/knn]], [[course/ml-eval-metrics]], and [[course/ml-bias]] each use these two quantities, and explain how the fairness metrics build on them.",
+    "question_type": "conceptual",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page",
+    "gold_pages": [
+      "course/knn.md",
+      "course/ml-eval-metrics.md",
+      "course/ml-bias.md"
+    ],
+    "gold_annotation": "model",
+    "gold_rationale": "The question explicitly asks to compare the treatment of sensitivity/specificity across three named pages: knn (manual TP/(TP+FN), TN/(TN+FP) computation in the R\u2192Python table, imbalanced bank-marketing context), ml-eval-metrics (full confusion-matrix derivation, recall/specificity/F1/balanced accuracy, ROC/AUC, the 135-email example), and ml-bias (TPR/FPR re-derivation feeding Demographic Parity, Equality of Odds, Equal Opportunity). All three are required; other pages (decision trees, clustering, ensembles) only mention these metrics incidentally and add nothing essential."
+  },
+  {
+    "id": 49,
+    "question": "Decision trees are described as unstable and only locally optimal. Which later week's topic is presented as the direct fix, and by what two randomization mechanisms does it achieve that?",
+    "question_type": "synthesis",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page",
+    "gold_pages": [
+      "course/decision-trees.md",
+      "course/ensemble-methods.md"
+    ],
+    "gold_annotation": "model",
+    "gold_rationale": "The decision-trees page states the instability/no-global-optimality weaknesses and points to Random Forest (week 12) as the direct fix; the ensemble-methods page supplies the two randomization mechanisms (bootstrap row sampling/bagging and random feature subsets per split). Both are needed."
+  },
+  {
+    "id": 50,
+    "question": "What does 'k' mean in KNN versus k-means, and how does the method of choosing k differ between the two? Name the specific selection techniques used in each course week.",
+    "question_type": "conceptual",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page",
+    "gold_pages": [
+      "course/knn.md",
+      "course/kmeans-clustering.md"
+    ],
+    "gold_annotation": "model",
+    "gold_rationale": "The KNN page defines k as the number of labeled neighbors polled for a majority vote and describes selecting k via the chooseK() function over odd values 1-21 plotted against accuracy, plus nested cross-validation (5-fold outer, 3-fold inner). The k-means page defines k as the number of clusters for unlabeled data and names the elbow method, NbClust (R-only, 30 indices majority vote), and silhouette score as selection techniques, and it also explicitly contrasts the two meanings of k. Both are required; no other page covers these specifics."
+  },
+  {
+    "id": 51,
+    "question": "Across KNN, decision trees, evaluation metrics, decision-tree regression, and ensembles, the wiki repeatedly documents an R\u2192Python conversion pattern. Give three concrete examples where one R function call maps to multiple Python calls, drawn from at least three different pages.",
+    "question_type": "synthesis",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page",
+    "gold_pages": [
+      "course/knn.md",
+      "course/decision-trees.md",
+      "course/ml-eval-metrics.md",
+      "course/dt-regression.md",
+      "course/ensemble-methods.md"
+    ],
+    "gold_annotation": "model",
+    "gold_rationale": "The question explicitly asks for examples drawn from at least three different pages across the five topics named. Each of these pages contains its own R\u2192Python conversion table with one-to-many mappings: knn.md (model print-out \u2192 plot_confusion_matrix() + classification_report(), plus manual sensitivity/specificity), decision-trees.md (train() \u2192 DecisionTreeClassifier() + GridSearchCV() + .fit()), ml-eval-metrics.md (confusionMatrix() \u2192 confusion_matrix() + ConfusionMatrixDisplay + classification_report()), dt-regression.md (postResample() \u2192 r2_score() + mean_squared_error() + mean_absolute_error()), and ensemble-methods.md (randomForest() \u2192 RandomForestClassifier() plus manual OOB/confusion extraction and n_estimators loop; importance \u2192 permutation_importance() + feature_importances_). A complete answer covering the named scope requires all five."
+  },
+  {
+    "id": 52,
+    "question": "Variable importance is handled differently for KNN, single decision trees, and Random Forest. Describe each approach and explain why permutation importance shows up in both the KNN and Random Forest material.",
+    "question_type": "synthesis",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page",
+    "gold_pages": [
+      "course/knn.md",
+      "course/decision-trees.md",
+      "course/ensemble-methods.md"
+    ],
+    "gold_annotation": "model",
+    "gold_rationale": "The KNN page states sklearn has no built-in variable importance for KNN and it must be computed manually via permutation (shuffle a variable, measure accuracy drop). The decision-trees page gives the single-tree approach (varImp/feature_importances_ from the fitted best estimator, impurity-based). The ensemble-methods page details Random Forest's two methods \u2014 MDI averaged across trees and permutation importance (unbiased for high-cardinality features, computable on held-out data with any metric) \u2014 which explains why permutation appears in both KNN and RF material. Other pages don't discuss variable importance."
+  },
+  {
+    "id": 53,
+    "question": "Class imbalance is flagged as a problem on the KNN, decision-trees, ml-eval-metrics, and ml-bias pages. Summarize the distinct concern each page raises about it, and explain how the accuracy problem becomes a fairness problem.",
+    "question_type": "conceptual",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page",
+    "gold_pages": [
+      "course/knn.md",
+      "course/decision-trees.md",
+      "course/ml-eval-metrics.md",
+      "course/ml-bias.md"
+    ],
+    "gold_annotation": "model",
+    "gold_rationale": "The question explicitly asks about the distinct class-imbalance concern raised on four named pages: KNN (scaling/k-selection with ~11.6% positives, accuracy misleading), decision-trees (bias toward dominant classes, balance before fitting), ml-eval-metrics (accuracy collapses the confusion matrix; precision/recall/F1/AUC/log loss on the imbalanced bank-marketing example), and ml-bias (fairness metrics built on TPR/FPR, societal bias in training data). Each is needed; other pages (dt-regression, kmeans, ensembles) only mention imbalance tangentially or not at all."
+  },
+  {
+    "id": 54,
+    "question": "The wiki mentions leakage-safe preprocessing in at least two places (imputation inside a Pipeline, and nested cross-validation). Explain the shared underlying principle and cite the specific example from each page.",
+    "question_type": "synthesis",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page",
+    "gold_pages": [
+      "course/dt-regression.md",
+      "course/knn.md"
+    ],
+    "gold_annotation": "model",
+    "gold_rationale": "The imputation-inside-a-Pipeline example (SimpleImputer within Pipeline/ColumnTransformer so imputation reruns per CV fold rather than leaking by imputing globally) appears only on course/dt-regression.md. The nested cross-validation example (outer 5-fold for performance, inner 3-fold for tuning k, fixing the k=1 overfitting issue) is documented on course/knn.md. Other pages (ml-eval-metrics) only reference nested CV secondarily and add no required detail."
+  },
+  {
+    "id": 55,
+    "question": "Several pages carry version or currency warnings \u2014 multiple slide decks, superseded PDFs, incomplete code stubs, or repo-vs-local lab differences. List these caveats and identify which pages they appear on.",
+    "question_type": "currency",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page",
+    "gold_pages": [
+      "course/decision-trees.md",
+      "course/dt-regression.md",
+      "course/kmeans-clustering.md",
+      "course/ml-bias.md",
+      "course/ensemble-methods.md",
+      "course/knn.md"
+    ],
+    "gold_annotation": "model",
+    "gold_rationale": "Decision-trees has the three-slide-deck version note; dt-regression notes shared deck, repo-vs-local lab wording differences, and .py script quirks; kmeans-clustering notes two deck versions and superseded 2021 PDF; ml-bias flags the incomplete fairlearn stub; ensemble-methods notes a redundant PDF export not carried forward; knn documents the README rewrite (current nested-CV version superseding lecture notebook). The other pages (ml-eval-metrics) contain no such caveats."
+  },
+  {
+    "id": 56,
+    "question": "The k-means in-class code feeds cluster labels into a DecisionTreeClassifier. Explain what this demonstrates about the relationship between the week 10 unsupervised material and the week 8 supervised material, and how the resulting models are compared.",
+    "question_type": "synthesis",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page",
+    "gold_pages": [
+      "course/kmeans-clustering.md",
+      "course/decision-trees.md"
+    ],
+    "gold_annotation": "model",
+    "gold_rationale": "The question centers on the k-means in-class script (cluster_example.py) feeding cluster labels as a feature into a DecisionTreeClassifier and comparing confusion matrices with/without that feature \u2014 all described on course/kmeans-clustering.md. A complete answer also needs the week 8 supervised CART material (DecisionTreeClassifier, white-box classification, confusion matrix evaluation) from course/decision-trees.md. Evaluation-metric detail pages are supplementary, not required."
+  },
+  {
+    "id": 57,
+    "question": "Chart the DS-3021 week numbers for KNN, evaluation metrics, decision trees, decision-tree regression, k-means clustering, ensemble methods, and ML bias, and explain how the ordering reflects a deliberate build-up of prerequisites.",
+    "question_type": "factual",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page",
+    "gold_pages": [
+      "course/knn.md",
+      "course/ml-eval-metrics.md",
+      "course/decision-trees.md",
+      "course/dt-regression.md",
+      "course/kmeans-clustering.md",
+      "course/ensemble-methods.md",
+      "course/ml-bias.md"
+    ],
+    "gold_annotation": "model",
+    "gold_rationale": "The question asks for week numbers and prerequisite ordering across all seven topics; each page supplies its own week number (KNN 6, eval metrics 7, decision trees 8, DT regression 9, k-means 10, ensembles 12, ML bias 14) and the cross-references justifying the build-up, so all seven pages are required."
+  },
+  {
+    "id": 58,
+    "question": "Compare how model performance is validated when there is no held-out labeled target: contrast the out-of-bag error estimate in Random Forest with the after-the-fact validation strategy used in k-means clustering, and note what role a held-out label plays in each.",
+    "question_type": "conceptual",
+    "source_page": "(cross-page)",
+    "question_class": "cross-page",
+    "gold_pages": [
+      "course/ensemble-methods.md",
+      "course/kmeans-clustering.md"
+    ],
+    "gold_annotation": "model",
+    "gold_rationale": "The question asks to contrast OOB error in Random Forest (described only on the ensemble-methods page, including the ~1/e bootstrap leave-out and oob_score_) with k-means' after-the-fact validation against a withheld label like party affiliation or salary, plus internal measures like variance explained and silhouette (described only on the kmeans-clustering page). Other pages (knn, decision-trees, ml-eval-metrics) provide background but are not required for this specific contrast."
+  }
+]

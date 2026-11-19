@@ -38,10 +38,30 @@ New here? Start with [[getting-started]].
 
 Separate domain testing the wiki pattern as a course-delivery format — see [[course/README]] for scope and [[course/pilot-plan]] for the evaluation plan.
 
+Getting started:
+
+- [[course/course-overview]]: syllabus, schedule, grading, and how the course frames data science
+- [[course/dev-environment]]: VS Code, GitHub, Codespaces, virtual environments
+- [[course/python-basics]]: the Python refresher (functions, pandas basics)
+
+Foundations and the ML pipeline:
+
+- [[course/ml-foundations]]: what ML is, the data science lifecycle, case studies
+- [[course/data-prep]]: data preparation, scaling, encoding, train/tune/test splits
+
+Models:
+
+- [[course/linear-regression]]
+- [[course/logistic-regression]]
 - [[course/knn]]
-- [[course/decision-trees]]
-- [[course/ml-bias]]
 - [[course/ml-eval-metrics]]
+- [[course/decision-trees]]
 - [[course/dt-regression]]
 - [[course/kmeans-clustering]]
+- [[course/pca]]
 - [[course/ensemble-methods]]
+
+Ethics and capstone:
+
+- [[course/ml-bias]]
+- [[course/final-project]]

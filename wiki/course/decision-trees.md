@@ -51,6 +51,17 @@ Same conversion-in-progress pattern as [[course/knn]]:
 
 `DT_Class_Lab.ipynb` — a movie-studio scenario: predict whether a movie will get a high IMDb score. Walks through the full pipeline (type-checking variables, missing data function, 80/10/10 train/tune/test split, k-fold grid search over `max_depth`, variable importance, confusion matrix on tune data, then a second hyperparameter pass to compare). Notably, step 4 explicitly tells students *not* to scale the data ("DTs don't require this... they make local greedy decisions") — a direct, gradable contrast with the KNN lab's insistence on scaling.
 
+### Newer (MLBook) version of the lab
+
+The MLBook copy (`2026-05-21-dt-class-lab.ipynb`) has the same movie-studio framing, the same `movie_metadata.csv` load, and the same steps 1–15 (including the "don't scale" step 4, the base-rate step 5, the 80/10/10 split, the k-fold object, and grid search over `max_depth`). It is a **shorter, test-set-focused** version. What changed from the 2026-03-10 DS-3021 version:
+
+- **Step 3** no longer asks students to wrap their missing-data cleaning in a reusable function (it's just "check for missing variables and correct as needed").
+- **Step 8** drops the explicit "(grid search)" label, and **step 14** asks students to comment on performance "using several evaluation metrics" rather than "the metrics you selected."
+- **Steps 16–19 move from the tune set to the test set**: predict on test data, judge test performance, print the test-set confusion matrix, and find the top 3 movies in the test set.
+- **Steps 20–23 are gone**: the second hyperparameter pass, the "did the model improve?" comparison, predicting test data with the better model, and the closing summary/recommendations to the boss ("being careful not to over promise"). The lab now ends at step 19.
+
+One loose end is that step 6 still asks for a train/tune/test (80/10/10) split, but no later step uses the tune set.
+
 ## Related topics
 
 - [[course/knn]] — contrasting non-distance-based vs. distance-based approach to classification; scaling required there, not here
@@ -65,4 +76,5 @@ Same conversion-in-progress pattern as [[course/knn]]:
 - `raw/course/DS-3021/decision-trees/2024-10-29-week08-r-to-python-conversion.docx` — R→Python conversion notes
 - `raw/course/DS-3021/decision-trees/2025-02-13-decision-trees-lecture-notebook.ipynb` — in-class notebook
 - `raw/course/DS-3021/decision-trees/2026-03-10-dt-class-lab.ipynb` — lab assignment
+- `raw/course/MLBook/decision-trees/2026-05-21-dt-class-lab.ipynb` — newer MLBook version of the same lab (shorter; evaluates on the test set, drops the second hyperparameter pass)
 - `raw/course/DS-3021/decision-trees/2024-10-29-cart-loh-academic-reference.pdf` — Loh, "Classification and Regression Trees" (academic reference)

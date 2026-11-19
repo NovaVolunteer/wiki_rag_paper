@@ -16,6 +16,20 @@ Started with three topics chosen for variety (technical/procedural, mathematical
 - [[course/kmeans-clustering]] — unsupervised clustering (week 10)
 - [[course/ensemble-methods]] — bagging and Random Forest (week 12; extends [[course/decision-trees]])
 
+On 2026-11-19 the pilot was expanded to the full course: every remaining DS-3021 week (except the `xx_*` folders, which are not part of the course as taught) plus the instructor's online text, the *Foundations of Machine Learning* MLBook (novavolunteer.github.io/MLBook). That added nine pages:
+
+- [[course/course-overview]] — syllabus, schedule, grading, course framing
+- [[course/dev-environment]] — VS Code, GitHub, Codespaces, virtual environments
+- [[course/python-basics]] — the Python refresher (week 2)
+- [[course/ml-foundations]] — what ML is, the data science lifecycle (week 4)
+- [[course/data-prep]] — data preparation and the ML pipeline (week 5)
+- [[course/linear-regression]] — linear, multiple and polynomial regression, OLS
+- [[course/logistic-regression]] — logistic regression
+- [[course/pca]] — principal component analysis (MLBook only)
+- [[course/final-project]] — the capstone project
+
+MLBook sources live in `raw/course/MLBook/<topic>/`. Where the MLBook and DS-3021 hold different versions of the same notebook, the MLBook copy (the current published one) was ingested. New MLBook material on existing topics (a KNN overview chapter, a newer DT lab) was folded into those pages. `ingest_course_materials.py` records every file copied and every file skipped, with the reason.
+
 See [[course/pilot-plan]] for how this pilot is meant to be evaluated against a plain-RAG baseline.
 
 ## Ongoing sources
@@ -29,7 +43,7 @@ See `WIKI.md`'s "Ongoing sources" section for the ingest steps. Short version: f
 
 ## Curation notes
 
-Source files for this domain live in `raw/course/DS-3021/<topic>/`, copied from the full `DS-3021/` folder with the following excluded on purpose:
+Source files for this domain live in `raw/course/DS-3021/<topic>/` and `raw/course/MLBook/<topic>/`, copied from the full `DS-3021/` folder with the following excluded on purpose:
 - Editor/OS junk: `.ipynb_checkpoints/`, Office lock files (`~$*`).
 - Duplicate legacy slide decks — where multiple years' versions of the same lecture existed (e.g. three Decision Trees decks from 2021/2022/2024), only the most recently taught version was kept as canonical; older ones are noted on the relevant page but not ingested, to avoid the wiki treating superseded content as current.
 - `xx_reinforcement-lab/assignment-submissions/` — actual student-identifiable work. Excluded from any student-facing wiki on principle; not part of this pilot regardless of topic.

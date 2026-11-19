@@ -1,0 +1,112 @@
+condition,id,question_class,source_page,gold_pages,question,answer,response_type,outcome,score,grounded,flags_missing,gold_in_context,input_tokens,api_input_tokens,material_tokens,output_tokens,n_calls,units_seen,latency_s,rationale,error
+A-ret,3,topic-page,course/knn.md,course/knn.md,"What are the main preprocessing steps used before fitting kNN to the banking data, and why is each one needed?","## Preprocessing steps for the bank data
+
+The course shows two slightly different pipelines on the same `bank.csv` dataset — one in the kNN lecture notebook and one in the evaluation-metrics notebook. Here they are, with the justification the materials give.
+
+### 1. Handle missing data
+- **Lecture notebook** (`raw/course/DS-3021/knn/2024-10-29-knn-lecture-notebook.ipynb`): uses a `seaborn` displot on `bank_data.isna().melt(...)` to visualize the proportion missing per variable — the Python stand-in for R's `mice` visualization. Conclusion there: ""**No missing data!!**""
+- **Eval notebook** (`raw/course/DS-3021/ml-eval-metrics/2025-06-09-knn-eval-example-notebook.ipynb`): `bank_data = bank_data.dropna()` — ""Drop any rows that are incomplete.""
+
+*Why:* the notebooks present this as a standard check/clean step; they don't spell out a deeper rationale beyond removing incomplete rows.
+
+### 2. Collapse high-cardinality categories
+`job` has **12 levels**, so it is collapsed into `Employed` / `Unemployed` via a lambda (`knn-lecture-notebook.ipynb`): ""We should collapse the variable with 12 levels."" The notebook flags the 12 levels as a problem (""12 levels! What should we do?"") but leaves the full reasoning to class discussion. Relatedly, the graduation lab (`raw/course/DS-3021/knn/2024-10-29-knn-graduation-lab.ipynb`) frames feature reduction as a ""degrees of freedom problem, as in, we have too many features.""
+
+### 3. Convert categorical columns to `category` dtype
+`bank_data[cat] = bank_data[cat].astype('category')` for job, marital, education, default, housing, contact, poutcome, and `signed up` (`knn-lecture-notebook.ipynb`). The eval notebook does this just for the target: ""our target variable is the column 'signed up', lets convert it to a category so we can work with it.""
+
+### 4. Scale / normalize the numeric features
+- Lecture notebook: `MinMaxScaler()` on all `int64` columns, then put back into the dataframe — ""Next, we normalize the numeric variables.""
+- Eval notebook: `StandardScaler().fit_transform()` on `age`, `duration`, `balance` — ""Remember this essentially just converts the raw values to z-scores, standardizing them.""
+
+*Why:* kNN is a distance-based method. The slides (`raw/course/DS-3021/knn/2024-10-29-knn-and-probability-slides.pdf`) define the algorithm as ""Define a distance 𝑑(𝑥1, 𝑥2) between any 2 examples … So we could just use Euclidean distance,"" with the worked Euclidean example summing squared per-feature differences. Features on larger raw scales would otherwise dominate that sum.
+
+### 5. One-hot encode categorical variables
+`pd.get_dummies(bank_data[cat_cols])`, drop the originals, then `join` the encoded columns (`knn-lecture-notebook.ipynb`): ""this is the process of converting categorical variables to a usable form for a machine learning algorithm."" The module README (`raw/course/DS-3021/knn/README.md`) adds that categoricals are encoded ""so they can be used in distance calculations.""
+
+### 6. Check prevalence of the target class
+`bank_data['signed up_1'].value_counts()[1] / count` → ""at random, we have an 11.6% chance of correctly picking a subscribed individual. Let's see if kNN can do any better."" (`knn-lecture-notebook.ipynb`)
+
+*Why:* it establishes the base-rate baseline your model must beat.
+
+### 7. Partition into train / tune(validation) / test, stratified
+- Lecture notebook: `train_test_split(bank_data, test_size=0.4, stratify=bank_data['signed up_1'])`, then split the held-out 40% in half into test and val.
+- Eval notebook: 70% train, then the remaining 30% split 50/50 into tune and test, with `random_state` set — ""specifying the parameter 'stratify' is essential to preserve class proportions when splitting, reducing sampling error. Also set the random_state so our results can be reproducible.""
+
+*Why (tune set):* the graduation lab instructs you to ""Build and optimize a kNN model … Meaning use the tune set to select the correct k value,"" which connects to the slides' point that k controls boundary complexity (k=1 boundaries ""Looks complex / Overfitting?"" vs. k=15 ""Smoother boundaries / Generalizes better on unseen data"").
+
+One caveat: the lecture notebook also sets `random.seed(1984)` with the comment ""kNN is a random algorithm,"" which is about reproducibility of the run rather than preprocessing per se.",answer,grounded_answer,10,True,False,1.0,8778,8778,5985,1891,1,raw/course/DS-3021/ml-eval-metrics/2025-06-09-knn-eval-example-notebook.ipynb::chunk0; raw/course/DS-3021/knn/2024-10-29-knn-lecture-notebook.ipynb::chunk0; raw/course/DS-3021/knn/2024-10-29-knn-and-probability-slides.pdf::chunk0; raw/course/DS-3021/knn/2024-10-29-knn-graduation-lab.ipynb::chunk0; raw/course/DS-3021/knn/README.md::chunk1,24.25,"The tutor response matches the course material closely and completely. It enumerates each preprocessing step taught in the notebooks/slides for the bank dataset (missing-data check/drop, collapsing high-cardinality job categories, converting categorical dtype, numeric scaling, one‑hot encoding, checking target prevalence, and stratified train/tune/test splitting) and gives correct, course-consistent reasons for each (kNN is distance-based so scaling and numeric representation matter, categorical features must be encoded for distance, prevalence is the baseline to beat, stratified splits preserve class balance). The answer cites the exact course artifacts where those steps appear (knn lecture notebook, eval-metrics notebook, knn slides, README) and notes the small, explicit differences the course shows (MinMaxScaler vs StandardScaler used in different notebooks, use of random_state/random.seed for reproducibility). All substantive claims are supported by the provided course pages, so I mark it fully grounded. No missing‑coverage flag is needed because the tutor did not claim the course lacked relevant material.",
+A-ret,52,cross-page,(cross-page),course/kmeans-clustering.md; course/knn.md,"If I had a dataset with numeric and categorical variables and wanted to try either kNN classification or k-means clustering, how would the preprocessing and evaluation differ?","## Short answer
+
+Both are distance‑based, so a lot of the *preprocessing* is the same. The big differences are (a) whether you need a target variable and train/test splits, and (b) how you judge the result.
+
+---
+
+### 1. What kind of problem each one is
+
+- **kNN is supervised classification**: ""k-NN is a supervised method for classification,"" where you ""know for certain that there are so many classes, and the aim is to establish a rule that we can use to classify a new observation into one of the existing classes"" (`raw/course/DS-3021/knn/2024-10-29-knn-and-probability-slides.pdf`). You predict a label by ""looking at the 'k' closest labeled data points (neighbors)"" and taking a ""majority vote"" (same file).
+- **k-means is unsupervised**: ""The data inputs have (x) no target outputs (y)… We want to impose structure on the inputs (x) to say something meaningful about the data"" (`raw/course/DS-3021/kmeans-clustering/2026-03-10-clustering-slides.pptx`).
+
+That distinction drives everything below.
+
+---
+
+### 2. Preprocessing — mostly shared
+
+Both rely on a distance metric, so mixed numeric/categorical data needs the same two fixes:
+
+- **Scale numeric features.** ""Distance-based algorithms like KNN are sensitive to feature scales. The code normalizes all numeric features to [0, 1] range using MinMax scaling"" (`raw/course/DS-3021/knn/README.md`). The ML III reading says the same generally: ""Many DS approaches require the data to be normalized or placed into a standard format so comparison between variables is possible… We will mostly use a min max scaler that will maintain the variance of the values but re-calculate them to be between 1 and 0"" (`raw/course/DS-3021/knn/2024-10-29-machine-learning-III-reading.pdf`).
+- **One-hot encode categoricals.** ""Categorical variables are converted to binary columns so they can be used in distance calculations"" (`raw/course/DS-3021/knn/README.md`); ""For factor variables this measure creating individual columns for each level that are logical or Boolean 1s and 0s"" (`.../2024-10-29-machine-learning-III-reading.pdf`). The `data_preparation.py` pipeline in the kNN directory does exactly this (`collapse_job_categories()`, `one_hot_encode_categorical()`, `normalize_numeric_columns()`).
+- **Reducing levels.** The kNN pipeline also collapses categorical levels ""to reduce dimensionality"" before encoding (`raw/course/DS-3021/knn/README.md`) — relevant for either method since every extra level becomes another distance dimension.
+
+**Where preprocessing diverges:** only the supervised kNN path needs a target and data partitioning. The kNN code does ""stratified train/validation/test splits,"" where ""all data splits maintain the class distribution of the original dataset, which is crucial for imbalanced datasets like the bank marketing data (only ~11.6% positive cases)"" (`raw/course/DS-3021/knn/README.md`). You'd also check **prevalence** — ""the proportion of a particular population found to be in the positive class"" — as a baseline (`.../2024-10-29-machine-learning-III-reading.pdf`). None of that applies to k-means, since there is no y.
+
+The clustering slides also note that for clustering ""similarity needs to be defined… Will depend on attributes of data. Usually a distance metric,"" with the ""key assumption: data points that are 'closer' together are related or similar"" (`.../2026-03-10-clustering-slides.pptx`). So your encoding/scaling choices directly define what ""similar"" means.
+
+---
+
+### 3. Choosing the hyperparameter
+
+- **kNN (choosing k):** tune it with **nested cross-validation** — ""Outer Loop: Evaluates overall model performance using 5-fold cross-validation… Inner Loop: Tunes hyperparameters (k values) using 3-fold cross-validation,"" testing k = 1, 3, 5, …, 21. This matters because ""traditional single cross-validation can overestimate performance when used for both hyperparameter tuning and model evaluation"" (`raw/course/DS-3021/knn/README.md`). Conceptually, small k gives a complex boundary that looks like overfitting; larger k (e.g., k=15) gives ""smoother boundaries"" that ""generalize better on unseen data"" (`.../2024-10-29-knn-and-probability-slides.pdf`).
+- **k-means (choosing number of clusters):** the course material has you ""estimate the optimal number of clusters"" using the visualization tool (naftaliharris k-means visualizer) (`.../2026-03-10-clustering-slides.pptx`). The algorithm itself runs until convergence: in the worked example with D = {2,4,10,12,3,11,20,25,30}, k=2, the means are reassigned iteratively until you ""stop, since the clusters and the means found in all subsequent iterations will be the same"" (same file).
+
+---
+
+### 4. Evaluation
+
+- **kNN** has a rich, label-based evaluation toolkit in the course material: ""Confusion matrix visualization; Classification report (precision, recall, F1); ROC curve and AUC score; Sensitivity and specificity"" (`raw/course/DS-3021/knn/README.md`). The R→Python crosswalk lists the corresponding functions: `metrics.confusion_matrix`, `metrics.ConfusionMatrixDisplay.from_predictions`, `metrics.RocCurveDisplay.from_predictions`, `metrics.roc_auc_score`, `metrics.log_loss`, `metrics.f1_score`, `metrics.classification_report` (`raw/course/DS-3021/ml-eval-metrics/2022-07-22-eval-metrics-r-to-python-conversion.docx`). Note also that classification output is probabilistic — ""the predications of the model are not binary (1s or 0s) but are given as percentages"" (`.../2024-10-29-machine-learning-III-reading.pdf`), which is why `.predict_proba()` and thresholding matter.
+- **k-means** cannot be evaluated this way because there are no labels to compare against. The course material frames clustering as **EDA** — ""an approach where the intent is to see what the data can tell us beyond modeling or hypothesis testing,"" used when ""data is too big or complex to be analyzed just by visualizing it"" (`.../2026-03-10-clustering-slides.pptx`). Judgment is therefore interpretive/business-driven: in the GE Capital case the output was ""five clusters of consumer credit behavior"" that were then used to build a classification model and tailored offers; the general principle in the reading is that you need an ""independent metric for business value… that can be used to determine if the model is providing value,"" with ""Market Clustering: Did sales increase"" given as the clustering example (`.../2026-03-10-clustering-slides.pptx`; `.../2024-10-29-machine-learning-III-reading.pdf`).
+
+---
+
+### Caveat on what the excerpts *don't* cover
+
+The retrieved material does **not** give a quantitative internal cluster-validity metric (e.g., elbow plot, silhouette, within-cluster sum of squares), nor does it discuss special distance measures for categorical/mixed data (e.g., Gower distance) or the known pitfall that one-hot encoded binary columns behave differently from scaled continuous ones under Euclidean distance. The kNN slides only present **Euclidean distance** explicitly (`.../2024-10-29-knn-and-probability-slides.pdf`). I'd flag those as open questions to raise in class rather than something I can answer from these sources.",answer,flagged_ungrounded,7,False,True,1.0,11489,11489,6617,2875,1,raw/course/DS-3021/knn/2024-10-29-knn-and-probability-slides.pdf::chunk0; raw/course/DS-3021/ml-eval-metrics/2022-07-22-eval-metrics-r-to-python-conversion.docx::chunk0; raw/course/DS-3021/kmeans-clustering/2026-03-10-clustering-slides.pptx::chunk0; raw/course/DS-3021/knn/README.md::chunk0; raw/course/DS-3021/knn/2024-10-29-machine-learning-III-reading.pdf::chunk1,33.31,"Overall the tutor answer is accurate, well-structured, and aligns with the course material on the major points: both kNN and k-means are distance-based so numeric scaling and categorical encoding are required (knn pages: MinMax scaling and pd.get_dummies / collapse levels), kNN is supervised and needs stratified splits / nested CV for tuning k (README and nested-CV notes), and kNN evaluation uses confusion matrices, precision/recall/F1, ROC/AUC, log loss (eval-metrics and knn notebooks). For k-means the answer correctly notes it is unsupervised and that cluster quality is assessed with WCSS/inertia, variance-explained, elbow and silhouette scores (kmeans slides and cluster_example.py). However, the response also claims the retrieved material “does not give a quantitative internal cluster‑validity metric (e.g., elbow plot, silhouette…)” and that it lacks discussion of mixed-data distances (e.g., Gower). That claim is incorrect: the k-means course materials explicitly cover the elbow method and silhouette score and show code/examples; therefore not all substantive claims are grounded in the ingested course pages. Because the answer explicitly flagged missing course coverage (which was actually present), set flags_missing=true and grounded=false. Given the strong correctness on most points but the notable incorrect claim about missing validation metrics, I score it a 7 (correct and helpful but with a meaningful factual error about what the course materials contain).",
+A-ret,95,unanswerable,(unanswerable),,How can I compute a confidence interval for AUC or statistically test whether two ROC curves are significantly different?,"Short answer: **the course material does not cover formal confidence intervals for AUC or significance tests (e.g., DeLong's test, bootstrap CIs) for comparing two ROC curves.** I can't give you a method for that from the DS-3021 material without going outside it — so I'll flag that explicitly rather than guess.
+
+Here's what the course material *does* give you on AUC, and the closest thing to a variability estimate:
+
+**1. Computing AUC (point estimate only)**
+- `metrics.roc_auc_score(final_model.target, final_model.pos_prob)` returns the AUC value, and `metrics.RocCurveDisplay.from_predictions(...)` plots the curve (`raw/course/DS-3021/ml-eval-metrics/2025-06-09-knn-eval-example-notebook.ipynb`).
+- The same pattern appears in the random forest lecture, where AUC is computed with `metrics.roc_auc_score(y_test, pred)` and annotated on the ROC plot (`raw/course/DS-3021/ensemble-methods/2026-08-31-rf-lecture-notebook.ipynb`).
+
+**2. Interpreting AUC magnitude (heuristic, not inferential)**
+The slides give a rule-of-thumb scale rather than a significance test: 0.9–1.0 Excellent, 0.8–0.9 Good, 0.7–0.8 Fair, 0.6–0.7 Poor, 0.5–0.6 Fail (`raw/course/DS-3021/ml-eval-metrics/2025-06-09-perfmet-slides.pdf`).
+
+**3. The closest thing in the course to quantifying AUC uncertainty: cross-validation spread**
+In the decision tree lecture, `GridSearchCV` results are mined for *both* the mean and the standard deviation of AUC across folds:
+
+```python
+auc   = model.cv_results_['mean_test_roc_auc']
+SDauc = model.cv_results_['std_test_roc_auc']
+```
+
+and these are assembled into a table alongside recall and balanced accuracy (`raw/course/DS-3021/decision-trees/2025-02-13-decision-trees-lecture-notebook.ipynb`). This gives you a mean ± SD of AUC across resamples, which is the course's way of showing that an AUC estimate has spread — but note the material presents it as a model-selection diagnostic, not as a confidence interval, and it does not define a formal CI or hypothesis test from it.
+
+**4. How the course says to compare models**
+The random forest notebook frames model comparison informally: ""The reason data scientists build many different classification models and compare the AUC values, is that they want to make sure that they have built the best possible model using several approaches"" (`raw/course/DS-3021/ensemble-methods/2026-08-31-rf-lecture-notebook.ipynb`). That's a direct comparison of AUC values, with no significance testing attached.
+
+**5. One related but distinct idea — comparing ROC curves across subgroups**
+If your actual goal is comparing ROC curves between *groups* rather than between *models*, the fairness slides discuss Equality of Odds as ""basically ROCs for each of the sub-groups,"" checking whether TPR and FPR are the same across protected classes at different thresholds (`raw/course/DS-3021/ml-bias/2024-10-29-ml-bias-and-fairness-slides.pdf`). Again, this is framed as an inspection/threshold-shifting exercise, not a statistical test.
+
+**Bottom line:** for a true CI or a paired test between two ROC curves, you'd need a method not presented in this course. If this is for an assignment, I'd recommend either (a) reporting mean ± SD of AUC across CV folds as in the decision-tree notebook, which is defensible from course material, or (b) checking with your instructor whether bootstrap/DeLong approaches are in scope.",answer,grounded_answer,9,True,True,0.0,8835,8835,5320,1448,1,raw/course/DS-3021/ml-eval-metrics/2025-06-09-knn-eval-example-notebook.ipynb::chunk1; raw/course/DS-3021/ensemble-methods/2026-08-31-rf-lecture-notebook.ipynb::chunk3; raw/course/DS-3021/ml-bias/2024-10-29-ml-bias-and-fairness-slides.pdf::chunk1; raw/course/DS-3021/decision-trees/2025-02-13-decision-trees-lecture-notebook.ipynb::chunk1; raw/course/DS-3021/ml-eval-metrics/2025-06-09-perfmet-slides.pdf::chunk0,17.77,"The tutor response correctly and explicitly states that the course material does not cover formal confidence intervals or hypothesis tests for AUC (e.g., DeLong or bootstrap), which matches the reference answer. It then draws only on course material to give the closest available guidance: how to compute AUC in sklearn (metrics.roc_auc_score and RocCurveDisplay), the course's rule-of-thumb interpretation bands, and the course-approved way to show variability (mean ± std of AUC across CV folds as in the Decision Trees GridSearchCV examples). It also correctly notes that comparing AUCs in the course is presented informally (comparing point estimates) and that Equality of Odds corresponds to inspecting subgroup ROC behavior (from the ML-bias slides). All substantive claims are supported by the supplied course notebooks/slides, and the response explicitly flags that the formal CI/test methods are missing from the course (flags_missing=true). I deducted one point only because, while the answer rightly refused to invent out-of-course procedures, an explicit pointer that students could request instructor permission to use bootstrap/DeLong (as it does) could have been slightly more concrete—but the answer stayed faithful to the course scope as required.",

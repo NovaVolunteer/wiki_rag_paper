@@ -1,0 +1,1043 @@
+{
+ "retained_checks": {
+  "90": {
+   "answerable": false,
+   "supporting_files": [
+    "raw/course/DS-3021/knn/2024-10-29-knn-and-probability-slides.pdf",
+    "raw/course/DS-3021/knn/2024-10-29-knn-lecture-notebook.ipynb",
+    "raw/course/MLBook/knn/2026-05-21-knn-overview.ipynb",
+    "raw/course/DS-3021/kmeans-clustering/2026-03-10-clustering-slides.pptx"
+   ],
+   "explanation": "The course files support only a general answer that kNN is distance-based, commonly uses Euclidean distance, requires scaling/normalization, and can suffer in high-dimensional spaces. They do not substantively compare Euclidean, Manhattan, cosine, and Mahalanobis distances, nor do they address text-like sparse binary feature spaces or how sparsity changes the choice of distance metric. Therefore a tutor could not give a substantive, correct answer to the full question using only these files."
+  },
+  "93": {
+   "answerable": false,
+   "supporting_files": [
+    "raw/course/DS-3021/decision-trees/2024-10-29-week08-r-to-python-conversion.docx",
+    "raw/course/DS-3021/decision-trees/2025-02-13-decision-trees-lecture-notebook.ipynb",
+    "raw/course/DS-3021/decision-trees/2022-10-20-decision-trees-slides-current.pptx",
+    "raw/course/DS-3021/decision-trees/2024-10-29-cart-loh-academic-reference.pdf"
+   ],
+   "explanation": "The course files mention pruning, overfitting control, and scikit-learn's `cost_complexity_pruning_path`, including that it returns `ccp_alphas` and impurities. However, they do not provide the mathematical cost-complexity pruning formula, such as the penalized objective R_alpha(T) = R(T) + alpha |T| or the weakest-link alpha calculation involving subtree risk and the number of terminal/leaf nodes. Because the question specifically asks how alpha is calculated mathematically and how subtree risk and leaf count enter the formula, the available materials only partially address the topic and are not sufficient for a substantive, correct answer using only the course files."
+  },
+  "94": {
+   "answerable": false,
+   "supporting_files": [
+    "raw/course/DS-3021/dt-regression/2026-03-10-dt-regression-lecture-script.py",
+    "raw/course/DS-3021/dt-regression/2022-03-24-decision-trees-regression-slides.pptx",
+    "raw/course/DS-3021/decision-trees/2024-10-29-cart-loh-academic-reference.pdf"
+   ],
+   "explanation": "The course files partially cover regression-tree splitting: they say regression trees minimize squared-error/MSE or sum of squared deviations, and the lecture script includes `min_impurity_decrease` in a parameter grid. However, the exact weighted impurity decrease formula used by scikit-learn for `min_impurity_decrease` is not provided in the files. The script explicitly points students to the external scikit-learn documentation for that specific explanation, so a tutor could not give the exact formula using only the provided course files."
+  },
+  "95": {
+   "answerable": false,
+   "supporting_files": [
+    "raw/course/DS-3021/ml-eval-metrics/2025-06-09-perfmet-slides.pdf",
+    "raw/course/DS-3021/ml-eval-metrics/2025-06-09-knn-eval-example-notebook.ipynb",
+    "raw/course/DS-3021/knn/2024-10-29-knn-lecture-notebook.ipynb",
+    "raw/course/DS-3021/ml-bias/2024-10-29-ml-bias-and-fairness-slides.pdf"
+   ],
+   "explanation": "The course files cover ROC curves and AUC conceptually and show how to compute/plot ROC/AUC with sklearn (e.g., roc_auc_score, RocCurveDisplay, roc_curve). However, they do not address the core inferential question: computing confidence intervals for AUC or statistically testing whether two ROC curves/AUCs differ significantly. There is no coverage of methods such as bootstrap AUC confidence intervals, DeLong\u2019s test, permutation tests, paired vs. unpaired ROC comparisons, or related implementation details. A tutor could explain basic ROC/AUC from the files, but not give a substantive correct answer to this specific question using only the provided materials."
+  },
+  "98": {
+   "answerable": false,
+   "supporting_files": [
+    "raw/course/DS-3021/ml-bias/2024-10-29-ml-bias-and-fairness-slides.pdf",
+    "raw/course/DS-3021/ml-bias/2024-10-29-value-ethics-slides.pptx",
+    "raw/course/DS-3021/ml-bias/2024-10-29-fairness-example.py",
+    "raw/course/DS-3021/ml-eval-metrics/2025-06-09-perfmet-slides.pdf"
+   ],
+   "explanation": "The course files define equalized odds, discuss group fairness at a conceptual level, and explain that threshold shifts can be used to try to satisfy fairness conditions. They also include classification thresholding and confusion-matrix/ROC material, and one fairness file imports fairlearn. However, the files do not show how to implement group-specific threshold optimization with a fairness library, do not document Fairlearn\u2019s ThresholdOptimizer or equivalent APIs, and do not provide code for fitting a fairness-aware postprocessor with constraints='equalized_odds'. A tutor could explain the concept from the slides, but could not give a substantive implementation answer using only these course files."
+  }
+ },
+ "topic_qs": [
+  {
+   "question": "I\u2019m confused about why the course frames data science as more than just a pipeline or lifecycle. How is the UVA data science framework supposed to broaden what counts as data science, and where does this class fit within that framework?",
+   "question_type": "conceptual",
+   "question_class": "topic-page",
+   "topics": [
+    "course-overview"
+   ],
+   "reference_answer": "The framework is meant to move beyond process maps that describe steps in a workflow. It treats data science as a field with four core areas: Design, Systems, Analytics, and Value, plus Practice, where those areas combine with domain knowledge and real problems. Design focuses on communication, representation, interfaces, and data products. Systems focuses on infrastructure, programming, cloud, pipelines, and robustness. Analytics covers statistical methods, machine learning, optimization, inference, prediction, and evaluation. Value connects data science to ethics, public good, responsibility, and human impact. Practice is where teams integrate these pieces into responsible, effective projects. This course touches all areas, but it is mostly Analytics, with systems work, design/presentation work, value/ethics topics, and final projects as practice.",
+   "gold_raw_docs": [
+    "raw/course/DS-3021/course-overview/2024-10-29-intro-framework-overview-slides.pptx",
+    "raw/course/DS-3021/course-overview/2026-03-10-intro-defining-the-field-slides.pptx"
+   ],
+   "gold_pages": [
+    "course/course-overview.md"
+   ],
+   "origin": "new"
+  },
+  {
+   "question": "What kind of learning experience should I expect in this machine learning course, especially in terms of collaboration, labs, grading, and the final project?",
+   "question_type": "procedural",
+   "question_class": "topic-page",
+   "topics": [
+    "course-overview"
+   ],
+   "reference_answer": "The course is applied and lab-centered, with an emphasis on creative thinking rather than blindly implementing methods. Students should expect to review short lectures and readings before class, then use class time for lab activities, usually team-oriented ML assignments. Collaboration with peers is encouraged, though lab submissions are individual. Grading is based on quizzes worth 20%, labs worth 55%, and a final oral/project worth 25%. Quizzes are short and occasional, with chances to improve. Labs are stand-alone Jupyter notebooks evaluated by the TA. The final project uses a dataset of the group\u2019s choice, includes annotated code and report-style summary information, and requires students to explain their models. Students are expected to use GitHub and build a free-standing website using tools such as GitHub.io or MYST Book.",
+   "gold_raw_docs": [
+    "raw/course/MLBook/course-overview/2026-05-21-syllabus.md"
+   ],
+   "gold_pages": [
+    "course/course-overview.md"
+   ],
+   "origin": "new"
+  },
+  {
+   "question": "I edited some class files for my own notes, but now there are new updates I need to pull from the instructor\u2019s repo. What workflow should I use so I don\u2019t lose my local changes?",
+   "question_type": "procedural",
+   "question_class": "topic-page",
+   "topics": [
+    "dev-environment"
+   ],
+   "reference_answer": "First, sync your fork on GitHub so it has the instructor\u2019s latest changes. Then update your local clone. If you have uncommitted local edits that might conflict, run `git stash` to temporarily save those changes and return your working directory to a clean state. Next run `git pull` to bring in the new files. When you are ready to restore your edits, run `git stash pop`. To avoid conflicts in the future, it may be easier to rename class files or create your own separate files for notes. If a merge problem happens, it can still be fixed without losing work.",
+   "gold_raw_docs": [
+    "raw/course/MLBook/dev-environment/2026-05-21-class-materials-vscode-github.ipynb"
+   ],
+   "gold_pages": [
+    "course/dev-environment.md"
+   ],
+   "origin": "new"
+  },
+  {
+   "question": "For the setup activity, how should I get the project running in VS Code and make sure a new package and data-viewing extension are saved into the environment?",
+   "question_type": "procedural",
+   "question_class": "topic-page",
+   "topics": [
+    "dev-environment"
+   ],
+   "reference_answer": "Start by finding the repo on GitHub, cloning it to your GitHub account, and creating a new Codespace from it. Open local VS Code, use the Codespaces extension to open that Codespace, and look through the project layout. For the data task, open a Python script, notebook, or IPython file, load a dataset, find and install an extension that lets you view the data, then add that extension through the Dev Container menu to the dev container JSON file. Saving should trigger a rebuild. For package management, install `plotly` in the terminal, note its version, add it to the requirements file using terminal commands, and reload the requirements document.",
+   "gold_raw_docs": [
+    "raw/course/MLBook/dev-environment/2026-05-21-day-two-repo-venv-setup.md"
+   ],
+   "gold_pages": [
+    "course/dev-environment.md"
+   ],
+   "origin": "new"
+  },
+  {
+   "question": "How do I turn the \u201ctake the range, add 100, then divide by 10\u201d idea into a Python function, and what would it return for the numbers 1 through 10?",
+   "question_type": "procedural",
+   "question_class": "topic-page",
+   "topics": [
+    "python-basics"
+   ],
+   "reference_answer": "Define a function that accepts a list-like input, computes `max(x) - min(x)`, adds 100, and divides the result by 10. For example: `def range_plus_100_div_10(x): return (max(x)-min(x)+100)/10`. If `x = [1,2,3,4,5,6,7,8,9,10]`, the range is `10 - 1 = 9`, so the calculation is `(9 + 100) / 10 = 10.9`.",
+   "gold_raw_docs": [
+    "raw/course/MLBook/python-basics/2026-05-21-python-lecture-notebook.ipynb",
+    "raw/course/DS-3021/python-basics/2024-10-29-copilot-example.py"
+   ],
+   "gold_pages": [
+    "course/python-basics.md"
+   ],
+   "origin": "new"
+  },
+  {
+   "question": "I\u2019m used to dplyr in R. What are the closest pandas equivalents for common verbs like filtering, sorting, selecting columns, creating variables, summarizing, and grouping, and what syntax differences should I watch for?",
+   "question_type": "comparison",
+   "question_class": "topic-page",
+   "topics": [
+    "python-basics"
+   ],
+   "reference_answer": "The course maps `filter()` to `query()`, `arrange()` to `sort_values()`, `select()` to `loc[]`, `mutate()` to `assign()`, `summarize()` to `describe()`, and `group_by()` to `groupby()`. Key differences: Python is object-oriented, so you usually call methods from the DataFrame, such as `df.assign()` or `df.sort_values()`. With `.loc[]`, the order is rows first, then columns. With `.assign()`, if you create a variable from existing columns, you must explicitly reference them, such as `df.col` or `df['col']`; R\u2019s `mutate()` assumes the current data frame. Python chaining uses sequential method calls like `df.assign().query().sort_values()`.",
+   "gold_raw_docs": [
+    "raw/course/DS-3021/python-basics/2024-10-29-week02-r-to-python-changes.docx",
+    "raw/course/MLBook/python-basics/2026-05-21-python-lecture-notebook.ipynb"
+   ],
+   "gold_pages": [
+    "course/python-basics.md"
+   ],
+   "origin": "new"
+  },
+  {
+   "question": "In the admissions practice example, why was an empty DataFrame useful after grouping by school rank, and what did the final function compute?",
+   "question_type": "conceptual",
+   "question_class": "topic-page",
+   "topics": [
+    "python-basics"
+   ],
+   "reference_answer": "After grouping by rank, the grouped object could be used to calculate summaries, but `.assign()` was not applied directly to the grouped DataFrame. Assigning summary columns back onto the original admissions DataFrame kept the old columns and produced a messier result with many irrelevant rows or NaNs. Creating an empty DataFrame made the output contain only the desired summaries. The final function grouped by `rank`, then created columns for total admitted students, total students in each rank, and mean GPA. It then calculated `ave_admit` as admitted divided by total students and sorted the result by mean GPA in descending order.",
+   "gold_raw_docs": [
+    "raw/course/MLBook/python-basics/2026-05-21-python-class-II-notebook.ipynb"
+   ],
+   "gold_pages": [
+    "course/python-basics.md"
+   ],
+   "origin": "new"
+  },
+  {
+   "question": "How should I decide whether a business problem is actually suitable for machine learning, and how would that apply to a company trying to forecast how many attorney leads its advertising spend will generate?",
+   "question_type": "synthesis",
+   "question_class": "topic-page",
+   "topics": [
+    "ml-foundations"
+   ],
+   "reference_answer": "A good ML task has well-defined inputs and outputs, enough input-output data, clear goals and feedback metrics, limited need for broad background reasoning, some tolerance for error, and a relationship that does not change too rapidly without retraining. For the attorney-lead problem, the output could be future lead volume, and inputs could include media spend/placements, time, geography, law type, channel, and call data. The case fits ML because the firm has historical advertising and call data and wants forecasts one to four weeks ahead. But it also needs a business metric beyond model accuracy, such as whether spend decisions, pricing, inventory management, or pay-per-lead performance improve. The company should also monitor changing markets and lead patterns over time.",
+   "gold_raw_docs": [
+    "raw/course/DS-3021/ml-foundations/2026-03-10-ml-bootcamp-slides.pptx",
+    "raw/course/DS-3021/ml-foundations/2024-10-29-walker-advertising-case-study.pdf"
+   ],
+   "gold_pages": [
+    "course/ml-foundations.md"
+   ],
+   "origin": "new"
+  },
+  {
+   "question": "In the iris classification example, why do we split the data into training, testing, and validation sets, and why do we stratify by flower class?",
+   "question_type": "procedural",
+   "question_class": "topic-page",
+   "topics": [
+    "ml-foundations"
+   ],
+   "reference_answer": "The split separates the data used to fit the model from data used to check how the model performs on examples it did not train on. In the example, 70% is used for training and the remaining data is split again into test and validation sets. The model is trained using the feature columns after dropping the class label, while the class column becomes the target labels. Stratifying by class helps keep the class distribution balanced across the splits, so one subset does not accidentally contain too many or too few examples of a flower type. The predicted-versus-true class counts and confusion matrix then help show whether the classifier is assigning observations to the correct iris classes and where errors occur.",
+   "gold_raw_docs": [
+    "raw/course/DS-3021/ml-foundations/2025-02-13-ml1-in-class-notebook.ipynb"
+   ],
+   "gold_pages": [
+    "course/ml-foundations.md"
+   ],
+   "origin": "new"
+  },
+  {
+   "question": "For the K-12 math software recommender project, how should a team frame the first phase of the data science lifecycle before building the MVP?",
+   "question_type": "synthesis",
+   "question_class": "topic-page",
+   "topics": [
+    "ml-foundations"
+   ],
+   "reference_answer": "The team should start by clearly defining the problem: helping districts choose math software that fits their needs and reduces waste. They should identify the project scope, what recommendation goal or target they are trying to learn, and what model approach might fit, such as a recommender with clustering, collaborative filtering, or hybrid methods. They also need evaluation criteria and an independent business metric. Success should not only mean accurate recommendations; it should include outcomes such as improved student performance, teacher satisfaction, and long-term cost savings. Data concerns should be documented early: the dataset has 1,500 survey responses across 30 districts, possible response bias, noisy Likert-scale interpretations, small sample size, and limited regional representation. The team should also plan for human validation and feedback loops.",
+   "gold_raw_docs": [
+    "raw/course/MLBook/ml-foundations/2026-05-21-foundations-lab-overview.md",
+    "raw/course/MLBook/ml-foundations/2026-05-21-ds-lifecycle.ipynb"
+   ],
+   "gold_pages": [
+    "course/ml-foundations.md"
+   ],
+   "origin": "new"
+  },
+  {
+   "question": "I\u2019m cleaning a dataset and some columns have missing values. What process should I follow to check the missingness and decide whether to drop rows, drop columns, or impute?",
+   "question_type": "procedural",
+   "question_class": "topic-page",
+   "topics": [
+    "data-prep"
+   ],
+   "reference_answer": "Start by inspecting the dataframe with functions like `info()` and then use missing-value checks such as `isna()` and `notna()` to understand where values are missing. Before deleting anything, try to detect whether missingness has a pattern: MCAR means missing completely at random, while MNAR means missing not at random. If missingness has a pattern, you need a strategy for that issue. As a quick rule, variables with more than about 5\u201310% missing values should usually be deleted or imputed. Rows with complete values can be selected with logic like `x.loc[x.notna().all(axis='columns')]`. To drop columns with more than 10% missing values, one example uses `dropna(thresh = number_of_rows * .9, axis=1)`.",
+   "gold_raw_docs": [
+    "raw/course/DS-3021/data-prep/2024-10-29-ml-bootcamp-data-prep-slides.pptx",
+    "raw/course/DS-3021/data-prep/2024-10-29-example-dropna.py"
+   ],
+   "gold_pages": [
+    "course/data-prep.md"
+   ],
+   "origin": "new"
+  },
+  {
+   "question": "For a machine learning prep pipeline, what order of steps should I use after loading a dataset, and how do target prevalence and stratified train/tune/test splits fit into that?",
+   "question_type": "procedural",
+   "question_class": "topic-page",
+   "topics": [
+    "data-prep"
+   ],
+   "reference_answer": "A reasonable pipeline is: define a prediction question and target variable, identify an independent business metric, correct variable types/classes, collapse categorical levels if there are too many small groups, normalize continuous variables, one-hot encode categorical variables, drop unneeded variables, and create the target variable if needed. Then calculate the target prevalence, which is the proportion in the positive class and serves as a baseline the model should improve on. Finally, partition the data into training, tuning, and test sets. The training set builds the model, the tuning set evaluates modified versions of the model, and the test set is saved for final evaluation. Use stratified sampling on the target so the class proportions remain similar across the partitions.",
+   "gold_raw_docs": [
+    "raw/course/MLBook/data-prep/2026-05-21-ml-bootcamp-notebook.ipynb",
+    "raw/course/MLBook/data-prep/2026-05-21-ml-bootcamp-lab.md"
+   ],
+   "gold_pages": [
+    "course/data-prep.md"
+   ],
+   "origin": "new"
+  },
+  {
+   "question": "When I need to acquire data from an API before preparing it for modeling, what should I look for in the API documentation and how would I turn the response into a dataframe?",
+   "question_type": "procedural",
+   "question_class": "topic-page",
+   "topics": [
+    "data-prep"
+   ],
+   "reference_answer": "Look for the API root, the endpoint for the type of data you need, available parameters, examples, and whether authentication or an access key is required. A full request usually combines these pieces as root, endpoint, parameters, and possibly a key. In Python, you can use `requests.get()` with the endpoint and a parameter dictionary. A successful response commonly shows HTTP status code 200. APIs usually return JSON, so use the response text with `json.loads()` to convert it into Python objects. If the JSON is arranged like a list of lists, you can pass the data rows to `pd.DataFrame()` and use the first row as column names. If an access key is needed, keep it secret using a `.env` file and load it with `dotenv` and `os.getenv()`.",
+   "gold_raw_docs": [
+    "raw/course/MLBook/data-prep/2026-05-21-acquiring-data-from-apis.ipynb"
+   ],
+   "gold_pages": [
+    "course/data-prep.md"
+   ],
+   "origin": "new"
+  },
+  {
+   "question": "When building linear regression models for used-car prices, why would we start with just the car\u2019s year, then add mileage, and then add brand? How should I compare those models fairly?",
+   "question_type": "conceptual",
+   "question_class": "topic-page",
+   "topics": [
+    "linear-regression"
+   ],
+   "reference_answer": "Starting with one feature makes the model easy to visualize and interpret, but it may miss important information. Adding mileage creates a multiple linear regression where year and mileage both help explain car value, holding the other feature constant. Adding brand incorporates categorical information through one-hot encoding, which may further improve predictions. To compare models fairly, use the same train/test split when possible, fit only on the training data, predict on unseen test data, and compare metrics such as MAE, RMSE, and R\u00b2. Lower MAE/RMSE is better because errors are smaller in dollars; higher R\u00b2 is better because more variance in price is explained. A pipeline is useful when adding categorical variables because preprocessing is learned only from training data, helping prevent data leakage.",
+   "gold_raw_docs": [
+    "raw/course/DS-3021/linear-regression/2026-03-11-linear-regression-intro-notebook.ipynb"
+   ],
+   "gold_pages": [
+    "course/linear-regression.md"
+   ],
+   "origin": "new"
+  },
+  {
+   "question": "In the Airbnb price lab, why do the dummy-variable coefficients for boroughs mean different things depending on whether I include an intercept?",
+   "question_type": "conceptual",
+   "question_class": "topic-page",
+   "topics": [
+    "linear-regression"
+   ],
+   "reference_answer": "With one categorical variable and no intercept, you can include all borough dummy variables. Each coefficient is the mean price for that borough, so the regression coefficients should match the group averages from the table. With an intercept, you must drop one dummy category to avoid the dummy variable trap: the full set of dummies plus the intercept creates perfect multicollinearity. Then the intercept represents the mean price for the omitted reference borough, and each remaining dummy coefficient is the difference between that borough\u2019s mean price and the reference borough\u2019s mean. To recover the no-intercept-style group mean for a non-reference borough, add its dummy coefficient to the intercept.",
+   "gold_raw_docs": [
+    "raw/course/MLBook/linear-regression/2026-05-21-regression-assignment.ipynb",
+    "raw/course/DS-3021/linear-regression/2026-03-12-linear-regression-lecture-notebook.ipynb"
+   ],
+   "gold_pages": [
+    "course/linear-regression.md"
+   ],
+   "origin": "new"
+  },
+  {
+   "question": "How should I interpret a regression coefficient when the model uses logs, like log of X, log of Y, or both?",
+   "question_type": "conceptual",
+   "question_class": "topic-page",
+   "topics": [
+    "linear-regression"
+   ],
+   "reference_answer": "Logs are often used when relationships are nonlinear or variables are highly right-skewed. In a linear-log model, where Y is unlogged but X is logged, the coefficient is the expected change in Y when log(X) increases by 1; equivalently, multiplying X by e changes Y by \u03b2. For a p% increase in X, the expected change in Y is \u03b2\u00b7log((100+p)/100). In a log-linear model, where log(Y) is the outcome, a one-unit increase in X multiplies expected Y by e^\u03b2; for small \u03b2, 100\u03b2 is an approximate percent change in Y. In a log-log model, \u03b2 is an elasticity: it describes the expected percent change in Y for a percent change in X.",
+   "gold_raw_docs": [
+    "raw/course/DS-3021/linear-regression/2026-03-17-log-conversion-reading.pdf"
+   ],
+   "gold_pages": [
+    "course/linear-regression.md"
+   ],
+   "origin": "new"
+  },
+  {
+   "question": "I\u2019m confused about why logistic regression is treated as a generalized linear model instead of just ordinary linear regression with a 0/1 outcome. What is the role of the link function, and what assumptions change compared with linear regression?",
+   "question_type": "conceptual",
+   "question_class": "topic-page",
+   "topics": [
+    "logistic-regression"
+   ],
+   "reference_answer": "Logistic regression is a generalized linear model because the response is binary/binomial rather than normally distributed, and it connects predictors to the response through a link function. Specifically, it models the log-odds, or logit, of the event as a linear combination of the features. The sigmoid function then converts that linear score into a probability between 0 and 1. Compared with ordinary linear regression, the dependent variable does not need to be normal, homogeneity of variance is not required, and parameters are estimated using maximum likelihood rather than ordinary least squares. The linearity assumption applies to the transformed response\u2014the log-odds\u2014not directly to the raw binary outcome.",
+   "gold_raw_docs": [
+    "raw/course/DS-3021/logistic-regression/2026-03-19-logistic-regression-slides.pptx",
+    "raw/course/MLBook/logistic-regression/2026-05-21-logistic-regression-overview.ipynb"
+   ],
+   "gold_pages": [
+    "course/logistic-regression.md"
+   ],
+   "origin": "new"
+  },
+  {
+   "question": "After training a logistic regression model, how should I interpret its outputs and decide whether it is performing well?",
+   "question_type": "synthesis",
+   "question_class": "topic-page",
+   "topics": [
+    "logistic-regression"
+   ],
+   "reference_answer": "A trained logistic regression model first outputs predicted probabilities, such as the probability that the outcome is 1. These are turned into class predictions using a decision threshold, often 0.5, though the threshold can be changed depending on whether false positives or false negatives are more costly. Coefficients are interpreted in terms of log-odds; exponentiating them gives odds ratios, which are often easier to explain. Performance should be evaluated with classification metrics rather than regression metrics: a confusion matrix, accuracy, precision, recall, F1-score, and ROC/AUC are all relevant. For model fit and comparison, the course materials also mention residual variance, the Hosmer\u2013Lemeshow test, pseudo-R\u00b2, and comparing AIC across models, where lower AIC is better.",
+   "gold_raw_docs": [
+    "raw/course/DS-3021/logistic-regression/2026-03-19-logistic-regression-slides.pptx",
+    "raw/course/MLBook/logistic-regression/2026-05-21-logistic-regression-overview.ipynb"
+   ],
+   "gold_pages": [
+    "course/logistic-regression.md"
+   ],
+   "origin": "new"
+  },
+  {
+   "question": "Why do we standardize the features before running PCA, and how does that fit into the overall PCA algorithm?",
+   "question_type": "conceptual",
+   "question_class": "topic-page",
+   "topics": [
+    "pca"
+   ],
+   "reference_answer": "PCA is sensitive to feature scaling because features with larger numerical scales can dominate the directions of maximum variance. Standardizing gives each feature mean 0 and unit variance, so each feature contributes more equally. After standardization, PCA computes the covariance matrix, finds its eigenvalues and eigenvectors, sorts them by decreasing eigenvalue, selects the top components, and projects the standardized data onto those selected eigenvectors. The eigenvectors define the principal component directions, and the eigenvalues indicate how much variance each direction explains.",
+   "gold_raw_docs": [
+    "raw/course/MLBook/pca/2026-05-21-pca.ipynb"
+   ],
+   "gold_pages": [
+    "course/pca.md"
+   ],
+   "origin": "new"
+  },
+  {
+   "question": "If I apply PCA to the Iris dataset and keep two components, what should I expect those two components to capture, and how can I check that a NumPy implementation matches scikit-learn\u2019s result?",
+   "question_type": "procedural",
+   "question_class": "topic-page",
+   "topics": [
+    "pca"
+   ],
+   "reference_answer": "For the Iris dataset, the first two principal components capture about 95% of the variance. In the example interpretation, PC1 has positive contributions from all features, especially petal length and petal width, so it captures overall flower size. PC2 contrasts sepal length and sepal width, capturing shape variation. To compare a manual NumPy PCA with scikit-learn, compare the explained variance ratios for the first two components using a closeness check. Also compare the principal component vectors, allowing for possible sign flips, since an eigenvector and its negative represent the same direction.",
+   "gold_raw_docs": [
+    "raw/course/MLBook/pca/2026-05-21-pca-examples.ipynb"
+   ],
+   "gold_pages": [
+    "course/pca.md"
+   ],
+   "origin": "new"
+  },
+  {
+   "question": "What should our final project notebook include so that it clearly follows the data science lifecycle rather than just showing code and graphs?",
+   "question_type": "procedural",
+   "question_class": "topic-page",
+   "topics": [
+    "final-project"
+   ],
+   "reference_answer": "It should walk through the project step by step: state a discrete data-driven question, give background on the data and why the question matters, then do exploratory data analysis with summary statistics and graphs tied to the question. The methods section should explain which techniques you used, why they fit the question, and show training/tuning results. The evaluation section should use appropriate metrics and interpret them in relation to the question, ideally as the testing phase. The conclusion should connect model results back to the question while discussing limitations. A strong notebook also documents the process throughout, avoids unnecessary complexity, and tells a coherent story rather than presenting disconnected plots.",
+   "gold_raw_docs": [
+    "raw/course/DS-3021/final-project/2026-04-15-final-project-instructions.docx",
+    "raw/course/DS-3021/final-project/2026-04-16-final-project-instructions-rev.docx"
+   ],
+   "gold_pages": [
+    "course/final-project.md"
+   ],
+   "origin": "new"
+  },
+  {
+   "question": "How will the final project be evaluated, and what should my group prepare for the oral presentation and collaboration part?",
+   "question_type": "conceptual",
+   "question_class": "topic-page",
+   "topics": [
+    "final-project"
+   ],
+   "reference_answer": "Evaluation is based on both the oral component and submitted materials: the oral evaluation counts for 60% of the final grade, while documentation and quality of materials count for 40%. There is also a collaboration evaluation; if peers view someone as not contributing, that person could lose up to two full letter grades. For the oral presentation, be ready to discuss the method you selected, how and why you used it, how the problem connects to the method and conclusions, and how you evaluated the model. You should also explain what conclusions can be drawn from the model\u2019s weaknesses. The revised instructions mention 15-minute slots: 12 minutes for questions and 3 minutes for instructors to take notes.",
+   "gold_raw_docs": [
+    "raw/course/DS-3021/final-project/2026-04-16-final-project-instructions-rev.docx"
+   ],
+   "gold_pages": [
+    "course/final-project.md"
+   ],
+   "origin": "new"
+  }
+ ],
+ "cross_res": [
+  [
+   {
+    "question": "If I\u2019m building the cereal example as a machine learning project, how should the early project-planning choices\u2014like target, model type, evaluation, and business metric\u2014guide the preprocessing steps before I train anything?",
+    "question_type": "synthesis",
+    "question_class": "cross-page",
+    "topics": [
+     "ml-foundations",
+     "data-prep"
+    ],
+    "reference_answer": "Start by framing the problem in the lifecycle\u2019s idea-development phase: define the business problem, scope, target variable, evaluation approach, and an independent business metric. For cereal, the target begins as rating; if you turn \u201ctop-rated cereal\u201d into a binary target, the task becomes classification. The business metric should be separate from model performance, such as whether predicted high-rated cereals translate into better sales. Then data prep should support that plan: check and correct variable types, collapse small categorical groups, normalize numeric variables, one-hot encode categorical variables, drop unusable fields like name and the original continuous rating, calculate prevalence of the positive class as a baseline, and split into train/tune/test sets. Stratified sampling should preserve the target\u2019s class proportions so evaluation is meaningful.",
+    "gold_raw_docs": [
+     "raw/course/MLBook/ml-foundations/2026-05-21-ds-lifecycle.ipynb",
+     "raw/course/MLBook/data-prep/2026-05-21-ml-bootcamp-notebook.ipynb"
+    ],
+    "gold_pages": [
+     "course/data-prep.md",
+     "course/ml-foundations.md"
+    ],
+    "origin": "new"
+   }
+  ],
+  [
+   {
+    "question": "When I\u2019m getting a dataset ready in Python for a supervised classification model, how should I connect the pandas cleaning/EDA steps to the machine learning choices like target/features, train-test splitting, and evaluation?",
+    "question_type": "synthesis",
+    "question_class": "cross-page",
+    "topics": [
+     "python-basics",
+     "ml-foundations"
+    ],
+    "reference_answer": "Start by defining the target variable\u2014the category you want to predict\u2014and the feature variables used to predict it. Use pandas to understand and prepare the data: `.info()` checks structure and data types, `.describe()` gives numeric summaries, `.query()` filters rows, `.loc[]` selects rows/columns, `.assign()` creates or transforms variables, and `.groupby()` can summarize patterns by class. If needed, convert categorical variables to the right type and document preprocessing choices. For modeling, split the data into training, test, and possibly validation sets; stratifying by class helps preserve class balance. Train the classifier only on features, keeping the target separate. Evaluate on held-out data using model performance measures such as predictions and a confusion matrix, while also considering a business/value metric independent of the algorithm.",
+    "gold_raw_docs": [
+     "raw/course/MLBook/python-basics/2026-05-21-python-lecture-notebook.ipynb",
+     "raw/course/DS-3021/ml-foundations/2025-02-13-ml1-in-class-notebook.ipynb",
+     "raw/course/DS-3021/ml-foundations/2024-10-29-ml-overview-reading.pdf",
+     "raw/course/MLBook/ml-foundations/2026-05-21-ds-lifecycle.ipynb"
+    ],
+    "gold_pages": [
+     "course/ml-foundations.md",
+     "course/python-basics.md"
+    ],
+    "origin": "new"
+   }
+  ],
+  [
+   {
+    "question": "I have a binary classification problem with dozens of predictors that are strongly correlated. How would using PCA before logistic regression change the modeling workflow, and what would I gain or lose compared with fitting logistic regression directly on the original variables?",
+    "question_type": "synthesis",
+    "question_class": "cross-page",
+    "topics": [
+     "logistic-regression",
+     "pca"
+    ],
+    "reference_answer": "You would first standardize the predictors, apply PCA to create uncorrelated principal components, choose enough components to retain a desired amount of variance, and then train logistic regression on those components. This can reduce dimensionality, computational cost, redundancy, noise, and multicollinearity, which matters because logistic regression assumes features are not highly correlated and models the log-odds as a linear function of its inputs. The tradeoff is interpretability: logistic coefficients would describe effects of principal components, which are linear combinations of the original predictors, not the original variables themselves. PCA is also unsupervised, so it preserves variance in X rather than directly optimizing class separation. Logistic performance should still be evaluated with classification metrics such as confusion matrix, accuracy, precision, recall, F1, ROC/AUC, and possibly threshold choice.",
+    "gold_raw_docs": [
+     "raw/course/MLBook/logistic-regression/2026-05-21-logistic-regression-overview.ipynb",
+     "raw/course/MLBook/pca/2026-05-21-pca.ipynb"
+    ],
+    "gold_pages": [
+     "course/logistic-regression.md",
+     "course/pca.md"
+    ],
+    "origin": "new"
+   }
+  ],
+  [
+   {
+    "question": "I\u2019m setting up the course repo in VS Code to build a decision tree regression model. What workflow should I follow so my environment is reproducible, and how does that connect to doing preprocessing and hyperparameter tuning correctly for the tree model?",
+    "question_type": "synthesis",
+    "question_class": "cross-page",
+    "topics": [
+     "dt-regression",
+     "dev-environment"
+    ],
+    "reference_answer": "Fork and clone the course repo, then work in VS Code using the provided dev container once Docker and the Dev Containers extension are installed. Keep the repo current by syncing the fork and pulling updates; if local edits conflict, stash, pull, then stash pop. Track packages with requirements.txt using commands like pip freeze > requirements.txt and pip install -r requirements.txt. For the regression tree, split train/tune/test data, use RepeatedKFold with GridSearchCV, and tune hyperparameters such as max_depth to balance underfitting and overfitting. In Python, tree features must be numeric, so encode categorical columns and handle missing feature values. A Pipeline with ColumnTransformer lets preprocessing happen inside each cross-validation fold, which better simulates real-world use. Evaluate with metrics such as RMSE, R\u00b2, and MAE.",
+    "gold_raw_docs": [
+     "raw/course/MLBook/dev-environment/2026-05-21-class-materials-vscode-github.ipynb",
+     "raw/course/DS-3021/dt-regression/2024-10-29-dt-regression-lecture-notebook.ipynb"
+    ],
+    "gold_pages": [
+     "course/dev-environment.md",
+     "course/dt-regression.md"
+    ],
+    "origin": "new"
+   }
+  ],
+  [
+   {
+    "question": "When I present a Random Forest model for predicting income above or below $50k, how can I connect the modeling steps to the course\u2019s broader data science framework instead of describing it as just running an algorithm?",
+    "question_type": "synthesis",
+    "question_class": "cross-page",
+    "topics": [
+     "ensemble-methods",
+     "course-overview"
+    ],
+    "reference_answer": "Frame the Random Forest work as mostly Analytics because it involves prediction, model training, hyperparameter choices, and evaluation. The method builds many trees using bootstrapped samples and random feature subsets, then aggregates their votes; tuning can include number of trees, number of features, and sample size. Evaluation should include OOB error, confusion matrix, precision, recall, accuracy, ROC/AUC, and comparison to the original model. It also connects to Value because income prediction can affect people, so model selection and errors should be justified, not just optimized blindly. Design appears in communicating results clearly through plots, feature importance, density plots, LIME explanations, and final presentation. Systems appears through Python tooling and reproducible notebooks. Practice ties these together in an applied project with interpretation and supported conclusions.",
+    "gold_raw_docs": [
+     "raw/course/DS-3021/ensemble-methods/2026-08-31-rf-lab.ipynb",
+     "raw/course/DS-3021/ensemble-methods/2026-08-31-rf-lecture-notebook.ipynb",
+     "raw/course/DS-3021/course-overview/2024-10-29-intro-framework-overview-slides.pptx"
+    ],
+    "gold_pages": [
+     "course/course-overview.md",
+     "course/ensemble-methods.md"
+    ],
+    "origin": "new"
+   }
+  ],
+  [
+   {
+    "question": "I\u2019m proposing to use kNN for a binary classification project. How should I justify the workflow from framing the problem through preprocessing, choosing k, and evaluating the model, instead of just training the classifier and reporting accuracy?",
+    "question_type": "synthesis",
+    "question_class": "cross-page",
+    "topics": [
+     "knn",
+     "ml-foundations"
+    ],
+    "reference_answer": "Start with the ML lifecycle: define the business problem, target variable, feature variables, and an independent business value metric before modeling. Since kNN is supervised classification, the target should be a defined category and the goal is prediction, not causal explanation. In data prep, check missing data, examine class prevalence as a baseline, one-hot encode categorical variables, and scale or normalize numeric variables because kNN depends on distances and unscaled units can dominate the neighbor search. Split data into training, tuning/validation, and test sets, preferably stratified to preserve class balance. Choose k as a hyperparameter: small k captures fine structure but can overfit noise; larger k smooths boundaries and can generalize better. Evaluate with a confusion matrix and metrics like sensitivity/specificity, not accuracy alone, and adjust thresholds based on acceptable risk.",
+    "gold_raw_docs": [
+     "raw/course/DS-3021/knn/2024-10-29-knn-and-probability-slides.pdf",
+     "raw/course/DS-3021/ml-foundations/2024-10-29-ml-overview-reading.pdf"
+    ],
+    "gold_pages": [
+     "course/knn.md",
+     "course/ml-foundations.md"
+    ],
+    "origin": "new"
+   }
+  ],
+  [
+   {
+    "question": "I\u2019m about to do the movie-rating decision tree project in the course repo using VS Code. How should I set up and maintain my coding environment so the project runs reliably, and how does that setup support the main modeling workflow I need to complete?",
+    "question_type": "synthesis",
+    "question_class": "cross-page",
+    "topics": [
+     "decision-trees",
+     "dev-environment"
+    ],
+    "reference_answer": "Fork the course repo, clone/open it in VS Code, and use the provided Dev Container with Docker so everyone has a consistent environment. If you add packages, install them in the terminal, record them with `pip freeze > requirements.txt`, and reload with `pip install -r requirements.txt`; add useful extensions to the container configuration and rebuild if needed. Keep your fork synced and pull updates; use `git stash`, `git pull`, and `git stash pop` if local edits conflict. This environment supports the decision-tree workflow: load data, clean missing values, encode/collapse categorical variables as needed, split into train/tune/test, create repeated stratified k-fold CV, use `DecisionTreeClassifier` with `GridSearchCV` to tune hyperparameters such as max depth or pruning alpha, evaluate with metrics/confusion matrices, inspect variable importance, and avoid overpromising recommendations.",
+    "gold_raw_docs": [
+     "raw/course/MLBook/dev-environment/2026-05-21-class-materials-vscode-github.ipynb",
+     "raw/course/MLBook/dev-environment/2026-05-21-day-two-repo-venv-setup.md",
+     "raw/course/DS-3021/decision-trees/2025-02-13-decision-trees-lecture-notebook.ipynb",
+     "raw/course/DS-3021/decision-trees/2026-03-10-dt-class-lab.ipynb"
+    ],
+    "gold_pages": [
+     "course/decision-trees.md",
+     "course/dev-environment.md"
+    ],
+    "origin": "new"
+   }
+  ],
+  [
+   {
+    "question": "If I\u2019m starting a supervised decision-tree classifier for a business problem with an imbalanced binary target, how should I connect the general machine-learning lifecycle ideas to the specific modeling choices for the tree?",
+    "question_type": "synthesis",
+    "question_class": "cross-page",
+    "topics": [
+     "decision-trees",
+     "ml-foundations"
+    ],
+    "reference_answer": "Start by defining the business question, target variable, features, and an independent business-value metric, because model accuracy alone may not show whether the solution helps the organization. In data prep, check missing values, variable types, prevalence/baseline, and use stratified train/tune/test splits so the minority class is represented. A decision tree is appropriate for supervised classification and needs relatively little preparation compared with some methods, but categorical variables may need encoding in sklearn. During solution development, tune hyperparameters such as max depth or cost-complexity pruning with cross-validation to reduce overfitting. Evaluate with metrics suited to imbalance, such as ROC AUC, recall, balanced accuracy, and confusion matrices, not just raw accuracy. Because classifier outputs are probabilities, adjust the threshold if the business risk requires being more or less strict about predicting the positive class.",
+    "gold_raw_docs": [
+     "raw/course/DS-3021/ml-foundations/2024-10-29-ml-overview-reading.pdf",
+     "raw/course/DS-3021/decision-trees/2022-10-20-decision-trees-slides-current.pptx",
+     "raw/course/DS-3021/decision-trees/2025-02-13-decision-trees-lecture-notebook.ipynb"
+    ],
+    "gold_pages": [
+     "course/decision-trees.md",
+     "course/ml-foundations.md"
+    ],
+    "origin": "new"
+   }
+  ],
+  [
+   {
+    "question": "If I build a linear regression model for a high-stakes prediction like loan amount or expected debt, how should I combine the usual regression evaluation with a fairness check across protected groups, and what parts of the modeling pipeline are most relevant?",
+    "question_type": "synthesis",
+    "question_class": "cross-page",
+    "topics": [
+     "ml-bias",
+     "linear-regression"
+    ],
+    "reference_answer": "First follow the regression pipeline: clean and explore the data, transform features such as categorical variables with one-hot encoding, split into train/test sets, fit the model, predict, and evaluate on unseen test data using metrics like RMSE, MAE, and R\u00b2. Also inspect residuals, since regression errors are the differences between actual and predicted values. For fairness, overall accuracy is not enough: compare the distribution and size of prediction errors across protected classes such as race or gender. The fairness material defines fair treatment as errors being similar across protected groups, while noting that training data can reflect societal/cognitive bias. Bias can be addressed before modeling through reweighting or balancing data, during modeling by favoring interpretable approaches instead of only accuracy, and after modeling by reviewing whether predictions or errors are unfairly distributed.",
+    "gold_raw_docs": [
+     "raw/course/DS-3021/ml-bias/2024-10-29-ml-bias-and-fairness-slides.pdf",
+     "raw/course/DS-3021/ml-bias/2024-10-29-value-ethics-slides.pptx",
+     "raw/course/DS-3021/linear-regression/2026-03-11-linear-regression-intro-notebook.ipynb",
+     "raw/course/DS-3021/linear-regression/2026-03-12-linear-regression-lecture-notebook.ipynb"
+    ],
+    "gold_pages": [
+     "course/linear-regression.md",
+     "course/ml-bias.md"
+    ],
+    "origin": "new"
+   }
+  ],
+  [
+   {
+    "question": "I\u2019m building a binary kNN classifier on a messy dataset with numeric and categorical predictors. What data preparation steps should I complete before evaluating it, and how do those choices connect to whether I should trust accuracy, F1, log loss, ROC/AUC, and threshold-based confusion matrices?",
+    "question_type": "synthesis",
+    "question_class": "cross-page",
+    "topics": [
+     "ml-eval-metrics",
+     "data-prep"
+    ],
+    "reference_answer": "First, define the target and features, correct variable types, collapse sparse categorical levels if needed, one-hot encode categorical predictors, and scale/normalize numeric predictors because kNN depends on distances. Handle missing data by checking for patterns and then dropping or imputing as appropriate. Calculate prevalence so accuracy has a baseline, especially if classes are imbalanced. Split into train, tune, and test sets with stratification so class proportions are preserved; train on training data and evaluate on unseen tune/test data. Accuracy alone can be misleading, so use predicted probabilities for ROC/AUC and log loss, and use class predictions for confusion matrices and F1. Changing the classification threshold changes TP, FP, TN, and FN, so the \u201cbest\u201d metric depends on whether false positives, false negatives, or probability uncertainty matter most for the problem.",
+    "gold_raw_docs": [
+     "raw/course/MLBook/data-prep/2026-05-21-ml-bootcamp-notebook.ipynb",
+     "raw/course/DS-3021/ml-eval-metrics/2025-06-09-knn-eval-example-notebook.ipynb",
+     "raw/course/DS-3021/ml-eval-metrics/2025-06-09-perfmet-slides.pdf"
+    ],
+    "gold_pages": [
+     "course/data-prep.md",
+     "course/ml-eval-metrics.md"
+    ],
+    "origin": "new"
+   }
+  ],
+  [
+   {
+    "question": "If I\u2019m building a random forest classifier on a dataset with lots of correlated predictors, how should I think about using PCA beforehand versus letting the random forest handle the features itself, and how would I evaluate whether the choice helped?",
+    "question_type": "synthesis",
+    "question_class": "cross-page",
+    "topics": [
+     "ensemble-methods",
+     "pca"
+    ],
+    "reference_answer": "PCA can reduce dimensionality and remove redundancy by transforming standardized features into uncorrelated principal components that retain most variance, often using an 80\u201395% cumulative variance rule. But PCA is unsupervised, so it does not use the target, and the resulting components are linear combinations that are harder to interpret. A random forest already adds randomness by bootstrapping rows and sampling subsets of features at splits, which helps reduce overfitting and variance. It also supports interpretation through feature importances, permutation importance, OOB error, confusion matrices, ROC curves, and AUC. Using PCA before a random forest might help computationally or with highly correlated inputs, but it can make original-feature importance and explanations less direct. Compare versions using OOB error, test-set confusion matrix, precision/recall/accuracy, ROC/AUC, and whether interpretability is acceptable.",
+    "gold_raw_docs": [
+     "raw/course/DS-3021/ensemble-methods/2026-08-31-rf-lecture-notebook.ipynb",
+     "raw/course/MLBook/pca/2026-05-21-pca.ipynb"
+    ],
+    "gold_pages": [
+     "course/ensemble-methods.md",
+     "course/pca.md"
+    ],
+    "origin": "new"
+   }
+  ],
+  [
+   {
+    "question": "I have a pandas DataFrame where the outcome is binary, like admitted/not admitted, and predictors include numeric columns such as GPA plus a categorical column such as school rank. What Python workflow should I use to inspect and prepare the data, fit a logistic regression, and evaluate whether the classifier is doing well?",
+    "question_type": "procedural",
+    "question_class": "cross-page",
+    "topics": [
+     "python-basics",
+     "logistic-regression"
+    ],
+    "reference_answer": "First inspect the DataFrame with `.info()` to check column names and data types; categorical variables such as rank may need to be treated as categorical rather than numeric. Use pandas selection tools such as `.loc[]` or column lists to define `X` predictors and the binary target `y`; use `.assign()` if you need to create or transform variables. Split the data into training and test sets. For logistic regression, scale numeric features when they are on different ranges because scaling helps gradient descent and keeps features comparable. Fit `LogisticRegression`, then use predicted probabilities and predicted class labels. Evaluate with classification tools such as a confusion matrix, accuracy, precision, recall, F1-score, and ROC/AUC rather than ordinary linear-regression diagnostics, because logistic regression predicts class probabilities for a 0/1 outcome.",
+    "gold_raw_docs": [
+     "raw/course/MLBook/python-basics/2026-05-21-python-lecture-notebook.ipynb",
+     "raw/course/MLBook/python-basics/2026-05-21-python-class-II-notebook.ipynb",
+     "raw/course/MLBook/logistic-regression/2026-05-21-logistic-regression-overview.ipynb"
+    ],
+    "gold_pages": [
+     "course/logistic-regression.md",
+     "course/python-basics.md"
+    ],
+    "origin": "new"
+   }
+  ],
+  [
+   {
+    "question": "If I\u2019m predicting a binary outcome and have already fit a logistic regression model, what would be the motivation for also trying a random forest, and how would I compare the two fairly using predicted probabilities rather than just class labels?",
+    "question_type": "synthesis",
+    "question_class": "cross-page",
+    "topics": [
+     "ensemble-methods",
+     "logistic-regression"
+    ],
+    "reference_answer": "Logistic regression predicts the probability of a binary event by modeling the log-odds as a linear function of the features, so it is interpretable but assumes a linear relationship in the logit. A random forest instead aggregates many decision trees built on bootstrapped samples and random subsets of features, which can reduce overfitting and capture more complex patterns. To compare them fairly, use the same train/test split and probability outputs from each model. Evaluate classification performance with confusion-matrix metrics such as accuracy, precision, and recall, and compare ROC curves and AUC values across thresholds. For the random forest, also consider out-of-bag error as an internal generalization estimate and examine feature importance or permutation importance.",
+    "gold_raw_docs": [
+     "raw/course/DS-3021/logistic-regression/2026-03-19-logistic-regression-slides.pptx",
+     "raw/course/MLBook/logistic-regression/2026-05-21-logistic-regression-overview.ipynb",
+     "raw/course/DS-3021/ensemble-methods/2020-11-09-ensemble-rf-slides.pptx",
+     "raw/course/DS-3021/ensemble-methods/2026-08-31-rf-lecture-notebook.ipynb"
+    ],
+    "gold_pages": [
+     "course/ensemble-methods.md",
+     "course/logistic-regression.md"
+    ],
+    "origin": "new"
+   }
+  ],
+  [
+   {
+    "question": "If I\u2019m building a binary classifier and both k-nearest neighbors and logistic regression are options, how should I think about the tradeoffs in preprocessing, decision boundaries, interpretability, and evaluation/threshold choice?",
+    "question_type": "comparison",
+    "question_class": "cross-page",
+    "topics": [
+     "knn",
+     "logistic-regression"
+    ],
+    "reference_answer": "Both are supervised classification methods, but they behave differently. kNN is nonparametric, memory/lazy-based, and predicts from nearby training examples using a distance metric and majority vote, so scaling or normalizing numeric features is crucial; it can learn complex decision boundaries, but prediction can be slow and high-dimensional data can hurt. Logistic regression models the probability of the positive class through a logit/sigmoid link, assuming a linear relationship between features and the log-odds; it is more interpretable because coefficients relate to log-odds/odds ratios. For both, categorical variables must be encoded for modeling, and evaluation should go beyond accuracy when classes are imbalanced: use confusion matrix measures such as recall/sensitivity, specificity, precision, F1, ROC/AUC, and adjust the probability threshold depending on whether false positives or false negatives are more costly.",
+    "gold_raw_docs": [
+     "raw/course/DS-3021/knn/2024-10-29-knn-and-probability-slides.pdf",
+     "raw/course/DS-3021/knn/2024-10-29-knn-lecture-notebook.ipynb",
+     "raw/course/DS-3021/logistic-regression/2026-03-19-logistic-regression-slides.pptx",
+     "raw/course/MLBook/logistic-regression/2026-05-21-logistic-regression-overview.ipynb"
+    ],
+    "gold_pages": [
+     "course/knn.md",
+     "course/logistic-regression.md"
+    ],
+    "origin": "new"
+   }
+  ],
+  [
+   {
+    "question": "My group wants to use a classification model for the final project on a dataset that includes gender or race. How should we design the model evaluation and fairness part so it meets the project expectations and also addresses possible ML bias responsibly?",
+    "question_type": "synthesis",
+    "question_class": "cross-page",
+    "topics": [
+     "ml-bias",
+     "final-project"
+    ],
+    "reference_answer": "Frame a discrete data-driven question, explain the dataset/background, use EDA to focus on variables relevant to the question, then describe the chosen method and why it fits. For classification evaluation, report metrics tied to the question, such as confusion-matrix results, ROC/AUC, true positive rate, false positive rate, and threshold effects. If the data include protected classes, add a fairness assessment: compare outcomes and errors across groups rather than only overall accuracy. Demographic parity checks whether groups have similar positive prediction rates; equality of odds compares both TPR and FPR across groups; equality of opportunity focuses on the positive class/TPR. In conclusions, state what the model supports, its limitations, and whether fairness problems affect deployment. Because fully automated decisions are risky, discuss limits, possible preprocessing or threshold changes, and future work.",
+    "gold_raw_docs": [
+     "raw/course/DS-3021/final-project/2024-10-29-final-project-overview.md",
+     "raw/course/DS-3021/ml-bias/2024-10-29-ml-bias-and-fairness-slides.pdf",
+     "raw/course/DS-3021/ml-bias/2024-10-29-value-ethics-slides.pptx"
+    ],
+    "gold_pages": [
+     "course/final-project.md",
+     "course/ml-bias.md"
+    ],
+    "origin": "new"
+   }
+  ],
+  [
+   {
+    "question": "I'm about to build the two data-prep pipelines for the lab in a new project. What should my workflow include so that both my coding environment and my preprocessing steps are reproducible for someone else in the class?",
+    "question_type": "synthesis",
+    "question_class": "cross-page",
+    "topics": [
+     "dev-environment",
+     "data-prep"
+    ],
+    "reference_answer": "Set up a standalone GitHub workspace/repo, open it in VS Code/Codespaces or the class dev container, and keep the environment reproducible by installing needed packages, saving them with `pip freeze > requirements.txt`, and allowing others to reload them with `pip install -r requirements.txt`. If you add useful VS Code extensions, add them to the dev container configuration and rebuild. For the pipelines, create reusable functions that load the data and perform the needed preparation: fix variable types/classes, collapse small categorical levels, one-hot encode categorical variables, normalize continuous variables, drop unneeded variables, create the target if needed, calculate target prevalence, and split into train/tune/test sets. Use stratified splitting on the target so class proportions are preserved across partitions.",
+    "gold_raw_docs": [
+     "raw/course/MLBook/dev-environment/2026-05-21-class-materials-vscode-github.ipynb",
+     "raw/course/MLBook/dev-environment/2026-05-21-day-two-repo-venv-setup.md",
+     "raw/course/MLBook/data-prep/2026-05-21-ml-bootcamp-lab.md",
+     "raw/course/MLBook/data-prep/2026-05-21-ml-bootcamp-notebook.ipynb"
+    ],
+    "gold_pages": [
+     "course/data-prep.md",
+     "course/dev-environment.md"
+    ],
+    "origin": "new"
+   }
+  ],
+  [
+   {
+    "question": "I\u2019m building a decision-tree regressor with a lot of correlated numeric predictors, and I\u2019m wondering whether to run PCA first. How should I think about the preprocessing differences, the effect on overfitting/model complexity, and what I would lose or gain in interpretability and evaluation?",
+    "question_type": "synthesis",
+    "question_class": "cross-page",
+    "topics": [
+     "dt-regression",
+     "pca"
+    ],
+    "reference_answer": "A regression tree does not require scaling because it makes local greedy splits, and its split criterion searches over variables and split points to minimize squared error. Trees are interpretable through their split rules and variable importance, but they can overfit, so depth, leaf size, or related hyperparameters should be tuned with cross-validation and evaluated with metrics such as RMSE, R\u00b2, and MAE. PCA is useful when features are correlated or high-dimensional: it standardizes data, creates orthogonal linear combinations that preserve variance, and can reduce redundancy, noise, computational cost, and possibly overfitting. The tradeoff is that PCA is unsupervised and does not use the target, and principal components are harder to interpret than original variables. If used, PCA should be fit within the training/CV pipeline, and the number of components should be evaluated alongside tree hyperparameters.",
+    "gold_raw_docs": [
+     "raw/course/DS-3021/dt-regression/2022-03-24-decision-trees-regression-slides.pptx",
+     "raw/course/DS-3021/dt-regression/2024-10-29-dt-regression-lecture-notebook.ipynb",
+     "raw/course/DS-3021/dt-regression/2025-09-25-dt-regression-lab.ipynb",
+     "raw/course/MLBook/pca/2026-05-21-pca.ipynb"
+    ],
+    "gold_pages": [
+     "course/dt-regression.md",
+     "course/pca.md"
+    ],
+    "origin": "new"
+   }
+  ],
+  [
+   {
+    "question": "For a decision-tree project like predicting whether movies will get high ratings, how would you connect the modeling workflow to the course\u2019s broader data science framework so that the work shows more than just running a classifier?",
+    "question_type": "synthesis",
+    "question_class": "cross-page",
+    "topics": [
+     "decision-trees",
+     "course-overview"
+    ],
+    "reference_answer": "The project is mostly Analytics because it uses prediction, feature engineering, model training, hyperparameter search, and evaluation. But it also touches Systems through the working environment, data handling, and reproducible code; Design through communicating results, visualizing/interpreting the tree, and possibly building a final presentation or website; and Value through choosing evaluation criteria, considering how the model will be used, and not over-promising. A good decision-tree workflow would clean missing data, make variables the right type, collapse categories when useful, check the base rate, split into train/tune/test, use cross-validation and grid search for parameters like max depth or pruning, and evaluate with metrics such as ROC/AUC, recall, balanced accuracy, accuracy, and confusion matrices. Variable importance and the tree structure help explain recommendations to nontechnical stakeholders.",
+    "gold_raw_docs": [
+     "raw/course/DS-3021/course-overview/2024-10-29-intro-framework-overview-slides.pptx",
+     "raw/course/DS-3021/decision-trees/2025-02-13-decision-trees-lecture-notebook.ipynb",
+     "raw/course/DS-3021/decision-trees/2026-03-10-dt-class-lab.ipynb"
+    ],
+    "gold_pages": [
+     "course/course-overview.md",
+     "course/decision-trees.md"
+    ],
+    "origin": "new"
+   }
+  ],
+  [
+   {
+    "question": "I want to build a reproducible project for a binary classification problem using logistic regression. How should I set up the class coding environment and manage packages, and what modeling/evaluation steps should I include once the environment is ready?",
+    "question_type": "synthesis",
+    "question_class": "cross-page",
+    "topics": [
+     "dev-environment",
+     "logistic-regression"
+    ],
+    "reference_answer": "Start by forking/cloning the course repo and opening it in VS Code through the provided Dev Container or a Codespace. Make sure Docker/dev container support or the Codespaces extension is working, and create/activate a virtual environment if needed. Install needed packages such as pandas, numpy, scikit-learn, and plotly, then record them with `pip freeze > requirements.txt`; later, recreate the environment with `pip install -r requirements.txt`. Add useful extensions to the dev container configuration so they persist after rebuilds. For the model, split data into training/test sets, scale features, train `LogisticRegression`, and interpret coefficients as changes in log-odds. Use predicted probabilities, apply a threshold such as 0.5, and evaluate with a confusion matrix, accuracy, precision, recall, F1, and ROC/AUC. Check assumptions such as linear log-odds, independence, low multicollinearity, and adequate sample size.",
+    "gold_raw_docs": [
+     "raw/course/MLBook/dev-environment/2026-05-21-class-materials-vscode-github.ipynb",
+     "raw/course/MLBook/dev-environment/2026-05-21-day-two-repo-venv-setup.md",
+     "raw/course/MLBook/logistic-regression/2026-05-21-logistic-regression-overview.ipynb"
+    ],
+    "gold_pages": [
+     "course/dev-environment.md",
+     "course/logistic-regression.md"
+    ],
+    "origin": "new"
+   }
+  ],
+  [
+   {
+    "question": "If I\u2019m using a decision tree regressor to predict a continuous outcome like movie gross revenue, how should I adapt the usual data-prep workflow\u2014especially scaling, categorical variables, missing values, train/tune/test splitting, and evaluation\u2014so that it fits the way regression trees work?",
+    "question_type": "synthesis",
+    "question_class": "cross-page",
+    "topics": [
+     "dt-regression",
+     "data-prep"
+    ],
+    "reference_answer": "Keep the core workflow: define the target and features, check variable types, handle missing data, consider collapsing sparse categorical levels, and split into train, tune, and test sets so training, model adjustment, and final evaluation are separate. For regression trees, the target is continuous, so evaluate with regression metrics such as RMSE, MAE, and R\u00b2, not prevalence or classification metrics. Unlike many methods, decision trees do not require scaling because they make local greedy split decisions. However, in sklearn all predictors must be numeric, so categorical features need encoding. Missing feature values can be dropped or imputed; if imputing, put preprocessing in a pipeline/ColumnTransformer so imputation and encoding happen inside each cross-validation fold. Tune tree hyperparameters such as max_depth to control overfitting.",
+    "gold_raw_docs": [
+     "raw/course/DS-3021/dt-regression/2024-10-29-dt-regression-lecture-notebook.ipynb",
+     "raw/course/DS-3021/dt-regression/2025-09-25-dt-regression-lab.ipynb",
+     "raw/course/DS-3021/dt-regression/2022-03-24-decision-trees-regression-slides.pptx",
+     "raw/course/DS-3021/data-prep/2024-10-29-ml-bootcamp-data-prep-slides.pptx",
+     "raw/course/MLBook/data-prep/2026-05-21-ml-bootcamp-notebook.ipynb"
+    ],
+    "gold_pages": [
+     "course/data-prep.md",
+     "course/dt-regression.md"
+    ],
+    "origin": "new"
+   }
+  ],
+  [
+   {
+    "question": "I\u2019m trying to make my PCA analysis on the Iris data reproducible for class: what should I do in the VS Code/GitHub development setup so others can run my notebook, and what PCA preprocessing and component-selection steps should I make sure are included?",
+    "question_type": "synthesis",
+    "question_class": "cross-page",
+    "topics": [
+     "dev-environment",
+     "pca"
+    ],
+    "reference_answer": "Fork and clone the course repo, then work in the provided VS Code Dev Container/Codespace so the environment is consistent. Install any needed packages, record them with `pip freeze > requirements.txt`, and reload them with `pip install -r requirements.txt`; if you add helpful extensions such as a data viewer, add them to the Dev Container configuration and rebuild. Keep your fork synced and pull updates, using `git stash`, `git pull`, and `git stash pop` if local changes conflict. For PCA, standardize the features first so scale does not dominate. Then compute or use PCA to find covariance directions/eigenvectors, sort components by eigenvalues, transform the standardized data, and report explained and cumulative variance. For Iris, the first two components capture about 95% of the variance and are useful for 2D visualization.",
+    "gold_raw_docs": [
+     "raw/course/MLBook/dev-environment/2026-05-21-class-materials-vscode-github.ipynb",
+     "raw/course/MLBook/dev-environment/2026-05-21-day-two-repo-venv-setup.md",
+     "raw/course/MLBook/pca/2026-05-21-pca.ipynb",
+     "raw/course/MLBook/pca/2026-05-21-pca-examples.ipynb"
+    ],
+    "gold_pages": [
+     "course/dev-environment.md",
+     "course/pca.md"
+    ],
+    "origin": "new"
+   }
+  ],
+  [
+   {
+    "question": "If I build a linear regression model to predict car prices and a kNN classifier to predict whether someone signs up, how should I evaluate each model differently, and what would go wrong if I tried to use the same metrics for both?",
+    "question_type": "comparison",
+    "question_class": "cross-page",
+    "topics": [
+     "ml-eval-metrics",
+     "linear-regression"
+    ],
+    "reference_answer": "For the car price regression, the target is numeric, so evaluation should focus on prediction errors such as MAE, MSE, RMSE, and R\u00b2 on data the model did not train on. RMSE is useful because it is in the same units as price, while R\u00b2 describes the proportion of target variance explained. For the kNN signup classifier, the target is a class, so use classification metrics: confusion matrix, accuracy, TPR/recall, FPR, precision, F1, ROC/AUC, and log loss. Accuracy alone can be misleading, especially with imbalanced classes. Classification models often output probabilities, so thresholds affect false positives and false negatives, and ROC/AUC summarizes performance across thresholds. Using regression metrics for class labels or confusion-matrix metrics for continuous prices would not match the type of prediction being made.",
+    "gold_raw_docs": [
+     "raw/course/DS-3021/ml-eval-metrics/2025-06-09-perfmet-slides.pdf",
+     "raw/course/DS-3021/ml-eval-metrics/2025-06-09-knn-eval-example-notebook.ipynb",
+     "raw/course/DS-3021/linear-regression/2026-03-11-linear-regression-intro-notebook.ipynb"
+    ],
+    "gold_pages": [
+     "course/linear-regression.md",
+     "course/ml-eval-metrics.md"
+    ],
+    "origin": "new"
+   }
+  ],
+  [
+   {
+    "question": "If I reduce a high-dimensional dataset with PCA before training a binary classifier for something like loan approval, what should I keep in mind so that the model is both technically sound and fairly evaluated across protected groups?",
+    "question_type": "synthesis",
+    "question_class": "cross-page",
+    "topics": [
+     "ml-bias",
+     "pca"
+    ],
+    "reference_answer": "Technically, PCA should be applied after standardizing features, because variables on larger scales can dominate the principal components. PCA finds orthogonal linear combinations that preserve as much variance as possible, often choosing enough components to retain about 80\u201395% of variance. But PCA is unsupervised: it does not consider the target variable or protected classes, and the resulting components can be harder to interpret. For fairness, you still need post-model evaluation by protected group, not just overall accuracy or variance retained. Use confusion-matrix-based rates and threshold behavior: demographic parity checks positive prediction proportions, equality of odds compares both true positive and false positive rates across groups, and equal opportunity focuses on true positive rates. If unfair error distributions appear, threshold shifts or pre-processing/weighting approaches may be needed, though they may not always be feasible.",
+    "gold_raw_docs": [
+     "raw/course/MLBook/pca/2026-05-21-pca.ipynb",
+     "raw/course/DS-3021/ml-bias/2024-10-29-ml-bias-and-fairness-slides.pdf"
+    ],
+    "gold_pages": [
+     "course/ml-bias.md",
+     "course/pca.md"
+    ],
+    "origin": "new"
+   }
+  ],
+  [
+   {
+    "question": "If I want to build a logistic regression model for a binary outcome with both numeric and categorical predictors, what data preparation steps should I do first, and how do those steps connect to how the model makes and evaluates predictions?",
+    "question_type": "synthesis",
+    "question_class": "cross-page",
+    "topics": [
+     "data-prep",
+     "logistic-regression"
+    ],
+    "reference_answer": "First make sure variables have the right classes, because categorical features need encoding and numeric features may need scaling. Collapse sparse categorical levels if needed, then one-hot encode categorical variables so the model can use them without treating categories as ordered. Scale or normalize numeric predictors so features on large ranges do not dominate and optimization is more stable. Create or identify the binary target, calculate its prevalence as a baseline, then split into training, tuning/test sets, using stratification to preserve class proportions. Logistic regression then models the probability of the positive class using a sigmoid/logit relationship. Class labels come from applying a threshold, often 0.5 but adjustable. Evaluation should use classification tools such as a confusion matrix, accuracy, precision, recall, F1, and ROC/AUC rather than regression metrics.",
+    "gold_raw_docs": [
+     "raw/course/MLBook/data-prep/2026-05-21-ml-bootcamp-notebook.ipynb",
+     "raw/course/MLBook/logistic-regression/2026-05-21-logistic-regression-overview.ipynb"
+    ],
+    "gold_pages": [
+     "course/data-prep.md",
+     "course/logistic-regression.md"
+    ],
+    "origin": "new"
+   }
+  ],
+  [
+   {
+    "question": "My group\u2019s final project uses a dataset with gender or race and a classification model, so we\u2019re worried about both reproducibility and fairness. How should we organize the project workflow\u2014from coding environment to model evaluation\u2014so that it meets the project expectations and gives a responsible fairness assessment?",
+    "question_type": "synthesis",
+    "question_class": "cross-page",
+    "topics": [
+     "ml-bias",
+     "dev-environment",
+     "final-project"
+    ],
+    "reference_answer": "Set up the work in a shared GitHub repo and use the course development setup: clone/open it in VS Code or a Codespace/dev container, keep code, data, and the final notebook in the repo, and document dependencies with a requirements file using commands like `pip freeze > requirements.txt` and `pip install -r requirements.txt`. In the notebook, deliberately follow the data science lifecycle: question/background, EDA tied to the question, methods/training and tuning, evaluation/testing, conclusions, limitations, and team contributions. If protected classes are present, include a fairness assessment rather than only overall accuracy. Use confusion-matrix-based metrics by subgroup, such as TPR and FPR, and consider demographic parity, equality of odds, or equal opportunity. If unfair error distributions appear, discuss whether preprocessing, interpretable modeling, or post-processing threshold changes are appropriate and note limitations.",
+    "gold_raw_docs": [
+     "raw/course/MLBook/dev-environment/2026-05-21-class-materials-vscode-github.ipynb",
+     "raw/course/MLBook/dev-environment/2026-05-21-day-two-repo-venv-setup.md",
+     "raw/course/DS-3021/final-project/2026-04-16-final-project-instructions-rev.docx",
+     "raw/course/DS-3021/ml-bias/2024-10-29-ml-bias-and-fairness-slides.pdf",
+     "raw/course/DS-3021/ml-bias/2024-10-29-value-ethics-slides.pptx"
+    ],
+    "gold_pages": [
+     "course/dev-environment.md",
+     "course/final-project.md",
+     "course/ml-bias.md"
+    ],
+    "origin": "new"
+   }
+  ],
+  [
+   {
+    "question": "If I\u2019m starting a supervised ML project, how should I decide whether to frame it as a linear regression problem or a classification problem, and how would that choice change the way I evaluate the model? For example, how are the target variable, model output, train/test evaluation, and business success metric different if I predict a dollar amount versus predict whether an event happens?",
+    "question_type": "synthesis",
+    "question_class": "cross-page",
+    "topics": [
+     "ml-eval-metrics",
+     "ml-foundations",
+     "linear-regression"
+    ],
+    "reference_answer": "Choose regression when the target is continuous, like a price or dollar amount; choose classification when the target is categorical or binary, like whether an event happens. In both cases, define features, split into training and test data, fit on training data, and evaluate on unseen test data. For linear regression, predictions are numeric values, and common metrics include MAE, MSE, RMSE, and R\u00b2; RMSE is in the target\u2019s units and R\u00b2 measures variance explained. For classification, models often output probabilities that are turned into classes using a threshold, so evaluation should include confusion-matrix measures such as accuracy, TPR/FPR, precision/recall, F1, ROC/AUC, and log loss. Separately, the project should have an independent business metric, such as revenue, conversion, or reduced risk, because model performance may not equal business value.",
+    "gold_raw_docs": [
+     "raw/course/DS-3021/ml-foundations/2024-10-29-ml-overview-reading.pdf",
+     "raw/course/DS-3021/ml-eval-metrics/2025-06-09-perfmet-slides.pdf",
+     "raw/course/DS-3021/linear-regression/2026-03-11-linear-regression-intro-notebook.ipynb"
+    ],
+    "gold_pages": [
+     "course/linear-regression.md",
+     "course/ml-eval-metrics.md",
+     "course/ml-foundations.md"
+    ],
+    "origin": "new"
+   }
+  ]
+ ],
+ "unans_cands": [
+  {
+   "question": "How should I choose the number of clusters for k-means in a real project, and how would I compare elbow, silhouette, and gap-statistic approaches?",
+   "why_in_scope": "The course introduces k-means with a worked example and includes clustering as a project option, but it does not cover methods for selecting k or comparing cluster-validity criteria."
+  },
+  {
+   "question": "When building a kNN classifier, how should I decide between Euclidean, Manhattan, or other distance metrics, and when should I use distance-weighted voting instead of equal voting?",
+   "why_in_scope": "The course uses kNN and shows changing the number of neighbors, but it does not explain distance-metric selection or weighted-neighbor variants."
+  },
+  {
+   "question": "If my dataset has missing values that are not missing completely at random, what imputation strategy should I use, and how do I implement it without leaking information from the test set?",
+   "why_in_scope": "The course discusses MCAR, MNAR, dropping missing values, and mentions imputation, but it does not teach specific imputation methods or leakage-safe imputation workflows."
+  },
+  {
+   "question": "For a small, imbalanced classification dataset, how should I choose the exact train, tuning, and test proportions, and when would repeated cross-validation be better than a single split?",
+   "why_in_scope": "The course covers train/tune/test splits, stratification, and cross-validation as concepts, but it does not provide decision rules for split sizes or when to prefer repeated cross-validation."
+  },
+  {
+   "question": "When tuning logistic regression, how should I choose the regularization penalty and C value, and how does that choice change the interpretation of the coefficients?",
+   "why_in_scope": "The course explains logistic regression, log-odds, scaling, and briefly mentions regularization, but it does not show how to tune regularization parameters or interpret regularized coefficients."
+  },
+  {
+   "question": "How should I decide whether PCA is helping a supervised model\u2019s predictive performance enough to justify losing direct feature interpretability?",
+   "why_in_scope": "The course covers PCA as dimensionality reduction and visualization, but it does not provide a model-selection procedure for comparing PCA-based supervised models against original-feature models."
+  },
+  {
+   "question": "If a linear regression residual plot shows heteroskedasticity, what robust standard error or modeling approach should I use, and how would I implement it in Python?",
+   "why_in_scope": "The course mentions homoskedasticity and residual analysis, but it does not cover robust standard errors, weighted least squares, or specific remedies for heteroskedasticity."
+  },
+  {
+   "question": "When collecting data from a paginated API with rate limits, how should I structure retries, backoff timing, and checkpointing so the data pipeline can resume after failure?",
+   "why_in_scope": "The course explains APIs, requests, access keys, and rate limits, but it does not cover pagination, retry logic, exponential backoff, or resumable data-ingestion pipelines."
+  },
+  {
+   "question": "If my forked class repository and local work both changed the same notebook, what exact rebase or merge-conflict workflow should I follow to keep my edits while pulling the instructor\u2019s updates?",
+   "why_in_scope": "The course explains forking, cloning, syncing, pulling, stashing, and mentions that rebase can help, but it does not provide a detailed conflict-resolution or rebase workflow."
+  },
+  {
+   "question": "For the final project, if my dataset includes protected classes, which fairness metrics should I compute, and what thresholds would indicate that the model is unfair enough to change?",
+   "why_in_scope": "The course asks for a fairness assessment when applicable and discusses ethical issues, but it does not specify fairness metrics, acceptable thresholds, or how to act on fairness results."
+  }
+ ]
+}

@@ -1,0 +1,106 @@
+{
+  "conditions": {
+    "C0": {
+      "all": {
+        "n": 30,
+        "answer_rate": 0.9,
+        "score_answered": 8.925925925925926,
+        "score_floor": 8.133333333333333,
+        "grounded_rate_answered": 0.25925925925925924,
+        "fabrication_rate": 0.6666666666666666,
+        "justified_refusal_rate": 0.0,
+        "unjustified_refusal_rate": 0.0,
+        "refusal_rate": 0.09999999999999998,
+        "gold_coverage_mean": 0.0,
+        "gold_fully_in_context": 0.0,
+        "input_tokens": {
+          "mean": 121.06666666666666,
+          "sd": 11.072287729080903,
+          "min": 102,
+          "max": 151
+        },
+        "material_tokens": {
+          "mean": 0,
+          "sd": 0.0,
+          "min": 0,
+          "max": 0
+        },
+        "units_seen_mean": 0
+      },
+      "topic-page": {
+        "n": 30,
+        "answer_rate": 0.9,
+        "score_answered": 8.925925925925926,
+        "score_floor": 8.133333333333333,
+        "grounded_rate_answered": 0.25925925925925924,
+        "fabrication_rate": 0.6666666666666666,
+        "justified_refusal_rate": 0.0,
+        "unjustified_refusal_rate": 0.0,
+        "refusal_rate": 0.09999999999999998,
+        "gold_coverage_mean": 0.0,
+        "gold_fully_in_context": 0.0,
+        "input_tokens": {
+          "mean": 121.06666666666666,
+          "sd": 11.072287729080903,
+          "min": 102,
+          "max": 151
+        },
+        "material_tokens": {
+          "mean": 0,
+          "sd": 0.0,
+          "min": 0,
+          "max": 0
+        },
+        "units_seen_mean": 0
+      },
+      "cross-page": {
+        "n": 0
+      }
+    },
+    "A-ret": {
+      "all": {
+        "n": 0
+      },
+      "topic-page": {
+        "n": 0
+      },
+      "cross-page": {
+        "n": 0
+      }
+    },
+    "A-full": {
+      "all": {
+        "n": 0
+      },
+      "topic-page": {
+        "n": 0
+      },
+      "cross-page": {
+        "n": 0
+      }
+    },
+    "B-nav": {
+      "all": {
+        "n": 0
+      },
+      "topic-page": {
+        "n": 0
+      },
+      "cross-page": {
+        "n": 0
+      }
+    },
+    "B-full": {
+      "all": {
+        "n": 0
+      },
+      "topic-page": {
+        "n": 0
+      },
+      "cross-page": {
+        "n": 0
+      }
+    }
+  },
+  "contrasts": {}
+}

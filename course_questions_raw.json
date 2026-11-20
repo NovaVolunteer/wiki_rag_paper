@@ -19,7 +19,7 @@
     "source_page": "course/knn.md",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:0",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "If increasing k from 1 to a larger value makes a kNN model’s decision boundary smoother, what tradeoff is being made?",
@@ -39,7 +39,7 @@
     "source_page": "course/knn.md",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:1",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "What are the main preprocessing steps used before fitting kNN to the banking data, and why is each one needed?",
@@ -60,7 +60,7 @@
     "source_page": "course/knn.md",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:3",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "Why does the updated kNN workflow use nested cross-validation instead of selecting k and estimating model performance with the same split?",
@@ -80,7 +80,7 @@
     "source_page": "course/knn.md",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:6",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "In the wine-quality decision tree example, why were the data split into training, tuning, and testing sets, and why was stratification used?",
@@ -100,7 +100,7 @@
     "source_page": "course/decision-trees.md",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:9",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "What are the main ways decision trees can overfit, and what tools did we use to control that in the Python examples?",
@@ -121,7 +121,7 @@
     "source_page": "course/decision-trees.md",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:10",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "Why can exhaustive split search create selection bias in tree algorithms, and how do methods like GUIDE try to avoid it?",
@@ -141,7 +141,7 @@
     "source_page": "course/decision-trees.md",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:11",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "If I know the R decision-tree workflow, what are the main Python equivalents for tuning, plotting, feature importance, pruning, and evaluation?",
@@ -162,7 +162,7 @@
     "source_page": "course/decision-trees.md",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:13",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "In a fraud-detection classifier, how do changing the probability threshold to 0 or to 100 affect false positives and false negatives?",
@@ -182,7 +182,7 @@
     "source_page": "course/ml-eval-metrics.md",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:15",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "How are true positive rate and false positive rate calculated from a confusion matrix, and how are they used in an ROC curve?",
@@ -202,7 +202,7 @@
     "source_page": "course/ml-eval-metrics.md",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:16",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "When preparing the bank marketing data for a kNN classifier, what preprocessing steps are used before fitting the model, and why are they useful?",
@@ -222,7 +222,7 @@
     "source_page": "course/ml-eval-metrics.md",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:17",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "After fitting a kNN model, why would you save both predicted classes and predicted class probabilities before calculating evaluation metrics?",
@@ -242,7 +242,7 @@
     "source_page": "course/ml-eval-metrics.md",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:18",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "For the mushroom kNN lab, why are students asked to calculate prevalence before interpreting metrics like accuracy, F1, cross entropy, and ROC/AUC?",
@@ -263,7 +263,7 @@
     "source_page": "course/ml-eval-metrics.md",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:19",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "In the wine regression example, why did the categorical quality-rank variable need preprocessing before fitting the tree, and how was the data split for modeling?",
@@ -283,7 +283,7 @@
     "source_page": "course/dt-regression.md",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:23",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "When building the decision tree with missing values still present in the wine predictors, why use a preprocessing pipeline instead of doing all preprocessing once before cross-validation?",
@@ -304,7 +304,7 @@
     "source_page": "course/dt-regression.md",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:24",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "What do intra-cluster distance, inter-cluster distance, and variance explained tell me about whether a clustering result is good?",
@@ -325,7 +325,7 @@
     "source_page": "course/kmeans-clustering.md",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:28",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "In the congressional voting example, what are the variables being clustered, and what kinds of conclusions and cautions should I keep in mind when interpreting the clusters?",
@@ -346,7 +346,7 @@
     "source_page": "course/kmeans-clustering.md",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:30",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "If I have several different classifiers that each predict a class label, how do hard voting and soft voting combine their outputs, and why can an ensemble outperform one weak learner?",
@@ -366,7 +366,7 @@
     "source_page": "course/ensemble-methods.md",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:33",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "Why does bagging help decision trees in a random forest avoid overfitting, and what extra source of randomness does a random forest add beyond resampling rows?",
@@ -387,7 +387,7 @@
     "source_page": "course/ensemble-methods.md",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:34",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "When tuning a random forest classifier, how should I think about choosing the number of trees and the number of features considered at each split?",
@@ -407,7 +407,7 @@
     "source_page": "course/ensemble-methods.md",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:35",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "I’m used to getting random forest outputs directly in R. In Python, how do I get the OOB error rate, class vote percentages, OOB predictions, feature importance, and tree sizes?",
@@ -428,7 +428,7 @@
     "source_page": "course/ensemble-methods.md",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:36",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "I’m confused about why the course says bias is both necessary for machine learning and also a fairness problem. How are those two meanings different?",
@@ -449,7 +449,7 @@
     "source_page": "course/ml-bias.md",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:39",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "How do demographic parity, equality of odds, and equal opportunity differ when we use them to evaluate fairness?",
@@ -470,7 +470,7 @@
     "source_page": "course/ml-bias.md",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:42",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "I’m confused about preprocessing when comparing kNN and decision trees. For the same classification dataset with numeric and categorical predictors, what transformations would I need for kNN that I might not need for a decision tree, and why?",
@@ -496,7 +496,7 @@
     "source_page": "(cross-page)",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:45",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "If my kNN model for predicting bank customers who sign up has very high accuracy, why might that still be a weak model, and what evaluation steps should I use before deciding it is useful?",
@@ -521,7 +521,7 @@
     "source_page": "(cross-page)",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:47",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "How are increasing k in kNN and raising or lowering the classification threshold different ways of changing a classifier’s behavior, and how would I see their effects in evaluation metrics?",
@@ -546,7 +546,7 @@
     "source_page": "(cross-page)",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:48",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "I’m confused because both k-nearest neighbors and k-means have a “k” and use distance. What does k mean in each method, and how would I decide whether k is too small or too large?",
@@ -571,7 +571,7 @@
     "source_page": "(cross-page)",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:51",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "If I’m choosing between kNN and a random forest for a binary classification problem with mixed numeric and categorical predictors, how should the preprocessing and tuning workflow differ, and how would I evaluate whether either model is actually finding the positive class rather than just getting high accuracy?",
@@ -596,7 +596,7 @@
     "source_page": "(cross-page)",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:53",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "If I build a kNN classifier for something high-stakes like loan approval and it has high overall accuracy, how should I evaluate whether it is also fair across protected groups, and how do the choices of k and threshold matter?",
@@ -620,7 +620,7 @@
     "source_page": "(cross-page)",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:55",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "When a decision tree predicts class probabilities, what is the difference between changing the split criteria or tree depth and changing the classification threshold, and how would each show up in a confusion matrix or ROC curve?",
@@ -645,7 +645,7 @@
     "source_page": "(cross-page)",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:58",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "If I take the wine decision tree workflow we used for classifying wine quality and change the goal to predicting a continuous value like alcohol, what parts of the workflow stay the same and what parts need to change?",
@@ -670,7 +670,7 @@
     "source_page": "(cross-page)",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:59",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "I’m trying to decide between a single decision tree and a random forest for a classification project. How do the main weaknesses of a single tree lead to the design of random forests, and what would I tune or monitor differently for the two approaches?",
@@ -695,7 +695,7 @@
     "source_page": "(cross-page)",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:63",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "If my single decision tree and my random forest rank different predictors as most important, how should I interpret that difference rather than assuming one model is simply wrong?",
@@ -720,7 +720,7 @@
     "source_page": "(cross-page)",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:64",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "I’m using a decision tree to predict loan approval, and the positive class is much less common for one protected group. How should I build and evaluate the model so I don’t confuse a good-looking classifier with a fair one?",
@@ -744,7 +744,7 @@
     "source_page": "(cross-page)",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:65",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "I’m using k-means to group NBA players by performance so I can spot players who may be underpaid. Why would accuracy, F1, log loss, or ROC/AUC not be the right first way to judge the clustering, and what should I use instead? If I later turn the problem into a labeled classification task, how would the evaluation change?",
@@ -769,7 +769,7 @@
     "source_page": "(cross-page)",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:69",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "When tuning a random forest for a binary classification problem, how do choices like the number of trees and number of features considered at each split relate to the evaluation metrics I should report for the final model?",
@@ -794,7 +794,7 @@
     "source_page": "(cross-page)",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:72",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "If I’m using player performance and salary data to find underpaid players with k-means, but I also want a regression tree to predict salary or revenue, how should my preprocessing and model evaluation change between the two methods?",
@@ -821,7 +821,7 @@
     "source_page": "(cross-page)",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:75",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "How could I use k-means cluster labels as an input to a tree model, and what checks would tell me whether the clusters are actually helping rather than just adding noise?",
@@ -846,7 +846,7 @@
     "source_page": "(cross-page)",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:76",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "When interpreting which predictors matter, how should I compare feature importance from one regression tree with feature importance from a random forest, and what preprocessing choices could affect that comparison?",
@@ -871,7 +871,7 @@
     "source_page": "(cross-page)",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:78",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "If I create clusters from unlabeled data and then use those cluster labels in a later predictive model, how should I think about that compared with using a random forest that automatically finds important predictors?",
@@ -896,7 +896,7 @@
     "source_page": "(cross-page)",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:82",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "When clustering congressional voting patterns and then using the cluster labels in a decision tree, how are the ways we evaluate the clustering different from the ways we would evaluate fairness in the classification model?",
@@ -921,7 +921,7 @@
     "source_page": "(cross-page)",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:84",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "Why might a random forest improve prediction compared with one decision tree but still reproduce unfair social bias, and what parts of the data science lifecycle could be used to address that problem?",
@@ -946,7 +946,7 @@
     "source_page": "(cross-page)",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:86",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "If I first use k-means to discover groups in a dataset and then use those group labels in a kNN classifier for future cases, how should I think about the two different meanings of “k,” the preprocessing and evaluation steps, and the fairness checks before using the results to make decisions about people?",
@@ -974,7 +974,7 @@
     "source_page": "(cross-page)",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:87",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "If I were using one decision tree to classify whether a person gets approved for a loan and another tree to predict the loan amount, how would the split criteria and evaluation metrics differ, and what extra checks would I need before trusting the approval model for fairness across protected groups?",
@@ -1001,7 +1001,7 @@
     "source_page": "(cross-page)",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:88",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "If I were building a binary classifier for something high-stakes like loan approval, how should my modeling plan change if I compare k-nearest neighbors with a decision tree while also checking for unfair outcomes across protected groups?",
@@ -1027,7 +1027,7 @@
     "source_page": "(cross-page)",
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:89",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "When using kNN on text-like data with many sparse binary features, how should I decide between Euclidean distance, Manhattan distance, cosine distance, and Mahalanobis distance?",
@@ -1043,7 +1043,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:90",
     "unanswerable_check_full_course": "The course files support only a general answer that kNN is distance-based, commonly uses Euclidean distance, requires scaling/normalization, and can suffer in high-dimensional spaces. They do not substantively compare Euclidean, Manhattan, cosine, and Mahalanobis distances, nor do they address text-like sparse binary feature spaces or how sparsity changes the choice of distance metric. Therefore a tutor could not give a substantive, correct answer to the full question using only these files.",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "How is cost-complexity pruning alpha calculated mathematically for a decision tree, including how subtree risk and the number of leaf nodes enter the formula?",
@@ -1059,7 +1059,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:93",
     "unanswerable_check_full_course": "The course files mention pruning, overfitting control, and scikit-learn's `cost_complexity_pruning_path`, including that it returns `ccp_alphas` and impurities. However, they do not provide the mathematical cost-complexity pruning formula, such as the penalized objective R_alpha(T) = R(T) + alpha |T| or the weakest-link alpha calculation involving subtree risk and the number of terminal/leaf nodes. Because the question specifically asks how alpha is calculated mathematically and how subtree risk and leaf count enter the formula, the available materials only partially address the topic and are not sufficient for a substantive, correct answer using only the course files.",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "What exactly is the weighted impurity decrease formula used by a regression tree when tuning min_impurity_decrease?",
@@ -1075,7 +1075,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:94",
     "unanswerable_check_full_course": "The course files partially cover regression-tree splitting: they say regression trees minimize squared-error/MSE or sum of squared deviations, and the lecture script includes `min_impurity_decrease` in a parameter grid. However, the exact weighted impurity decrease formula used by scikit-learn for `min_impurity_decrease` is not provided in the files. The script explicitly points students to the external scikit-learn documentation for that specific explanation, so a tutor could not give the exact formula using only the provided course files.",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "How can I compute a confidence interval for AUC or statistically test whether two ROC curves are significantly different?",
@@ -1091,7 +1091,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:95",
     "unanswerable_check_full_course": "The course files cover ROC curves and AUC conceptually and show how to compute/plot ROC/AUC with sklearn (e.g., roc_auc_score, RocCurveDisplay, roc_curve). However, they do not address the core inferential question: computing confidence intervals for AUC or statistically testing whether two ROC curves/AUCs differ significantly. There is no coverage of methods such as bootstrap AUC confidence intervals, DeLong’s test, permutation tests, paired vs. unpaired ROC comparisons, or related implementation details. A tutor could explain basic ROC/AUC from the files, but not give a substantive correct answer to this specific question using only the provided materials.",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "How would I implement group-specific threshold optimization to satisfy equalized odds using a fairness library?",
@@ -1107,7 +1107,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "origin": "retained:98",
     "unanswerable_check_full_course": "The course files define equalized odds, discuss group fairness at a conceptual level, and explain that threshold shifts can be used to try to satisfy fairness conditions. They also include classification thresholding and confusion-matrix/ROC material, and one fairness file imports fairlearn. However, the files do not show how to implement group-specific threshold optimization with a fairness library, do not document Fairlearn’s ThresholdOptimizer or equivalent APIs, and do not provide code for fitting a fairness-aware postprocessor with constraints='equalized_odds'. A tutor could explain the concept from the slides, but could not give a substantive implementation answer using only these course files.",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "I’m confused about why the course frames data science as more than just a pipeline or lifecycle. How is the UVA data science framework supposed to broaden what counts as data science, and where does this class fit within that framework?",
@@ -1128,7 +1128,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 50,
     "source_page": "course/course-overview.md",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "What kind of learning experience should I expect in this machine learning course, especially in terms of collaboration, labs, grading, and the final project?",
@@ -1148,7 +1148,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 51,
     "source_page": "course/course-overview.md",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "I edited some class files for my own notes, but now there are new updates I need to pull from the instructor’s repo. What workflow should I use so I don’t lose my local changes?",
@@ -1168,7 +1168,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 52,
     "source_page": "course/dev-environment.md",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "For the setup activity, how should I get the project running in VS Code and make sure a new package and data-viewing extension are saved into the environment?",
@@ -1188,7 +1188,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 53,
     "source_page": "course/dev-environment.md",
-    "review_status": "pending",
+    "review_status": "approved",
     "replaced": {
       "reference_answer": "Start by finding the repo on GitHub, cloning it to your GitHub account, and creating a new Codespace from it. Open local VS Code, use the Codespaces extension to open that Codespace, and look through the project layout. For the data task, open a Python script, notebook, or IPython file, load a dataset, find and install an extension that lets you view the data, then add that extension through the Dev Container menu to the dev container JSON file. Saving should trigger a rebuild. For package management, install `plotly` in the terminal, note its version, add it to the requirements file using terminal commands, and reload the requirements document."
     },
@@ -1213,7 +1213,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 54,
     "source_page": "course/python-basics.md",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "I’m used to dplyr in R. What are the closest pandas equivalents for common verbs like filtering, sorting, selecting columns, creating variables, summarizing, and grouping, and what syntax differences should I watch for?",
@@ -1234,7 +1234,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 55,
     "source_page": "course/python-basics.md",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "In the admissions practice example, why was an empty DataFrame useful after grouping by school rank, and what did the final function compute?",
@@ -1254,7 +1254,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 56,
     "source_page": "course/python-basics.md",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "How should I decide whether a business problem is actually suitable for machine learning, and how would that apply to a company trying to forecast how many attorney leads its advertising spend will generate?",
@@ -1275,7 +1275,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 57,
     "source_page": "course/ml-foundations.md",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "In the iris classification example, why do we split the data into training, testing, and validation sets, and why do we stratify by flower class?",
@@ -1295,7 +1295,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 58,
     "source_page": "course/ml-foundations.md",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "For the K-12 math software recommender project, how should a team frame the first phase of the data science lifecycle before building the MVP?",
@@ -1316,7 +1316,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 59,
     "source_page": "course/ml-foundations.md",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "I’m cleaning a dataset and some columns have missing values. What process should I follow to check the missingness and decide whether to drop rows, drop columns, or impute?",
@@ -1337,7 +1337,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 60,
     "source_page": "course/data-prep.md",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "For a machine learning prep pipeline, what order of steps should I use after loading a dataset, and how do target prevalence and stratified train/tune/test splits fit into that?",
@@ -1358,7 +1358,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 61,
     "source_page": "course/data-prep.md",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "When I need to acquire data from an API before preparing it for modeling, what should I look for in the API documentation and how would I turn the response into a dataframe?",
@@ -1378,7 +1378,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 62,
     "source_page": "course/data-prep.md",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "When building linear regression models for used-car prices, why would we start with just the car’s year, then add mileage, and then add brand? How should I compare those models fairly?",
@@ -1398,7 +1398,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 63,
     "source_page": "course/linear-regression.md",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "In the Airbnb price lab, why do the dummy-variable coefficients for boroughs mean different things depending on whether I include an intercept?",
@@ -1419,7 +1419,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 64,
     "source_page": "course/linear-regression.md",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "How should I interpret a regression coefficient when the model uses logs, like log of X, log of Y, or both?",
@@ -1439,7 +1439,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 65,
     "source_page": "course/linear-regression.md",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "I’m confused about why logistic regression is treated as a generalized linear model instead of just ordinary linear regression with a 0/1 outcome. What is the role of the link function, and what assumptions change compared with linear regression?",
@@ -1460,7 +1460,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 66,
     "source_page": "course/logistic-regression.md",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "After training a logistic regression model, how should I interpret its outputs and decide whether it is performing well?",
@@ -1481,7 +1481,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 67,
     "source_page": "course/logistic-regression.md",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "Why do we standardize the features before running PCA, and how does that fit into the overall PCA algorithm?",
@@ -1501,7 +1501,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 68,
     "source_page": "course/pca.md",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "If I apply PCA to the Iris dataset and keep two components, what should I expect those two components to capture, and how can I check that a NumPy implementation matches scikit-learn’s result?",
@@ -1521,7 +1521,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 69,
     "source_page": "course/pca.md",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "What should our final project notebook include so that it clearly follows the data science lifecycle rather than just showing code and graphs?",
@@ -1542,7 +1542,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 70,
     "source_page": "course/final-project.md",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "How will the final project be evaluated, and what should my group prepare for the oral presentation and collaboration part?",
@@ -1562,7 +1562,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 71,
     "source_page": "course/final-project.md",
-    "review_status": "pending",
+    "review_status": "approved",
     "replaced": {
       "reference_answer": "Evaluation is based on both the oral component and submitted materials: the oral evaluation counts for 60% of the final grade, while documentation and quality of materials count for 40%. There is also a collaboration evaluation; if peers view someone as not contributing, that person could lose up to two full letter grades. For the oral presentation, be ready to discuss the method you selected, how and why you used it, how the problem connects to the method and conclusions, and how you evaluated the model. You should also explain what conclusions can be drawn from the model’s weaknesses. The revised instructions mention 15-minute slots: 12 minutes for questions and 3 minutes for instructors to take notes."
     },
@@ -1589,7 +1589,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 72,
     "source_page": "(cross-page)",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "When I’m getting a dataset ready in Python for a supervised classification model, how should I connect the pandas cleaning/EDA steps to the machine learning choices like target/features, train-test splitting, and evaluation?",
@@ -1614,7 +1614,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 73,
     "source_page": "(cross-page)",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "I have a binary classification problem with dozens of predictors that are strongly correlated. How would using PCA before logistic regression change the modeling workflow, and what would I gain or lose compared with fitting logistic regression directly on the original variables?",
@@ -1637,7 +1637,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 74,
     "source_page": "(cross-page)",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "Both linear regression and a decision tree regressor predict a continuous target. How do they differ in how they fit the data and in what preprocessing they need, and how does the course evaluate either kind of model?",
@@ -1663,7 +1663,7 @@
     "gold_annotation": "manual:claude-2026-11-19 (no API; written from the raw files)",
     "id": 75,
     "source_page": "(cross-page)",
-    "review_status": "pending",
+    "review_status": "approved",
     "review_note": "Replaced a dev-environment + dt-regression question that was two unrelated questions joined by 'and'. New pairing: linear-regression + dt-regression.",
     "replaced": {
       "question": "I’m setting up the course repo in VS Code to build a decision tree regression model. What workflow should I follow so my environment is reproducible, and how does that connect to doing preprocessing and hyperparameter tuning correctly for the tree model?",
@@ -1700,7 +1700,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 76,
     "source_page": "(cross-page)",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "I’m proposing to use kNN for a binary classification project. How should I justify the workflow from framing the problem through preprocessing, choosing k, and evaluating the model, instead of just training the classifier and reporting accuracy?",
@@ -1723,7 +1723,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 77,
     "source_page": "(cross-page)",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "In the data-prep pipeline, why do we convert some columns to the pandas 'category' type and collapse sparse levels before one-hot encoding, and which pandas tools from the Python refresher do we use to check and change data types?",
@@ -1748,7 +1748,7 @@
     "gold_annotation": "manual:claude-2026-11-19 (no API; written from the raw files)",
     "id": 78,
     "source_page": "(cross-page)",
-    "review_status": "pending",
+    "review_status": "approved",
     "review_note": "Replaced a dev-environment + decision-trees question that was two unrelated questions joined by 'and'. New pairing: python-basics + data-prep.",
     "replaced": {
       "question": "I’m about to do the movie-rating decision tree project in the course repo using VS Code. How should I set up and maintain my coding environment so the project runs reliably, and how does that setup support the main modeling workflow I need to complete?",
@@ -1787,7 +1787,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 79,
     "source_page": "(cross-page)",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "If I build a linear regression model for a high-stakes prediction like loan amount or expected debt, how should I combine the usual regression evaluation with a fairness check across protected groups, and what parts of the modeling pipeline are most relevant?",
@@ -1812,7 +1812,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 80,
     "source_page": "(cross-page)",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "I’m building a binary kNN classifier on a messy dataset with numeric and categorical predictors. What data preparation steps should I complete before evaluating it, and how do those choices connect to whether I should trust accuracy, F1, log loss, ROC/AUC, and threshold-based confusion matrices?",
@@ -1836,7 +1836,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 81,
     "source_page": "(cross-page)",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "If I’m building a random forest classifier on a dataset with lots of correlated predictors, how should I think about using PCA beforehand versus letting the random forest handle the features itself, and how would I evaluate whether the choice helped?",
@@ -1859,7 +1859,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 82,
     "source_page": "(cross-page)",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "I have a pandas DataFrame where the outcome is binary, like admitted/not admitted, and predictors include numeric columns such as GPA plus a categorical column such as school rank. What Python workflow should I use to inspect and prepare the data, fit a logistic regression, and evaluate whether the classifier is doing well?",
@@ -1883,7 +1883,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 83,
     "source_page": "(cross-page)",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "If I’m predicting a binary outcome and have already fit a logistic regression model, what would be the motivation for also trying a random forest, and how would I compare the two fairly using predicted probabilities rather than just class labels?",
@@ -1908,7 +1908,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 84,
     "source_page": "(cross-page)",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "If I’m building a binary classifier and both k-nearest neighbors and logistic regression are options, how should I think about the tradeoffs in preprocessing, decision boundaries, interpretability, and evaluation/threshold choice?",
@@ -1933,7 +1933,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 85,
     "source_page": "(cross-page)",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "My group wants to use a classification model for the final project on a dataset that includes gender or race. How should we design the model evaluation and fairness part so it meets the project expectations and also addresses possible ML bias responsibly?",
@@ -1957,7 +1957,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 86,
     "source_page": "(cross-page)",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "The kNN slides warn that kNN works poorly with many features. Why does high dimensionality hurt kNN, and how could PCA help with that, including what has to happen to the features before either method is applied?",
@@ -1982,7 +1982,7 @@
     "gold_annotation": "manual:claude-2026-11-19 (no API; written from the raw files)",
     "id": 87,
     "source_page": "(cross-page)",
-    "review_status": "pending",
+    "review_status": "approved",
     "review_note": "Replaced a dev-environment + data-prep question that was two unrelated questions joined by 'and'. A reproducibility rewrite was considered, but the data-prep notebook never sets random_state. New pairing: knn + pca.",
     "replaced": {
       "question": "I'm about to build the two data-prep pipelines for the lab in a new project. What should my workflow include so that both my coding environment and my preprocessing steps are reproducible for someone else in the class?",
@@ -2022,7 +2022,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 88,
     "source_page": "(cross-page)",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "For a decision-tree project like predicting whether movies will get high ratings, how would you connect the modeling workflow to the course’s broader data science framework so that the work shows more than just running a classifier?",
@@ -2046,7 +2046,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 89,
     "source_page": "(cross-page)",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "Logistic regression outputs a probability for each case. How does the classification threshold turn those probabilities into the confusion matrix, and how do metrics like ROC/AUC and log loss evaluate the model differently from metrics computed at one threshold?",
@@ -2071,7 +2071,7 @@
     "gold_annotation": "manual:claude-2026-11-19 (no API; written from the raw files)",
     "id": 90,
     "source_page": "(cross-page)",
-    "review_status": "pending",
+    "review_status": "approved",
     "review_note": "Replaced a dev-environment + logistic-regression question that was two unrelated questions joined by 'and'. New pairing: logistic-regression + ml-eval-metrics.",
     "replaced": {
       "question": "I want to build a reproducible project for a binary classification problem using logistic regression. How should I set up the class coding environment and manage packages, and what modeling/evaluation steps should I include once the environment is ready?",
@@ -2111,7 +2111,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 91,
     "source_page": "(cross-page)",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "PCA and k-means are both unsupervised methods, and both report a 'variance explained'. What different question does each method answer, and what does variance explained mean in each case?",
@@ -2137,7 +2137,7 @@
     "gold_annotation": "manual:claude-2026-11-19 (no API; written from the raw files)",
     "id": 92,
     "source_page": "(cross-page)",
-    "review_status": "pending",
+    "review_status": "approved",
     "review_note": "Replaced a dev-environment + pca question that was two unrelated questions joined by 'and'. New pairing: pca + kmeans-clustering.",
     "replaced": {
       "question": "I’m trying to make my PCA analysis on the Iris data reproducible for class: what should I do in the VS Code/GitHub development setup so others can run my notebook, and what PCA preprocessing and component-selection steps should I make sure are included?",
@@ -2181,7 +2181,7 @@
     "gold_annotation": "manual:claude-2026-11-19 (no API; written from the raw files)",
     "id": 93,
     "source_page": "(cross-page)",
-    "review_status": "pending",
+    "review_status": "approved",
     "review_note": "Replaced an ml-bias + dev-environment + final-project triple (two unrelated questions joined by 'and'; ml-bias + final-project is already covered by Q86). New triple: course-overview + ml-foundations + final-project.",
     "replaced": {
       "question": "My group’s final project uses a dataset with gender or race and a classification model, so we’re worried about both reproducibility and fairness. How should we organize the project workflow—from coding environment to model evaluation—so that it meets the project expectations and gives a responsible fairness assessment?",
@@ -2224,7 +2224,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 94,
     "source_page": "(cross-page)",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "When building a kNN classifier, how should I decide between Euclidean, Manhattan, or other distance metrics, and when should I use distance-weighted voting instead of equal voting?",
@@ -2239,7 +2239,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 95,
     "source_page": "(unanswerable)",
-    "review_status": "pending",
+    "review_status": "approved",
     "review_note": "Verified by search: no Minkowski, distance-weighted voting or weights= in the corpus. The only 'Manhattan' is the Airbnb borough. The kNN slides cover Euclidean distance only."
   },
   {
@@ -2255,7 +2255,7 @@
     "gold_annotation": "generator:gpt-5.5",
     "id": 96,
     "source_page": "(unanswerable)",
-    "review_status": "pending"
+    "review_status": "approved"
   },
   {
     "question": "When I use a preprocessing pipeline with both numeric scaling and one-hot encoding, how does the `remainder='passthrough'` option in `ColumnTransformer` decide which columns to keep, and what order do they appear in after transformation?",
@@ -2269,7 +2269,7 @@
     "origin": "new",
     "gold_annotation": "generator:gpt-5.5",
     "source_page": "(unanswerable)",
-    "review_status": "pending",
+    "review_status": "approved",
     "id": 97,
     "review_note": "Kept, but borderline: the course uses 'passthrough' as a transformer inside ColumnTransformer (linear-regression intro notebook) but never covers remainder=. Delete it if you consider that close enough to answerable."
   },
@@ -2285,7 +2285,7 @@
     "origin": "new",
     "gold_annotation": "manual:claude-2026-11-19 (no API; written from the raw files)",
     "source_page": "(unanswerable)",
-    "review_status": "pending",
+    "review_status": "approved",
     "id": 98,
     "review_note": "Replaced: the original (get_feature_names_out with ColumnTransformer/OneHotEncoder) was partly answerable; the linear-regression lecture notebook and makeup script both use get_feature_names_out(). It also duplicated Q97's ColumnTransformer theme.",
     "replaced": {
@@ -2305,7 +2305,7 @@
     "origin": "new",
     "gold_annotation": "generator:gpt-5.5",
     "source_page": "(unanswerable)",
-    "review_status": "pending",
+    "review_status": "approved",
     "id": 99
   }
 ]

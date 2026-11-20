@@ -1,0 +1,108 @@
+Budget: A-ret top_k=10, B-nav 15,000 tokens -> results
+Wiki: 21 pages (71,274 tok); raw: 81 docs (235,292 tok)
+[C0] 100 to run (0 already done)
+  [C0] 10/100
+  [C0] 20/100
+  [C0] 30/100
+  [C0] 40/100
+  [C0] 50/100
+  [C0] 60/100
+  [C0] 70/100
+  [C0] 80/100
+  [C0] 90/100
+  [C0] 100/100
+[C0] wrote 100 rows -> results\C0.jsonl
+[A-ret] 100 to run (0 already done)
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|##########| 199/199 [00:00<00:00, 12708.27it/s]
+  [A-ret] 10/100
+  [A-ret] 20/100
+  [A-ret] 30/100
+  [A-ret] 40/100
+  [A-ret] 50/100
+  [A-ret] 60/100
+  [A-ret] 70/100
+  [A-ret] 80/100
+  [A-ret] 90/100
+  [A-ret] 100/100
+[A-ret] wrote 100 rows -> results\A-ret.jsonl
+[A-full] 100 to run (0 already done)
+  [A-full] 10/100
+  [A-full] 20/100
+  [A-full] 30/100
+  [A-full] 40/100
+  [A-full] 50/100
+  [A-full] 60/100
+  [A-full] 70/100
+  [A-full] 80/100
+  [A-full] 90/100
+  [A-full] 100/100
+[A-full] wrote 100 rows -> results\A-full.jsonl  (15 errors; rerun with --resume)
+[B-nav] 100 to run (0 already done)
+  [B-nav] 10/100
+  [B-nav] 20/100
+  [B-nav] 30/100
+  [B-nav] 40/100
+  [B-nav] 50/100
+  [B-nav] 60/100
+  [B-nav] 70/100
+  [B-nav] 80/100
+  [B-nav] 90/100
+  [B-nav] 100/100
+[B-nav] wrote 100 rows -> results\B-nav.jsonl  (51 errors; rerun with --resume)
+[B-full] 100 to run (0 already done)
+  [B-full] 10/100
+  [B-full] 20/100
+  [B-full] 30/100
+  [B-full] 40/100
+  [B-full] 50/100
+  [B-full] 60/100
+  [B-full] 70/100
+  [B-full] 80/100
+  [B-full] 90/100
+  [B-full] 100/100
+[B-full] wrote 100 rows -> results\B-full.jsonl
+Budget: A-ret top_k=5, B-nav 7,500 tokens -> results\budget7500
+Wiki: 21 pages (71,274 tok); raw: 81 docs (235,292 tok)
+[A-ret] 100 to run (0 already done)
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|##########| 199/199 [00:00<00:00, 2871.01it/s]
+  [A-ret] 10/100
+  [A-ret] 20/100
+  [A-ret] 30/100
+  [A-ret] 40/100
+  [A-ret] 50/100
+  [A-ret] 60/100
+  [A-ret] 70/100
+  [A-ret] 80/100
+  [A-ret] 90/100
+  [A-ret] 100/100
+[A-ret] wrote 100 rows -> results\budget7500\A-ret.jsonl
+Budget: A-ret top_k=5, B-nav 7,500 tokens -> results\budget7500
+Wiki: 21 pages (71,274 tok); raw: 81 docs (235,292 tok)
+[B-nav] 100 to run (0 already done)
+  [B-nav] 10/100
+  [B-nav] 20/100
+  [B-nav] 30/100
+  [B-nav] 40/100
+  [B-nav] 50/100
+  [B-nav] 60/100
+  [B-nav] 70/100
+  [B-nav] 80/100
+  [B-nav] 90/100
+  [B-nav] 100/100
+[B-nav] wrote 100 rows -> results\budget7500\B-nav.jsonl
+Budget: A-ret top_k=10, B-nav 15,000 tokens -> results
+Wiki: 21 pages (71,274 tok); raw: 81 docs (235,292 tok)
+[A-full] 15 to run (85 already done)
+  [A-full] 10/15
+  [A-full] 15/15
+[A-full] wrote 100 rows -> results\A-full.jsonl
+Budget: A-ret top_k=10, B-nav 15,000 tokens -> results
+Wiki: 21 pages (71,274 tok); raw: 81 docs (235,292 tok)
+[B-nav] 51 to run (49 already done)
+  [B-nav] 10/51
+  [B-nav] 20/51
+  [B-nav] 30/51
+  [B-nav] 40/51
+  [B-nav] 50/51
+  [B-nav] 51/51
+[B-nav] wrote 100 rows -> results\B-nav.jsonl

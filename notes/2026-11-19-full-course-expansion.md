@@ -213,6 +213,15 @@ Gold coverage tops out at 90% because the 10 unanswerable controls have no gold 
 - [ ] Q97 (borderline unanswerable): keep or drop.
 - [ ] Verify the `gpt-5-mini` ~272k input limit cited in §3.5. It came from model knowledge, not from a doc or the code.
 - [ ] Commit this session's results and paper changes (not yet committed when this note was written).
+- [ ] **Human validation of the judge (sheet ready, grading in progress).**
+  - `make_human_grading_sheet.py` built `results/human_grading/grading_sheet.xlsx`: 82 blind, shuffled items (seed 20261120).
+  - Strata:
+    - random: 10 each from A-ret, A-full, B-nav, B-full where the judge gave grounded and a score of at least 9;
+    - enriched: every primary-run response the judge marked ungrounded or scored below 9 (12), plus 10 each from the k=5 A-ret and B-nav runs;
+    - c0: 5 judged fabrication and 5 judged grounded.
+  - The hidden conditions and judge grades are in `key.csv`. **Don't open it while grading.**
+  - Score the filled sheet with `python score_human_grading.py`. It writes `AGREEMENT.md` and works on a partly graded sheet.
+  - In the random stratum the judge's grounded rate is about 100%, so Cohen's kappa is degenerate there. Use percent agreement for that stratum, and kappa for the enriched, c0 and all groups.
 - [ ] Not yet done:
   - repeated runs to separate answerer and judge variance from question sampling;
   - human validation of the judge;
